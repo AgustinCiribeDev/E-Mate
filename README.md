@@ -17,24 +17,18 @@ Nuestro público objetivo son los amantes del mate y la yerba mate en Argentina.
         
     - Listado del grupo con una breve descripción de cada uno
     
-   Katerina Pavón:
-   Soy Katerina Pavon, tengo 21 años. Actualmente trabajo como secretaria de médicos, mi objetivo es profesionalizarme en el ambito de la programación para seguir creciendo. 
+  -  Katerina Pavón, tengo 21 años. Actualmente trabajo como secretaria de médicos, mi objetivo es profesionalizarme en el ambito de la programación para seguir creciendo. 
    
-   Agustín Ciribé:
-   Soy Agustín Ciribé tengo 31 años. Actualmente trabajo como proyect owner en mi propio emprendimiento. Mi objetivo es poder trabajar con mi equipo de una forma mas técnica y con conocimiento del desarrollo que realizan. 
+   - Agustín Ciribé, tengo 31 años. Actualmente trabajo como proyect owner en mi propio emprendimiento. Mi objetivo es poder trabajar con mi equipo de una forma mas técnica y con conocimiento del desarrollo que realizan. 
    
-   - Juan Manuel Cela
-   Juan Cela, soy psicólogo, me encuentro actualmente trabajando de lo que estudié y tengo como proyecto complementar la psicología con la programación para lograr un mayor rendimiento.
+   - Juan Manuel Cela, soy psicólogo, me encuentro actualmente trabajando de lo que estudié y tengo como proyecto complementar la psicología con la programación para lograr un mayor rendimiento.
    
-   - Rocio Campos
-   Soy Rocio Campos, tengo 29 años, marplatense. Soy Lic en Administracion, trabajo en el rubro inmobiliario. Me gusta armar excels, hacer surf, tomar mate y hacer postres.
+   - Rocio Campos,tengo 29 años, marplatense. Soy Lic en Administracion, trabajo en el rubro inmobiliario. Me gusta armar excels, hacer surf, tomar mate y hacer postres.
    
-  - Ezequiel Allende
-   Me llamo Ezequiel Allende, soy Contador, trabajo haciendo auditorias. 
+  - Ezequiel Allende, soy Contador, trabajo haciendo auditorias. 
 Vivo en 9 de julio, provincia de bs. As y una parte de la semana en Capital. Cuando tengo tiempo hago panes.
 
-  - Martín Ferreyra
-   Martín Ferreyra, 36 años, vivo en Salta Capital con un hijo de 1 año y su madre. Estudié para contador, no recibido. Trabajé casi siempre en trabajos administrativos, principalmente en liquidación de sueldos. No tengo experiencia en programación. Mi experiencia en computación es básicamente en Excel y algunos sistemas de gestión. Me gusta el fútbol (hincha de River!!)
+  - Martín Ferreyra, 36 años, vivo en Salta Capital con un hijo de 1 año y su madre. Estudié para contador, no recibido. Trabajé casi siempre en trabajos administrativos, principalmente en liquidación de sueldos. No tengo experiencia en programación. Mi experiencia en computación es básicamente en Excel y algunos sistemas de gestión. Me gusta el fútbol (hincha de River!!)
    
    
     - Link del tablero de trabajo en donde se encuentran trabajando
