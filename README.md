@@ -1,4 +1,4 @@
-# E-Mate
+# Yerbeando
 
     - Temática y descripción del sitio
     
@@ -29,11 +29,14 @@ Nuestro público objetivo son los amantes del mate y la yerba mate en Argentina.
 Vivo en 9 de julio, provincia de bs. As y una parte de la semana en Capital. Cuando tengo tiempo hago panes.
 
   - Martín Ferreyra, 36 años, vivo en Salta Capital con un hijo de 1 año y su madre. Estudié para contador, no recibido. Trabajé casi siempre en trabajos administrativos, principalmente en liquidación de sueldos. No tengo experiencia en programación. Mi experiencia en computación es básicamente en Excel y algunos sistemas de gestión. Me gusta el fútbol (hincha de River!!)
+  
+  - Santiago, son Analista de Marketing. En los últimos 10 años me especialicé en Customer Experience y Service Design. Siempre me atrajo todo lo relacionado a programación, particularmente web, por lo que ahora me estoy dando la oportunidad de hacer esta inmersión de manera intensiva.
+ 
+ - Soy Paulina Tallarico, tengo 45 años, soy de la Ciudad de Buenos Aires. Soy diseñadora gráfica, trabajo en la Secretaría de Ddhh de la Nación, también trabajo de manera independiente. Cuando no estoy trabajando estoy con mi familia, pasando tiempo con amigos, o jugando al tenis.
    
-   
-    - Link del tablero de trabajo en donde se encuentran trabajando
-    
-    https://www.figma.com/file/ozb9jNtdZtLjsrqhAOXy3u/E-Commerce-Yerba?type=design&node-id=0%3A1&t=9o6cQEYJAMLB69uC-1
+       - Link del tablero de trabajo en donde se encuentran trabajando
+       
+https://www.figma.com/file/ErdPwSOKVaJr8pUBbHCaDO/WireFrames?type=design&t=Py1HhY6i4169CrVz-6
     
     
     
