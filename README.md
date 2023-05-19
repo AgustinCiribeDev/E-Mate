@@ -34,9 +34,14 @@ Vivo en 9 de julio, provincia de bs. As y una parte de la semana en Capital. Cua
  
  - Soy Paulina Tallarico, tengo 45 años, soy de la Ciudad de Buenos Aires. Soy diseñadora gráfica, trabajo en la Secretaría de Ddhh de la Nación, también trabajo de manera independiente. Cuando no estoy trabajando estoy con mi familia, pasando tiempo con amigos, o jugando al tenis.
    
-       - Link al tablero de trabajo y mockups:
+   
+- Link al tablero de trabajo:
        
 https://trello.com/b/EteQsCaC/grupo-6
+
+
+- Link a figma (mockups):
+
 https://www.figma.com/file/pCQFqERj3WZmz39kNlLTFr/WireFrames-(Copy)?type=design&node-id=0%3A1&t=9RGQdJOL78kv7ham-1
 
     
