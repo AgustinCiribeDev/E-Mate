@@ -2,10 +2,10 @@
 
     - Temática y descripción del sitio
     
-E-commerce de venta de artículos relacionados con el mate y la yerba mate. En nuestra tienda online encontrarás una amplia selección de productos de alta calidad, tanto para los amantes del mate tradicional como para aquellos que buscan nuevas formas de disfrutar de esta deliciosa bebida. Desde mates y bombillas de diseño hasta yerbas saborizadas y accesorios para el mate, nuestra tienda ofrece todo lo que necesitas para disfrutar de una experiencia única y auténtica.
+E-commerce de venta de artículos relacionados con el mate y la yerba mate. En nuestra tienda online encontrarás una amplia selección de productos de alta calidad, tanto para los amantes del mate tradicional como para aquellos que buscan nuevas formas de disfrutar de esta deliciosa bebida. Desde mates, bombillas de diseño hasta yerbas saborizadas y accesorios para el mate, nuestra tienda ofrece todo lo que necesitas para disfrutar de una experiencia única y auténtica.
 
     - Público objetivo
-Nuestro público objetivo son los amantes del mate y la yerba mate en Argentina. Sabemos que esta bebida es parte fundamental de la cultura argentina y queremos ofrecerles una forma cómoda y accesible de adquirir los mejores productos relacionados con el mate. También nos enfocamos en aquellos que buscan regalos únicos y originales para sus amigos y familiares, ya que nuestros productos son perfectos para cualquier ocasión especial. En resumen, nuestro público objetivo está compuesto por personas que valoran la calidad, la autenticidad y la tradición del mate y buscan una experiencia de compra en línea fácil y satisfactoria.
+Nuestro público objetivo son los amantes del mate y la yerba mate en Argentina. Sabemos que esta bebida es parte fundamental de la cultura argentina y queremos ofrecerles una forma cómoda y accesible de adquirir los mejores productos relacionados con el mate. También nos enfocamos en aquellos que buscan regalos únicos y originales para sus amigos y familiares, ya que nuestros productos son perfectos para cualquier ocasión especial. En resumen, nuestro público objetivo está compuesto por personas que valoran la calidad, la autenticidad, la tradición del mate y buscan una experiencia de compra en línea fácil y satisfactoria.
 
 
     - Listado de 5 páginas referentes en las que se basa su proyecto
@@ -34,9 +34,11 @@ Vivo en 9 de julio, provincia de bs. As y una parte de la semana en Capital. Cua
  
  - Soy Paulina Tallarico, tengo 45 años, soy de la Ciudad de Buenos Aires. Soy diseñadora gráfica, trabajo en la Secretaría de Ddhh de la Nación, también trabajo de manera independiente. Cuando no estoy trabajando estoy con mi familia, pasando tiempo con amigos, o jugando al tenis.
    
-       - Link del tablero de trabajo en donde se encuentran trabajando
+       - Link al tablero de trabajo y mockups:
        
-https://www.figma.com/file/ErdPwSOKVaJr8pUBbHCaDO/WireFrames?type=design&t=Py1HhY6i4169CrVz-6
+https://trello.com/b/EteQsCaC/grupo-6
+https://www.figma.com/file/pCQFqERj3WZmz39kNlLTFr/WireFrames-(Copy)?type=design&node-id=0%3A1&t=9RGQdJOL78kv7ham-1
+
     
     
     
