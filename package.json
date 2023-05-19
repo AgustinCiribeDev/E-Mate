@@ -1,7 +1,7 @@
 {
   "name": "yerbeando",
   "version": "1.0.0",
-  "description": "- Temática y descripción del sitio",
+  "description": "- E-commerce de venta de artículos relacionados con el mate y la yerba mate",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
