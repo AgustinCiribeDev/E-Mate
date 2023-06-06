@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Barlow', sans-serif;
+}
 body {
     margin: 0;
     padding: 0;
@@ -50,6 +52,7 @@ display: flex;
 align-items: center;
 }
     
+
 .products {
     display: flex;
     flex-wrap: wrap;

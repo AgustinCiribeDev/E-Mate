@@ -24,8 +24,6 @@ app.get ('/carrito', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/productCart.html'));
 });
 
-
-
 app.listen (3002, function () {
     console.log ("Servidor corriendo");
 });
