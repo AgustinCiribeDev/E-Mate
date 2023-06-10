@@ -25,5 +25,5 @@ app.get ('/carrito', (req, res) => {
 });
 
 app.listen (3002, function () {
-    console.log ("Servidor corriendo");
+    console.log ("Servidor corriendo en puerto 3002");
 });
