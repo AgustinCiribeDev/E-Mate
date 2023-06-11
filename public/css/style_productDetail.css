@@ -9,5 +9,85 @@ body {
 
 a:link, a:visited, a:active {
     text-decoration:none;
-    color: #222;
+    color: #ECECEC;
+}
+
+.header-main {
+    background-color: #444444;
+    width: 100%;
+    margin: auto;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 80px;
+    margin: auto;
+}
+
+.nav-burgerMenu {
+    width: 25px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-logo {
+    width: 200px;
+}
+
+.nav-search-bag {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-search {
+    display: flex;
+    justify-content: flex-end;
+    width: 25px;
+    margin-right: 6px;  
+}
+
+.nav-bag {
+    display: flex;
+    justify-content: flex-end;
+    width: 25px;
+}
+
+.nav-bar h6 {
+    display: none;
+}
+
+
+@media (min-width: 768px) {
+
+    .nav-search {
+        display: flex;
+        justify-content: flex-end;
+        width: 25px;  
+        margin-right: 50px;  
+    }
+    
+    .nav-bag {
+        display: flex;
+        justify-content: flex-end;
+        width: 25px;
+    }
+    
+    .nav-bar h6 {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav-bar {
+        width: 900px;
+        height: 80px;
+    }
 }
