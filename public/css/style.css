@@ -15,8 +15,10 @@ header {
     color: white;
 }
 
-.logo {
-    display: flex;
+footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
 }
 
 nav ul {
@@ -52,7 +54,7 @@ align-items: center;
 
 .products {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     margin-top: 20px;
 }
 
