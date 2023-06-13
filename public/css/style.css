@@ -30,12 +30,13 @@ nav ul {
 display: flex;
 }
 
-.searchbox {
+#searchbox {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
-.categories {
+.container {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -87,10 +88,6 @@ align-items: flex-start;
 }
 
 nav ul {
-margin-top: 10px;
-}
-
-.searchbox {
 margin-top: 10px;
 }
 
