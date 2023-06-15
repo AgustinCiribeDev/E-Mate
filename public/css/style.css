@@ -104,10 +104,6 @@ flex-basis: 50%;
 flex-basis: 100%;
 }
 }
-h1 {
-    font-size: 34px;
-    background-color: blue;
-}
 .btn .bx {
     display: flex;
     margin-top: -3px;

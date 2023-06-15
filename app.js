@@ -6,6 +6,8 @@ app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/
 
 app.use('/js', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/js")))
 
+app.use('/icons', express.static(path.resolve (__dirname, "node_modules/bootstrap-icons/font")))
+
 app.use (express.static (path.resolve (__dirname, './public')));
 
 app.get ('/', (req, res) => {
