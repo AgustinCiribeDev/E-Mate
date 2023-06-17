@@ -14,49 +14,55 @@
     <title>Detalle de Producto</title>
 </head>
 <body>
-    <header class="header-logo">
-        <div class="header-logo-img">
-            <img src="/img_productDetail/logo.svg" alt="icon">
-        </div>
-    </header>
-
-        <nav class="nav-bar">
-            <div class="nav-burgerMenu">
-                <a href="/" class="nav-menu"><img src="/img_productDetail/icon-menu.svg" alt="icon"></a>
+    <header>
+        <nav class="navbar-top">
+            <div class="navbar-top-left">
+                <form class="d-flex btn-size" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success btn-color" type="submit">Buscar</button>
+                </form>
             </div>
-            <form action="#" method="get">
-                <input type="search" id="my-search" name="q" / placeholder="Buscar producto">
-            </form>
-            <ul class="nav-bar-left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/producto">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
-            <div class="nav-bar-right">
-                <a href="/register" class="nav-bar-right-account"><img src="/img_productDetail/icon-account.svg" class="nav-icon" alt="icon"><h6>Creá tu cuenta</h6></a>
-                <a href="/login" class="nav-bar-right-login"><img src="/img_productDetail/icon-login.svg" class="nav-icon" alt="icon"><h6>Ingresá</h6></a>
-                <a href="/carrito" class="nav-bar-right-bag"><img src="/img_productDetail/icon-bag.svg" class="nav-icon" alt="icon"></a>
-            </div>     
+            <div class="navbar-top-center">
+                 <img src="./img_productDetail/logo.svg" alt="logo" class="logo-size">
+            </div>
+            <div class="navbar-top-right">
+                <ul>
+                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-person-bounding-box"></i><h6>Crear Cuenta</h6></a></li>
+                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-arrow-right-square"></i><h6>Iniciar Sesión</h6></a></li>
+                </ul>
+            </div>
         </nav>
-        <div>
-            <i class="bi bi-facebook"></i>
-        </div>
+
+        <nav class="navbar-buttom">
+            <div class="navbar-buttom-left">
+                <a href="/"><i class="bi bi-list navbar-buttom-img"></i><h6>Menú</h6></a>
+            </div>
+            <div class="navbar-buttom-center">
+                <a href="/">Home</a>
+                <a href="/">Productos</a>
+                <a href="/">Contacto</a>
+                <a href="/">Ayuda</a>
+                <a href="/carrito"><i class="bi bi-cart navbar-buttom-img"></i></a>
+            </div>
+            <div class="navbar-buttom-right">
+                <a href="/carrito"><i class="bi bi-cart navbar-buttom-img"></i><h6>Carrito</h6></a>
+            </div>
+        </nav>
     
-    <nav class="nav-root">
-        <ul class="nav-root-list">
-            <li><a href="/">Home</a></li>
-            <li>></li>
-            <li><a href="#">Productos</a></li>
-            <li>></li>
-            <li class="nav-root-end">Estas viendo Mate Térmico</li>
-        </ul>
-    </nav>
+        <nav class="nav-root">
+            <ul class="nav-root-list">
+                <li><a href="/">Home</a></li>
+                <li>></li>
+                <li><a href="#">Productos</a></li>
+                <li>></li>
+                <li class="nav-root-end">Estas viendo Mate Térmico</li>
+            </ul>
+        </nav>
+    </header>
 
     <article class="main-product">
         <section class="main-product-photo">
             <div class="nav-photo">
-                <img src="https://d22fxaf9t8d39k.cloudfront.net/86dfff8b8d7e233407a32f6915a8072f934dfcfe1f69b7bfd32c30cae29db1f319762.jpeg" alt="">
 
             </div>
             <figure>

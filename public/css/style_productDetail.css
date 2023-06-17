@@ -12,107 +12,160 @@ a:link, a:visited, a:active {
     color: #ECECEC;
 }
 
-.header-logo {
+textarea:focus, input:focus, input[type]:focus {
+    border-color: solid 1px #4FC276;
+    box-shadow: none;
+    outline: solid 5px #90B093;
+}
+
+
+/* navbar-top */
+
+.navbar-top {
     background-color: #444444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar-top-left {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.navbar-top-center {
+    display: flex;
+    justify-content: center;
+    order: -1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.navbar-top-right {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.logo-size {
+    display: flex;
+    justify-content: center;
     width: 100%;
     margin: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 80px;
-    margin: auto;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
-.header-logo-img {
-    width: 220px;
+.btn-size {
+    width: 270px;  
 }
 
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 40px;
-    margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: #4FC276;
+.btn-color {
+    border-color: #ECECEC;
+    color:#ECECEC
 }
 
-.nav-burgerMenu {
-    width: 25px;
-}
-
-.nav-bar-left {
-    display: none;
-    justify-content: flex-end;
+.navbar-top-right ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
-.nav-bar-left a {
+.navbar-top-right li {
     display: inline-block;
-    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.navbar-top-right h6 {
+    display: inline-block;
+    font-size: 18px;
     font-weight: 300;
-    color: #444444;
-    padding-right: 10px;
+    color: #ECECEC;
+    padding-left: 5px;
 }
 
-#my-search {
-    background-color: #ECECEC;
-    border: none;
-    border-radius: 15px;
-    width: 250px;
-    height: 30px;
-    font-size: 15px;
-    color: #444444;
-    padding: 10px;
-}
-
-.nav-bar-right {
+.navbar-top-right-btn {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
-.nav-bar-right-account {
-    display: none;
-    justify-content: flex-end;
-}
 
-.nav-bar-right-login {
-    display: none;
-    justify-content: flex-end;
-    padding-left: 10px;
-}
+/* navbar-buttom */
 
-.nav-bar-right-bag {
+.navbar-buttom {
+    background-color: #4FC276;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.nav-icon {
+.navbar-buttom-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-buttom-left a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar-buttom-center {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+
+.navbar-buttom-center a {
     display: block;
-    width: 25px;
-}
-
-.nav-bar-right h6 {
-    display: inline-flex;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 300;
     color: #444444;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
+.navbar-buttom-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-buttom-right a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-buttom-img {
+    color:#444444
+}
+
+.navbar-buttom h6 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    color: #444444;
+    padding-left: 5px;
+    margin: 0;
+}
+
+
+/* nav-root */
 
 .nav-root {
     display: flex;
     justify-content: flex-start;
-    width: 90%;
-    margin: auto;
     margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .nav-root ul {
@@ -140,62 +193,85 @@ a:link, a:visited, a:active {
 
 @media (min-width: 768px) {
 
-    .header-logo {
+    .navbar-top {
+        justify-content: space-between;
+        flex-direction: row;
+        height: 100px; 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar-top-left {
         justify-content: flex-start;
-        padding-left: 5%;
-        padding-right: 5%;
+        width: 33%;
+        margin: auto;
+        padding-bottom: 0;
     }
 
-    .nav-bar {
-        width: 100%;
-        height: 40px;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .nav-burgerMenu {
-        display: none;
-    }
-
-    .nav-bar-left {
+    .navbar-top-center {
         display: flex;
+        justify-content: center;
+        width: 33%;
+        margin: auto;
+        order: 0;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
-    #my-search {
-        width: 90%;
+    .navbar-top-right {
+        justify-content: flex-end;
+        align-items: center;
+        width: 33%;
+        margin: auto;
+        padding-bottom: 0;
     }
 
-    .nav-bar-right-account {
+    .logo-size {
+        width: 220px;    
+    }
+
+    .navbar-top-right h6 {
+        font-size: 15px;
+    }
+
+    .navbar-buttom {
+        background-color: #4FC276;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px; 
+        padding-left: 10%;
+        padding-right: 10%;
     }
     
-    .nav-bar-right-login {
+    .navbar-buttom-left {
+        display: none;
+    } 
+
+    .navbar-buttom-center {
         display: flex;
     }
 
-    .nav-bar-right-bag {
-        padding-left: 10px;
-    }
+    .navbar-buttom-right {
+        display: none;
+    }  
 }
 
 @media (min-width: 1200px) {
 
-    .header-logo {
+    .navbar-top {
         padding-left: 10%;
         padding-right: 10%;
     }
 
-    .nav-bar {
-        width: 100%;
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-
-    #my-search {
-        width: 225px;
+    .navbar-top-right h6 {
+        font-size: 18px;
+        font-weight: 300;
+        padding-left: 5px;
     }
 
     .nav-root {
-        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
