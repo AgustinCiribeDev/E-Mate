@@ -18,6 +18,7 @@ textarea:focus, input:focus, input[type]:focus {
     outline: solid 5px #90B093;
 }
 
+/* header */
 
 /* navbar-top */
 
@@ -93,9 +94,9 @@ textarea:focus, input:focus, input[type]:focus {
 }
 
 
-/* navbar-buttom */
+/* navbar-bottom */
 
-.navbar-buttom {
+.navbar-bottom {
     background-color: #4FC276;
     display: flex;
     justify-content: space-between;
@@ -105,18 +106,18 @@ textarea:focus, input:focus, input[type]:focus {
     padding-right: 10px;
 }
 
-.navbar-buttom-left {
+.navbar-bottom-left {
     display: flex;
     justify-content: flex-start;
 }
 
-.navbar-buttom-left a {
+.navbar-bottom-left a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.navbar-buttom-center {
+.navbar-bottom-center {
     display: none;
     justify-content: space-between;
     align-items: center;
@@ -124,7 +125,7 @@ textarea:focus, input:focus, input[type]:focus {
     margin: auto;
 }
 
-.navbar-buttom-center a {
+.navbar-bottom-center a {
     display: block;
     font-size: 18px;
     font-weight: 300;
@@ -133,22 +134,22 @@ textarea:focus, input:focus, input[type]:focus {
     padding-right: 10px;
 }
 
-.navbar-buttom-right {
+.navbar-bottom-right {
     display: flex;
     justify-content: flex-end;
 }
 
-.navbar-buttom-right a {
+.navbar-bottom-right a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.navbar-buttom-img {
+.navbar-bottom-img {
     color:#444444
 }
 
-.navbar-buttom h6 {
+.navbar-bottom h6 {
     display: inline-block;
     font-size: 18px;
     font-weight: 300;
@@ -234,7 +235,7 @@ textarea:focus, input:focus, input[type]:focus {
         font-size: 15px;
     }
 
-    .navbar-buttom {
+    .navbar-bottom {
         background-color: #4FC276;
         display: flex;
         justify-content: space-between;
@@ -244,15 +245,15 @@ textarea:focus, input:focus, input[type]:focus {
         padding-right: 10%;
     }
     
-    .navbar-buttom-left {
+    .navbar-bottom-left {
         display: none;
     } 
 
-    .navbar-buttom-center {
+    .navbar-bottom-center {
         display: flex;
     }
 
-    .navbar-buttom-right {
+    .navbar-bottom-right {
         display: none;
     }  
 }
@@ -274,4 +275,79 @@ textarea:focus, input:focus, input[type]:focus {
         padding-left: 10%;
         padding-right: 10%;
     }
+}
+
+/* producto */
+
+.product-photo {
+    margin-top: 10px;
+}
+
+.product-photo-img {
+    width: 100%;
+    margin: auto;
+}
+
+.main-product {
+    display: flex;  
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.product-buy-options {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.product-buy-options h2 {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 800;
+    color: #444444;
+    padding: 0;
+    margin: 0;
+}
+
+.product-buy-options h3 {
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 400;
+    color: #444444;
+    padding: 0;
+    margin: 0;
+}
+
+.product-buy-options h4 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    color: #444444;
+    padding: 0;
+    margin: 0;
+}
+
+.product-buy-options h5 {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #4FC276;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.form-options {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column 
+}
+
+.form-options label {
+    display: block;
 }

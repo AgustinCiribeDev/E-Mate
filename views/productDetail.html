@@ -33,19 +33,19 @@
             </div>
         </nav>
 
-        <nav class="navbar-buttom">
-            <div class="navbar-buttom-left">
-                <a href="/"><i class="bi bi-list navbar-buttom-img"></i><h6>Menú</h6></a>
+        <nav class="navbar-bottom">
+            <div class="navbar-bottom-left">
+                <a href="/"><i class="bi bi-list navbar-bottom-img"></i><h6>Menú</h6></a>
             </div>
-            <div class="navbar-buttom-center">
+            <div class="navbar-bottom-center">
                 <a href="/">Home</a>
                 <a href="/">Productos</a>
                 <a href="/">Contacto</a>
                 <a href="/">Ayuda</a>
-                <a href="/carrito"><i class="bi bi-cart navbar-buttom-img"></i></a>
+                <a href="/carrito"><i class="bi bi-cart navbar-bottom-img"></i></a>
             </div>
-            <div class="navbar-buttom-right">
-                <a href="/carrito"><i class="bi bi-cart navbar-buttom-img"></i><h6>Carrito</h6></a>
+            <div class="navbar-bottom-right">
+                <a href="/carrito"><i class="bi bi-cart navbar-bottom-img"></i><h6>Carrito</h6></a>
             </div>
         </nav>
     
@@ -55,30 +55,53 @@
                 <li>></li>
                 <li><a href="#">Productos</a></li>
                 <li>></li>
-                <li class="nav-root-end">Estas viendo Mate Térmico</li>
+                <li class="nav-root-end">Estás viendo Mate Térmico</li>
             </ul>
         </nav>
     </header>
 
     <article class="main-product">
-        <section class="main-product-photo">
-            <div class="nav-photo">
-
+        <section class="product-photo">
+            <div>
+                <img src="https://d22fxaf9t8d39k.cloudfront.net/d99cc2d360c4f380d57bff545508030f0b8e5888d7bd9bd8cc7c1cdaae35c0f919762.jpeg" class="product-photo-img" alt="mate">
             </div>
-            <figure>
-                <img src="#" alt="">
-            </figure>
+            <div class="product-buy-options">
+                <h2>MATE TÉRMICO</h2>
+                <h3>$12.000</h3>
+                <h4>3 cuotas sin interés de $4.000</h4>
+                <h5>Ver formas de pago</h4>
+                <form action="/carrito" method="post" class="form-options">
+                    <div>
+                        <label for="color">Color</label>
+                        <select name="color" id="color">
+                            <option value="negro">Negro</option>
+                            <option value="marron">Marrón</option>
+                        </select>
+                        <label for="bombilla">Bombilla</label>
+                        <select name="bombilla" id="bombilla">
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidas" name="cantidad" min="10" max="100">
+                    <form action="#" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success btn-color" type="submit">Código Postal</button>
+                    </form>
+                    <button type="submit">Comprar Ahora</button>
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </div>
         </section>
-        <section class="product-options">
-
-        </section>
-        <section class="price">
-
-        </section>
-        <section class="shipping">
-
+        <section class="product-descriptions">
+            <h2>Descripción del Producto</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
+            </p>
         </section>
     </article>
+    
     <footer>
 
     </footer>
