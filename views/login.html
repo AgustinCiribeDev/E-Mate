@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Incio de Sesión</title>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-    <div class="container d-flex align-items-end" style="min-height: 30vh;">
-        <div class="row w-100">
+    <div class="container-fluid m-0 d-flex pr-0 align-items-end" style="min-height: 30vh; font-size:22px">
+        <div class="row w-100 justify-content-end" >
             <p class="text-success col-6 m-0">Iniciar Sesión</p>
-            <p class="text-secondary col-6 m-0">Registrarse</p>
+            <a class="text-secondary col-6 m-0" href="/register" style="text-decoration: none;">Registrarse</a>
             <p class="text-bg-success p-1 col-6 m-30 h-10"></p>
             <p class="text-bg-secondary p-1 col-6 m-30 h-10" ></p>
-            
         </div>
+
     </div>
 
 
@@ -26,7 +27,7 @@
 
         <div class="d-flex align-items-center justify-content-center" style="min-height: 70vh;">
             <div class="row"></div>
-                <article class="text-center col-8">
+                <article class="text-center col-8 col-sm-6  col-md-5 col-lg-4 col-xl-3" style="font-size: 18px;">
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Usuario</label>
@@ -41,12 +42,12 @@
                     </div>
                     
 
-                    <div class="d-grid mb-2 gap-2 col-12 mx-auto">
-                        <button id="iniciarsesion"class="btn btn-outline-primary" type="button">Ingresar con Google</button>
+                    <div class="d-grid mb-2 align-items-center gap-2 col-12 mx-auto">
+                        <button id="iniciarsesion"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-google"></i>     Ingresar con Google</button>
                     </div>
 
-                    <div class="d-grid mb-2 gap-2 col-12 mx-auto">
-                        <button id="iniciarsesion"class="btn btn-outline-primary" type="button">Ingresar con Apple</button>
+                    <div class="d-grid mb-2 align-items-center col-12 mx-auto">
+                        <button id="iniciarsesion"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i>   Ingresar con Apple</button>
                     </div>
                     
                 </article>
