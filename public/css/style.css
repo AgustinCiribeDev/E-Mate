@@ -10,12 +10,6 @@ body {
     width: 150px;
 }
 
-footer {
-    background-color: #f2f2f2;
-    padding: 20px;
-    text-align: center;
-}
-
 nav ul {
     list-style: none;
     display: flex;
@@ -143,9 +137,9 @@ object-fit: cover;
     padding: 0 1rem;
   }
     
-    .sub-menu.navbar-expand-md .navbar-nav .nav-link {
+.sub-menu.navbar-expand-md .navbar-nav .nav-link {
       padding: 1rem 1.5rem;
-    }
+}
   
   
   .navbar.bg-light {
