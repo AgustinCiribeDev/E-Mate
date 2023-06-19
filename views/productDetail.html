@@ -71,31 +71,35 @@
                 <h4>3 cuotas sin interés de $4.000</h4>
                 <h5>Ver formas de pago</h4>
                 <form action="/carrito" method="post" class="form-options">
-                    <div>
-                        <label for="color">Color</label>
-                        <select name="color" id="color">
-                            <option value="negro">Negro</option>
-                            <option value="marron">Marrón</option>
-                        </select>
-                        <label for="bombilla">Bombilla</label>
-                        <select name="bombilla" id="bombilla">
-                            <option value="si">Sí</option>
-                            <option value="no">No</option>
-                        </select>
+                    <div class="form-options-color-amount">
+                        <div class="form-options-color">
+                            <label for="color">Color</label>
+                            <select name="color" id="color">
+                                <option value="negro">Negro</option>
+                                <option value="marron">Marrón</option>
+                            </select>
+                        </div>
+                        <div class="form-options-amount">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" name="cantidad" min="1" max="10"> 
+                        </div>
                     </div>
-                    <label for="cantidad">Cantidad</label>
-                        <input type="number" id="cantidas" name="cantidad" min="10" max="100">
-                    <form action="#" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-success btn-color" type="submit">Código Postal</button>
-                    </form>
-                    <button type="submit">Comprar Ahora</button>
-                    <button type="submit">Agregar al Carrito</button>
+                    <div class="form-zip-code">
+                        <form action="#" method="get">
+                            <label for="zip-code">Calculá el costo de envío</label>
+                            <div class="form-zip-code-search-submit">
+                                <input type="search" placeholder="Ingresá tu código postal" aria-label="Buscar">
+                                <button type="submit">Calcular</button>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="submit" class="btn-buy">Comprar Ahora</button>
+                    <button type="submit" class="btn-cart">Agregar al Carrito</button>
                 </form>
             </div>
         </section>
         <section class="product-descriptions">
-            <h2>Descripción del Producto</h2>
+            <h2>DESCRIPCIÓN DEL PRODUCTO</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
             </p>
