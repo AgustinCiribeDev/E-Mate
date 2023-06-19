@@ -30,6 +30,9 @@ app.get ('/carrito', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/productCart.html'));
 });
 
+app.get ('/home', (req, res) => {
+    res.sendFile (path.resolve (__dirname, './views/home.html'));
+});
 app.listen (3002, function () {
     console.log ("Servidor corriendo en puerto 3002");
 });
