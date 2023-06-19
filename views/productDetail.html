@@ -14,65 +14,98 @@
     <title>Detalle de Producto</title>
 </head>
 <body>
-    <header class="header-logo">
-        <div class="header-logo-img">
-            <img src="/img_productDetail/logo.svg" alt="icon">
-        </div>
+    <header>
+        <nav class="navbar-top">
+            <div class="navbar-top-left">
+                <form class="d-flex btn-size" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success btn-color" type="submit">Buscar</button>
+                </form>
+            </div>
+            <div class="navbar-top-center">
+                 <img src="./img_productDetail/logo.svg" alt="logo" class="logo-size">
+            </div>
+            <div class="navbar-top-right">
+                <ul>
+                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-person-bounding-box"></i><h6>Crear Cuenta</h6></a></li>
+                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-arrow-right-square"></i><h6>Iniciar Sesión</h6></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="navbar-bottom">
+            <div class="navbar-bottom-left">
+                <a href="/"><i class="bi bi-list navbar-bottom-img"></i><h6>Menú</h6></a>
+            </div>
+            <div class="navbar-bottom-center">
+                <a href="/">Home</a>
+                <a href="/">Productos</a>
+                <a href="/">Contacto</a>
+                <a href="/">Ayuda</a>
+                <a href="/carrito"><i class="bi bi-cart navbar-bottom-img"></i></a>
+            </div>
+            <div class="navbar-bottom-right">
+                <a href="/carrito"><i class="bi bi-cart navbar-bottom-img"></i><h6>Carrito</h6></a>
+            </div>
+        </nav>
+    
+        <nav class="nav-root">
+            <ul class="nav-root-list">
+                <li><a href="/">Home</a></li>
+                <li>></li>
+                <li><a href="#">Productos</a></li>
+                <li>></li>
+                <li class="nav-root-end">Estás viendo Mate Térmico</li>
+            </ul>
+        </nav>
     </header>
 
-        <nav class="nav-bar">
-            <div class="nav-burgerMenu">
-                <a href="/" class="nav-menu"><img src="/img_productDetail/icon-menu.svg" alt="icon"></a>
-            </div>
-            <form action="#" method="get">
-                <input type="search" id="my-search" name="q" / placeholder="Buscar producto">
-            </form>
-            <ul class="nav-bar-left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/producto">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
-            <div class="nav-bar-right">
-                <a href="/register" class="nav-bar-right-account"><img src="/img_productDetail/icon-account.svg" class="nav-icon" alt="icon"><h6>Creá tu cuenta</h6></a>
-                <a href="/login" class="nav-bar-right-login"><img src="/img_productDetail/icon-login.svg" class="nav-icon" alt="icon"><h6>Ingresá</h6></a>
-                <a href="/carrito" class="nav-bar-right-bag"><img src="/img_productDetail/icon-bag.svg" class="nav-icon" alt="icon"></a>
-            </div>     
-        </nav>
-        <div>
-            <i class="bi bi-facebook"></i>
-        </div>
-    
-    <nav class="nav-root">
-        <ul class="nav-root-list">
-            <li><a href="/">Home</a></li>
-            <li>></li>
-            <li><a href="#">Productos</a></li>
-            <li>></li>
-            <li class="nav-root-end">Estas viendo Mate Térmico</li>
-        </ul>
-    </nav>
-
     <article class="main-product">
-        <section class="main-product-photo">
-            <div class="nav-photo">
-                <img src="https://d22fxaf9t8d39k.cloudfront.net/86dfff8b8d7e233407a32f6915a8072f934dfcfe1f69b7bfd32c30cae29db1f319762.jpeg" alt="">
-
+        <section class="product-photo">
+            <div>
+                <img src="https://d22fxaf9t8d39k.cloudfront.net/d99cc2d360c4f380d57bff545508030f0b8e5888d7bd9bd8cc7c1cdaae35c0f919762.jpeg" class="product-photo-img" alt="mate">
             </div>
-            <figure>
-                <img src="#" alt="">
-            </figure>
+            <div class="product-buy-options">
+                <h2>MATE TÉRMICO</h2>
+                <h3>$12.000</h3>
+                <h4>3 cuotas sin interés de $4.000</h4>
+                <h5>Ver formas de pago</h4>
+                <form action="/carrito" method="post" class="form-options">
+                    <div class="form-options-color-amount">
+                        <div class="form-options-color">
+                            <label for="color">Color</label>
+                            <select name="color" id="color">
+                                <option value="negro">Negro</option>
+                                <option value="marron">Marrón</option>
+                            </select>
+                        </div>
+                        <div class="form-options-amount">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" id="cantidad" name="cantidad" min="1" max="10"> 
+                        </div>
+                    </div>
+                    <div class="form-zip-code">
+                        <form action="#" method="get">
+                            <label for="zip-code">Calculá el costo de envío</label>
+                            <div class="form-zip-code-search-submit">
+                                <input type="search" placeholder="Ingresá tu código postal" aria-label="Buscar">
+                                <button type="submit">Calcular</button>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="submit" class="btn-buy">Comprar Ahora</button>
+                    <button type="submit" class="btn-cart">Agregar al Carrito</button>
+                </form>
+            </div>
         </section>
-        <section class="product-options">
-
-        </section>
-        <section class="price">
-
-        </section>
-        <section class="shipping">
-
+        <section class="product-descriptions">
+            <h2>DESCRIPCIÓN DEL PRODUCTO</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
+            </p>
         </section>
     </article>
+    
     <footer>
 
     </footer>
