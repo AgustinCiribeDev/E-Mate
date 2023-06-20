@@ -37,3 +37,7 @@ app.listen (3002, function () {
     console.log ("Servidor corriendo en puerto 3002");
 });
 
+app.set("view engine", "ejs");
+
+app.set("views","./views");
+
