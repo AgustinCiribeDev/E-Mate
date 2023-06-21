@@ -20,6 +20,14 @@ app.get('/',(req, res) => {
     
 });
 
+app.get ('/header', (req, res) => {
+    res.sendFile (path.resolve (__dirname, './views/header'));
+});
+
+app.get ('/footer', (req, res) => {
+    res.sendFile (path.resolve (__dirname, './views/footer'));
+});
+
 app.get ('/register', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/register'));
 });
