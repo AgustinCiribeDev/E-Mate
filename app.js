@@ -27,12 +27,21 @@ app.get ('/producto', (req, res) => {
 });
 
 app.get ('/carrito', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/productCart));
+    res.sendFile (path.resolve (__dirname, './views/productCart);
 });
 
 app.get ('/home', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/home'));
 });
+
+app.get ('/header', (req, res) => {
+    res.sendFile (path.resolve (__dirname, './views/header.html'));
+});
+
+app.get ('/footer', (req, res) => {
+    res.sendFile (path.resolve (__dirname, './views/footer.html'));
+});
+
 app.listen (3002, function () {
     console.log ("Servidor corriendo en puerto 3002");
 });
