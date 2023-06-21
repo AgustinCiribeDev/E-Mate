@@ -16,47 +16,8 @@
     <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>
+   <% include("/partials/header.ejs") %>
 
-  <header>
-    <div class="container-fluid mr-0 pr-0 mx-auto p-1 bg-success row justify-content-center text-white">
-      3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS
-    </div>
-    <div class="container-fluid mr-0 pr-0 mx-auto p-3 bg-secondary align-items-center">
-      <div class="row">
-        <div class="col-6">       
-          <div class="logo col-8">
-          <img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></div>
-        </div>        
-        <div class="col-6">
-          <a class="btn btn-secondary" href="/login"><i class="bx bxs-user-circle mr-1"></i>Ingresar</a>
-          <a class="btn btn-secondary" href="/register"><i class="bx bxs-user-circle mr-1"></i> Registrarse</a>
-        </div>
-      </div>
-    </div>
-
-      <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu ">
-        <div class="container">
-          <div class="collapse navbar-collapse col-8 row justify-content-start" id="navbar">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item">
-                <a class="nav-link" href="/producto">Productos</a></li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Quienes Somos</a></li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a></li>
-            </ul>
-          </div>
-          <div class="col-4 justify-content-end">
-            <input class="form-control d-inline w-100 " type="search" placeholder="Buscar productos..." aria-label="Search"></div>
-            <button class="btn btn-secondary my-2 my-sm-0 d-inline" type="submit"><i class="bi bi-search"></i></button></div>
-            <a class="btn btn-link" href="/carrito"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger"><i class="bi bi-cart4 text-secondary fs-3"></i></span></a>
-          </div>
-        </div>
-      </div>
-</nav>
-</header>
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -145,38 +106,7 @@
         </div>
       </div>
 </main>
-      
-<footer>
-    <div class="container-fluid">
-      <div class="row p-5 bg-secondary text-white ">
-        <div class="col-xs-12 col-md-6 col-lg-3">
-          <p>Medios de Pago</p>
-          <p><img src="https://dk0k1i3js6c49.cloudfront.net/iconos-pago/mercadopago.png" width="50" alt="">
-          <img src="https://dk0k1i3js6c49.cloudfront.net/iconos-pago/mastercard.png" width="50" alt=""></p>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-          <p>Medios de Envío</p>
-          <p><img src="https://dk0k1i3js6c49.cloudfront.net/iconos-envio/oca.png" width="50" alt="">
-          <img src="https://dk0k1i3js6c49.cloudfront.net/iconos-envio/personalizado.png" width="50" alt=""></p>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-          <p>Redes Sociales</p>
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-whatsapp"></i>
-          <i class="bi bi-tiktok"></i>
-          <i class="bi bi-twitter"></i>
-          <i class="bi bi-twitch"></i>
-        </div>
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <p>Contacto</p>
-            <div class="info small" >info@yerbeando.com.ar</div>
-            <div class="numero">+54 011 3422323</div>
-          </div>
-        </div>
-      </div>    
-</footer>
-
-
+<% include("/partials/footer.ejs") %>
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -11,27 +11,27 @@ app.use('/icons', express.static(path.resolve (__dirname, "node_modules/bootstra
 app.use (express.static (path.resolve (__dirname, './public')));
 
 app.get ('/', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/index.html'));
+    res.sendFile (path.resolve (__dirname, './views/index'));
 });
 
 app.get ('/register', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/register.html'));
+    res.sendFile (path.resolve (__dirname, './views/register'));
 });
 
 app.get ('/login', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/login.html'));
+    res.sendFile (path.resolve (__dirname, './views/login'));
 });
 
 app.get ('/producto', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/productDetail.html'));
+    res.sendFile (path.resolve (__dirname, './views/productDetail'));
 });
 
 app.get ('/carrito', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/productCart.html'));
+    res.sendFile (path.resolve (__dirname, './views/productCart));
 });
 
 app.get ('/home', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/home.html'));
+    res.sendFile (path.resolve (__dirname, './views/home'));
 });
 app.listen (3002, function () {
     console.log ("Servidor corriendo en puerto 3002");
@@ -39,5 +39,4 @@ app.listen (3002, function () {
 
 app.set("view engine", "ejs");
 
-app.set("views","./views");
 
