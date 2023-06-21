@@ -1,6 +1,11 @@
 const express = require ('express');
 const path = require ('path');
 const app = express ();
+const port = process.env.PORT || 3002;
+
+app.set("view engine", "ejs");
+
+app.set('views',__dirname + '/views')
 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css")))
 
@@ -10,8 +15,9 @@ app.use('/icons', express.static(path.resolve (__dirname, "node_modules/bootstra
 
 app.use (express.static (path.resolve (__dirname, './public')));
 
-app.get ('/', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/index'));
+app.get('/',(req, res) => { 
+    res.render('index')
+    
 });
 
 app.get ('/register', (req, res) => {
@@ -34,10 +40,10 @@ app.get ('/home', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/home'));
 });
 
-app.listen (3002, function () {
-    console.log ("Servidor corriendo en puerto 3002");
+app.listen (port, function () {
+    console.log ("Servidor corriendo en puerto " + port);
 });
 
-app.set("view engine", "ejs");
+
 
 
