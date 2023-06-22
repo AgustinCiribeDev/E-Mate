@@ -16,19 +16,19 @@
     <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>  
-    <header>
-        <!-- Barra verde-->
+  <header>
+
+<!-- Barra verde-->
+
       <div class="container-fluid small mr-0 pr-0 mx-auto p-1 bg-success row justify-content-center text-white">
-        3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS
-      </div>
+        3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS</div>
   
-      <!-- Barra gris-->
+<!-- Barra gris-->
       <div class="container-fluid mr-0 pr-0 mx-auto p-0 bg-secondary align-items-center">
         <div class="row">      
           <div class=" row justify-content-end small">
             <a class="btn btn-secondary col-3" href="/login"><i class="bx bxs-user-circle mr-1"></i>Ingresar</a>
-            <a class="btn btn-secondary col-3" href="/register"><i class="bx bxs-user-circle mr-1"></i> Registrarse</a>
-          </div>
+            <a class="btn btn-secondary col-3" href="/register"><i class="bx bxs-user-circle mr-1"></i> Registrarse</a></div>
           <div class="col-12 col-lg-6 p-4">       
               <div class="logo col-12 col-lg-8">
               <img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></div>
@@ -36,16 +36,16 @@
         </div>
       </div>
 
-        <!-- Barra buscar productos-->
+<!-- Barra buscar productos-->
       <div class="row">
         <div class="col-8 justify-content-end m-2">
           <input class="form-control d-inline col-6 m-0" type="search" placeholder="Buscar productos..." aria-label="Search"></div>
           <button class="btn btn-secondary col-1 my-2 my-sm-0 d-inline" type="submit"><i class="bi bi-search"></i></button></div>
-          <a class="btn btn-link col-1" href="/carrito"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger"><i class="bi bi-cart4 text-secondary fs-3"></i></span></a>
-        </div>
+          <a class="btn btn-link col-1" href="/carrito"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger"><i class="bi bi-cart4 text-secondary fs-3"></i></span></a></div>
       </div>
   
-      <!-- Menu Hamburguesa-->
+<!-- Menu Hamburguesa-->
+
         <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu ">
           <div class="container">
             <div class="collapse navbar-collapse col-8 row justify-content-start" id="navbar">
@@ -59,13 +59,16 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contacto</a></li>
               </ul>
-              </div>
-            
-              </div>
             </div>
-          </nav>
-  </header>
+          </div>
+        </nav>
+
+    </header>
   <main>
+
+<!-- carrusel (aun no funciona, faltan rutas en app.js)-->
+
+
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -86,67 +89,121 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Siguiente</span>
             </a>
-        </div>
+          </div>
+
+<!-- titulo de las categorias-->    
+<div class="container">
+  <div class="row">
+    <div class="col align-items-center d-flex">
+      <h4 class="p-4 mr-1"><i class="bi bi-arrow-right-circle-fill"></i>     Categorías</h4>
+    </div>
+  </div>
+</div>
 
 
-    <h4 class="m-2 align-items-center">Categorías</h4>
+<!-- contenedor de categorias-->
+
+
     <div class="container">
-      <div class="row col-12">
-        <div class="justify-content-start">
-          <div class="category col 2">
+      <div class="row">
+        <div class="justify-content-start d-flex flex-wrap">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-box2-heart"></i></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-box2-heart"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-cup-straw"></i></button></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-cup-straw"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-basket2-fill"></i></button></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-basket2-fill"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><button type="button" class="btn"><i class="bi bi-flower1"></i></button></span>
+              <span><button type="button" class="btn"><i class="bi bi-flower1"></i></button></span>
+            </div>
           </div>
-        </div>
+        </div>  
+      </div>
+    </div>
+    
+
+<!-- comienza el contenedor de articulos-->
+
+
+<div class="container">
+  <div class="row text-secondary mt-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
+      <h4>Yerba</h4>
+      <p>Yerba Canarias</p>
+      <p>Precio: $1600</p>
+      <p>Categoría: Yerbas</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
+      <h4>Mate</h4>
+      <p>Mate Madera Caoba</p>
+      <p>Precio: $1200</p>
+      <p>Categoría: Mates</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Set Matero"></a>
+      <h4>Set con Matera</h4>
+      <p>Sets Matero</p>
+      <p>Precio: $3800</p>
+      <p>Categoría: Sets</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
+      <h4>Bombilla</h4>
+      <p>Descripción del producto 4</p>
+      <p>Precio: $700</p>
+      <p>Categoría: Bombillas</p></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-secondary mt-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
+        <h4>Yerba</h4>
+        <p>Yerba Canarias</p>
+        <p>Precio: $1600</p>
+        <p>Categoría: Yerbas</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
+        <h4>Mate</h4>
+        <p>Mate Madera Caoba</p>
+        <p>Precio: $1200</p>
+        <p>Categoría: Mates</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Set Matero"></a>
+        <h4>Set</h4>
+        <p>Sets Materos</p>
+        <p>Precio: $3800</p>
+        <p>Categoría: Sets</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
+        <h4>Bombilla</h4>
+        <p>Descripción del producto 4</p>
+        <p>Precio: $700</p>
+        <p>Categoría: Bombillas</p></div>
       </div>
     </div>
 
-
-        <div class="container">
-        <div class="row text-secondary mt-4">
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
-            <h4>Yerba</h4>
-            <p>Yerba Canarias</p>
-            <p>Precio: $1600</p>
-            <p>Categoría: Yerbas </p>
-          </div>
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
-            <h4>Mate</h4>
-            <p>Mate Madera Caoba</p>
-            <p>Precio: $20</p>
-            <p>Categoría: Mates</p>
-          </div>
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/set.jpeg"  alt="Set Matero"></a>
-            <h4>Set</h4>
-            <p>Sets Materos</p>
-            <p>Precio: $30</p>
-            <p>Categoría: Categoría 3</p>
-          </div>
-          <div class="col">
-                <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
-                <h4>Bombilla</h4>
-                <p>Descripción del producto 4</p>
-                <p>Precio: $40</p>
-                <p>Categoría: 4</p>
-          </div>
-        </div>
-        </div>
 </main>
+
+<!-- aqui comienza el footer-->
+
+
 <footer>
   <div class="container-fluid">
     <div class="row p-5 bg-secondary text-white ">
