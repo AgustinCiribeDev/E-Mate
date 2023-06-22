@@ -5,7 +5,7 @@ const port = process.env.PORT || 3002;
 
 app.set("view engine", "ejs");
 
-app.set('views',__dirname + '/views')
+// app.set('views',__dirname + '/views') // Se comenta código porque es posible que no sea necesario
 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css")))
 
