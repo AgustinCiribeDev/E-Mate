@@ -17,24 +17,21 @@
     </head>
 <body>  
     <header>
-      <div class="container w-100 m-0 p-0">
+      
           <!-- Barra verde-->
         <div class="container-fluid small mr-0 p-1 mx-auto bg-success row justify-content-center text-white">
           3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS
         </div>
     
         <!-- Barra gris-->
-        <div class="container-fluid mr-0 p-1 mx-auto bg-secondary align-items-center">
-          <div class="row">      
+        <div class="container-fluid w-100 m-0 p-0 bg-secondary align-items-center">
+          <div class="row col-12">      
             <div class="m-0 row justify-content-end small">
               <a class="btn btn-secondary col-3" href="/login"><i class="bx bxs-user-circle mr-1"></i>Ingresar</a>
               <a class="btn btn-secondary col-3" href="/register"><i class="bx bxs-user-circle mr-1"></i> Registrarse</a>
-            </div>
-            <div class="col-12 px-4 my-2">       
-                <div class="logo col-12 ">
-                  <img src="https://santiagom.alwaysdata.net/logo.svg" alt="">
-                </div>
-            </div>
+            </div >
+          </div>
+                <div class=" w-100% p-3 m-2"><img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></div>
           </div>
         </div>
 
@@ -48,25 +45,30 @@
         </div>
     
         <!-- Menu Hamburguesa-->
-          <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu ">
-            <div class="container">
-              <div class="collapse navbar-collapse col-8 row justify-content-start" id="navbar">
-                <ul class="navbar-nav mx-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a></li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/producto">Productos</a></li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Quienes Somos</a></li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a></li>
-                </ul>
-                </div>
-              
-                </div>
-              </div>
-          </nav>
-      </div>
+        <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
+          <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item m-1">
+                  <a class="nav-link" href="/producto">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/quienesSomos">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contacto">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    
   </header>
   <main>
 
@@ -99,14 +101,13 @@
 <div class="container">
   <div class="row">
     <div class="col align-items-center d-flex">
-      <h4 class="p-4 mr-1"><i class="bi bi-arrow-right-circle-fill"></i>     Categorías</h4>
+      <h4 class="p-2 mr-1"><i class="bi bi-arrow-right-circle-fill"></i>     Categorías</h4>
     </div>
   </div>
 </div>
 
 
 <!-- contenedor de categorias-->
-
 
     <div class="container">
       <div class="row">
@@ -170,38 +171,6 @@
       <p>Categoría: Bombillas</p></div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="row text-secondary mt-4">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
-        <h4>Yerba</h4>
-        <p>Yerba Canarias</p>
-        <p>Precio: $1600</p>
-        <p>Categoría: Yerbas</p>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <a href="/producto"><img class="img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
-        <h4>Mate</h4>
-        <p>Mate Madera Caoba</p>
-        <p>Precio: $1200</p>
-        <p>Categoría: Mates</p>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Set Matero"></a>
-        <h4>Set</h4>
-        <p>Sets Materos</p>
-        <p>Precio: $3800</p>
-        <p>Categoría: Sets</p>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
-        <h4>Bombilla</h4>
-        <p>Descripción del producto 4</p>
-        <p>Precio: $700</p>
-        <p>Categoría: Bombillas</p></div>
-      </div>
-    </div>
 
 </main>
 
