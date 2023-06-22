@@ -69,6 +69,10 @@
       </div>
   </header>
   <main>
+
+<!-- carrusel (aun no funciona, faltan rutas en app.js)-->
+
+
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -89,67 +93,149 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Siguiente</span>
             </a>
-        </div>
+          </div>
+
+<!-- titulo de las categorias-->    
+<div class="container">
+  <div class="row">
+    <div class="col align-items-center d-flex">
+      <h4 class="p-4 mr-1"><i class="bi bi-arrow-right-circle-fill"></i>     Categorías</h4>
+    </div>
+  </div>
+</div>
 
 
-    <h4 class="m-2 align-items-center">Categorías</h4>
+<!-- contenedor de categorias-->
+
+
     <div class="container">
-      <div class="row col-12">
-        <div class="justify-content-start">
-          <div class="category col 2">
+      <div class="row">
+        <div class="justify-content-start d-flex flex-wrap">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-box2-heart"></i></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-box2-heart"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-cup-straw"></i></button></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-cup-straw"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-basket2-fill"></i></button></span>
+              <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-basket2-fill"></i></button></span>
+            </div>
           </div>
-          <div class="category col-2">
+          <div class="category col-lg-2 col-md-3 col-sm-4">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-            <span><button type="button" class="btn"><i class="bi bi-flower1"></i></button></span>
+              <span><button type="button" class="btn"><i class="bi bi-flower1"></i></button></span>
+            </div>
           </div>
-        </div>
+        </div>  
+      </div>
+    </div>
+  
+   
+<!-- comienza el contenedor de articulos-->
+
+
+<div class="container">
+  <div class="row text-secondary mt-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
+      <h4>Yerba</h4>
+      <p>Yerba Canarias</p>
+      <p>Precio: $1600</p>
+      <p>Categoría: Yerbas</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
+      <h4>Mate</h4>
+      <p>Mate Madera Caoba</p>
+      <p>Precio: $1200</p>
+      <p>Categoría: Mates</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Set Matero"></a>
+      <h4>Set con Matera</h4>
+      <p>Sets Matero</p>
+      <p>Precio: $3800</p>
+      <p>Categoría: Sets</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
+      <h4>Bombilla</h4>
+      <p>Descripción del producto 4</p>
+      <p>Precio: $700</p>
+      <p>Categoría: Bombillas</p></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-secondary mt-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
+        <h4>Yerba</h4>
+        <p>Yerba Canarias</p>
+        <p>Precio: $1600</p>
+        <p>Categoría: Yerbas</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
+        <h4>Mate</h4>
+        <p>Mate Madera Caoba</p>
+        <p>Precio: $1200</p>
+        <p>Categoría: Mates</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Set Matero"></a>
+        <h4>Set</h4>
+        <p>Sets Materos</p>
+        <p>Precio: $3800</p>
+        <p>Categoría: Sets</p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a href="/producto"><img class="img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
+        <h4>Bombilla</h4>
+        <p>Descripción del producto 4</p>
+        <p>Precio: $700</p>
+        <p>Categoría: Bombillas</p></div>
       </div>
     </div>
 
-
-        <div class="container">
-        <div class="row text-secondary mt-4">
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Yerba"></a>
-            <h4>Yerba</h4>
-            <p>Yerba Canarias</p>
-            <p>Precio: $1600</p>
-            <p>Categoría: Yerbas </p>
-          </div>
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Mate"></a>
-            <h4>Mate</h4>
-            <p>Mate Madera Caoba</p>
-            <p>Precio: $20</p>
-            <p>Categoría: Mates</p>
-          </div>
-          <div class="col">
-            <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/set.jpeg"  alt="Set Matero"></a>
-            <h4>Set</h4>
-            <p>Sets Materos</p>
-            <p>Precio: $30</p>
-            <p>Categoría: Categoría 3</p>
-          </div>
-          <div class="col">
-                <a href="/producto"><img style="min-width: 200px; max-width: 200px;" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Producto 4"></a>
-                <h4>Bombilla</h4>
-                <p>Descripción del producto 4</p>
-                <p>Precio: $40</p>
-                <p>Categoría: 4</p>
-          </div>
-        </div>
-        </div>
 </main>
+
+<!-- aqui comienza el footer-->
+
+
+<footer>
+  <div class="container-fluid">
+    <div class="row p-5 bg-secondary text-white ">
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p>Medios de Pago</p>
+        <p><img src="https://dk0k1i3js6c49.cloudfront.net/iconos-pago/mercadopago.png" width="50" alt="">
+        <img src="https://dk0k1i3js6c49.cloudfront.net/iconos-pago/mastercard.png" width="50" alt=""></p>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p>Medios de Envío</p>
+        <p><img src="https://dk0k1i3js6c49.cloudfront.net/iconos-envio/oca.png" width="50" alt="">
+        <img src="https://dk0k1i3js6c49.cloudfront.net/iconos-envio/personalizado.png" width="50" alt=""></p>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p>Redes Sociales</p>
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-whatsapp"></i>
+        <i class="bi bi-tiktok"></i>
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-twitch"></i>
+      </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <p>Contacto</p>
+          <div class="info small" >info@yerbeando.com.ar</div>
+          <div class="numero">+54 011 3422323</div>
+        </div>
+      </div>
+    </div>    
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ const port = process.env.PORT || 3002;
 
 app.set("view engine", "ejs");
 
-app.set('views',__dirname + '/views')
+// app.set('views',__dirname + '/views') // Se comenta código porque es posible que no sea necesario
 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css")))
 
@@ -29,24 +29,21 @@ app.get ('/footer', (req, res) => {
 });
 
 app.get ('/register', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/register'));
+    res.sendFile (path.resolve (__dirname, './views/register.html'));
 });
 
 app.get ('/login', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/login'));
+    res.sendFile (path.resolve (__dirname, './views/login.html'));
 });
 
 app.get ('/producto', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/productDetail'));
+    res.sendFile (path.resolve (__dirname, './views/productDetail.html'));
 });
 
 app.get ('/carrito', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/productCart'));
+    res.sendFile (path.resolve (__dirname, './views/productCart.html'));
 });
 
-app.get ('/home', (req, res) => {
-    res.sendFile (path.resolve (__dirname, './views/home'));
-});
 
 app.listen (port, function () {
     console.log ("Servidor corriendo en puerto " + port);
