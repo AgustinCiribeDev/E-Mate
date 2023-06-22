@@ -22,11 +22,11 @@ app.get('/',(req, res) => {
 
 app.get ('/header', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/header'));
-}); // Este se va y se incluye con include en la sección que se necesite
+}); // Este se va y se incluye con include en la sección que se necesite ej: <%- include('./partials/header') %>
 
 app.get ('/footer', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/footer'));
-}); // Este se va y se incluye con include en la sección que se necesite
+}); // Este se va y se incluye con include en la sección que se necesite ej: <%- include('./partials/footer') %>
 
 app.get ('/register', (req, res) => {
     res.sendFile (path.resolve (__dirname, './views/register.html'));
