@@ -1,4 +1,4 @@
-/* const mainControllers = 
+const mainControllers = 
 
     {
     	index: (req, res) => {	
@@ -6,11 +6,11 @@
         },
 
         register: (req, res) => {
-                res.render('register');
+                res.render('users/register');
         },   
 
         login: (req, res) => {
-                res.render('login');
+                res.render('users/login');
         },
 
         product: (req, res) => {
@@ -23,4 +23,4 @@
     }
 
 
-module.exports = mainControllers; */
+module.exports = mainControllers;
