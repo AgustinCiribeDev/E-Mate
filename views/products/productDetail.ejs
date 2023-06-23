@@ -1,51 +1,8 @@
-<%- include ('head') %>
+<!DOCTYPE html>
+<html>
+<%- include ('./../partials/head.ejs') %>
 <body>
-    <header>
-        <nav class="navbar-top">
-            <div class="navbar-top-left">
-                <form class="d-flex btn-size" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success btn-color" type="submit">Buscar</button>
-                </form>
-            </div>
-            <div class="navbar-top-center">
-                 <img src="https://santiagom.alwaysdata.net/logo.svg" alt="logo" class="logo-size">
-            </div>
-            <div class="navbar-top-right">
-                <ul>
-                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-person-bounding-box"></i><h6>Crear Cuenta</h6></a></li>
-                    <li class="navbar-top-right-btn"><a href="#"><i class="bi bi-arrow-right-square"></i><h6>Iniciar Sesión</h6></a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <nav class="navbar-bottom">
-            <div class="navbar-bottom-left">
-                <a href="/"><i class="bi bi-list navbar-bottom-img"></i><h6>Menú</h6></a>
-            </div>
-            <div class="navbar-bottom-center">
-                <a href="/">Home</a>
-                <a href="/">Productos</a>
-                <a href="/">Contacto</a>
-                <a href="/">Ayuda</a>
-                <a href="/cart"><i class="bi bi-cart navbar-bottom-img"></i></a>
-            </div>
-            <div class="navbar-bottom-right">
-                <a href="/cart"><i class="bi bi-cart navbar-bottom-img"></i><h6>Carrito</h6></a>
-            </div>
-        </nav>
-    
-        <nav class="nav-root">
-            <ul class="nav-root-list">
-                <li><a href="/">Home</a></li>
-                <li>></li>
-                <li><a href="#">Productos</a></li>
-                <li>></li>
-                <li class="nav-root-end">Estás viendo Mate Térmico</li>
-            </ul>
-        </nav>
-    </header>
-
+    <%- include ('./../partials/header.ejs') %>
     <article class="main-product">
         <section class="product-photo">
             <div class="product-photo-left">
@@ -92,9 +49,7 @@
         </section>
     </article>
     
-    <footer>
-
-    </footer>
-    <script src="./js/bootstrap.min.js"></script>
+    <%- include ('./../partials/footer.ejs') %>
+    <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
 </html>
