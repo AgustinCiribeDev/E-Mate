@@ -19,6 +19,10 @@ const mainControllers =
 
         cart: (req, res) => {
                 res.render("products/productCart");
+        },
+        
+        catalogue: (req, res) => {
+                res.render("products/productCatalogue");
         }
     }
 
