@@ -6,70 +6,30 @@
 
   <div class="container">
     <div class="row text-secondary mt-4 mb-4">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card" style="width: 18rem;">
-           <a href="/producto"></a><img class="card-img-top img-fluid" src="https://santiagom.alwaysdata.net/bombilla.jpeg" alt="Card image cap">
-           <div class="card-body">
-               <h5 class="card-title">Bombilla</h5>
-               <p class="card-text">Bombilla de aluminio/p></div>
-           <ul class="list-group list-group-flush">
-               <li class="list-group-item">3 cuotas sin interes</li>
-               <li class="list-group-item">
+      <% productos.forEach((producto) => { %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card" style="width: 18rem;">
+            <a href="/producto"></a>
+            <img class="card-img-top img-fluid" src="<%= producto.imagen %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= producto.nombre %></h5>
+              <p class="card-text"><%= producto.descripcion %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= producto.cuotas %> cuotas</li>
+              <li class="list-group-item">
                 <div class="block-products-feed__product-price text--primary">
-                  "1999.00$"<del>2600.00$</del></div></li>
-               <li class="list-group-item">Quedan pocas unidades</li></ul>
-           <div class="card-body">
-               <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i></a></div>
-         </div>
-       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card" style="width: 18rem;">
-           <a href="/producto"></a><img class="card-img-top img-fluid" src="https://santiagom.alwaysdata.net/set.jpeg" alt="Card image cap">
-           <div class="card-body">
-               <h5 class="card-title">Set</h5>
-               <p class="card-text">Set Matero</p></div>
-               <ul class="list-group list-group-flush">
-                <li class="list-group-item">3 cuotas sin interes</li>
-                <li class="list-group-item">
-                 <div class="block-products-feed__product-price text--primary">
-                   "8700.00$"<del>9900.00$</del></div></li>
-                <li class="list-group-item">APROVECHALO!</li></ul>
+                  "<%= producto.precioActual %>"<del><%= producto.precioAnterior %></del>
+                </div>
+              </li>
+              <li class="list-group-item"><%= producto.estado %></li>
+            </ul>
             <div class="card-body">
-                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i></a></div>
+              <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i></a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card" style="width: 18rem;">
-           <a href="/producto"></a><img class="card-img-top img-fluid" src="http://santiagom.alwaysdata.net/mate.jpeg" alt="Card image cap">
-           <div class="card-body">
-               <h5 class="card-title">Mate</h5>
-               <p class="card-text">Mate de Zapallo</p></div>
-               <ul class="list-group list-group-flush">
-                <li class="list-group-item">3 cuotas sin interes hoy!</li>
-                <li class="list-group-item">
-                 <div class="block-products-feed__product-price text--primary">
-                   "3500.00$"<del>4300$</del></div></li>
-                <li class="list-group-item">Obtene el tuyo!</li></ul>
-            <div class="card-body">
-            <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i></a></div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card" style="width: 18rem;">
-           <a href="/producto"></a><img class="card-img-top img-fluid" src="https://santiagom.alwaysdata.net/yerba.jpeg" alt="Card image cap">
-           <div class="card-body">
-               <h5 class="card-title">Yerba Canarias</h5>
-               <p class="card-text">Yerba Canarias, única.</p></div>
-               <ul class="list-group list-group-flush">
-                <li class="list-group-item">3 cuotas sin interes</li>
-                <li class="list-group-item">
-                 <div class="block-products-feed__product-price text--primary">
-                   "2200.00$"<del>2800.00$</del></div></li>
-                <li class="list-group-item">Yerba especial</li></ul>
-            <div class="card-body">
-            <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i></a></div>
-        </div>
-      </div>
+      <% }) %>
     </div>
   </div>
       <%- include ('./../partials/footer.ejs') %>
