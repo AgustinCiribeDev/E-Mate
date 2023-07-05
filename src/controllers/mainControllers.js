@@ -1,30 +1,26 @@
-const mainControllers = 
-
-    {
-    	index: (req, res) => {	
-                res.render('index');
+const mainControllers = {
+        index: (req, res) => {
+          res.render('index');
         },
-
         register: (req, res) => {
-                res.render('users/register');
-        },   
-
+          res.render('users/register');
+        },
         login: (req, res) => {
-                res.render('users/login');
+          res.render('users/login');
         },
-
         product: (req, res) => {
-                res.render("products/productDetail");
+          res.render('products/productDetail');
         },
-
         cart: (req, res) => {
-                res.render("products/productCart");
+          res.render('products/productCart');
         },
-        
         catalogue: (req, res) => {
-                res.render("products/productCatalogue");
+          res.render('products/productCatalogue');
+        },
+        create: (req, res) => {
+          res.render('products/productCreate');
         }
-    }
-
-
-module.exports = mainControllers;
+      };
+      
+      module.exports = mainControllers;
+      

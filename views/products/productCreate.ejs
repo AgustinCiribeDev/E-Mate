@@ -1,11 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include ('./../partials/head.ejs') %>
 <body>
-    
+  <%- include ('./../partials/header.ejs') %>
+  <main>
+
+    <!-- carrusel (aun no funciona, faltan rutas en app.js)-->
+    <div class="container">
+      <div class="row">
+        <div class="col align-items-center d-flex">
+          <h4 class="p-2 mr-1"><i class="bi bi-arrow-right-circle-fill"></i> Cargar un producto</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- comienza el contenedor de productos-->
+    <div class="container">
+      <div class="row text-secondary mt-4 mb-4">
+        <!-- Formulario de carga de productos -->
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Nombre del producto</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresar nombre">
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Categoría</label>
+              <select class="custom-select">
+                <option selected>Seleccione una categoría</option>
+                <option>Yerbas</option>
+                <option>Mates</option>
+                <option>Sets</option>
+                <option>Termos</option>
+                <option>Bombillas</option>
+              </select>
+            </div>
+            <br />
+            <div class="custom-file">
+              <label for="exampleFormControlTextarea1">Foto </label>
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Seleccionar archivo de imagen</label>
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descripción</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <br />
+            <div class="form-options-color-amount">
+              <div class="form-options-amount">
+                <label for="cantidad">Precio de venta</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="10">
+              </div>
+              <div class="form-options-amount">
+                <label for="cantidad">Cantidad en stock</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="10">
+              </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary my-1">Aceptar</button>
+            <br />
+          </form>
+        </div>
+        
+        <!-- Vista previa -->
+
+        <div class="col-md-6">
+
+
+
+          <article class="main-product">
+            
+            <h5>Previsualización</h5>
+
+            <section class="product-photo">
+              <div class="product-photo-left">
+                <img src="https://d22fxaf9t8d39k.cloudfront.net/d99cc2d360c4f380d57bff545508030f0b8e5888d7bd9bd8cc7c1cdaae35c0f919762.jpeg" class="product-photo-img img-thumbnail" alt="mate">
+              </div>
+              <div class="product-buy-options">
+                <h2>MATE TÉRMICO</h2>
+                <h3>$12.000</h3>
+                <h4>3 cuotas sin interés de $4.000</h4>
+                <h5>Ver formas de pago</h5>
+                <form action="/carrito" method="post" class="form-options">
+                  <div class="form-options-color-amount">
+                    <div class="form-options-color">
+                      <label for="color">Color</label>
+                      <select name="color" id="color">
+                        <option value="negro">Negro</option>
+                        <option value="marron">Marrón</option>
+                      </select>
+                    </div>
+                    <div class="form-options-amount">
+                      <label for="cantidad">Cantidad</label>
+                      <input type="number" id="cantidad" name="cantidad" min="1" max="10"> 
+                    </div>
+                  </div>
+                  <div class="form-zip-code">
+                    <form action="#" method="get">
+                      <label for="zip-code">Calculá el costo de envío</label>
+                      <div class="form-zip-code-search-submit">
+                        <input type="search" placeholder="Ingresá tu código postal" aria-label="Buscar">
+                        <button type="submit">Calcular</button>
+                      </div>
+                    </form>
+                  </div>
+                  <button type="submit" class="btn-buy">Comprar Ahora</button>
+                  <button type="submit" class="btn-cart">Agregar al Carrito</button>
+                </form>
+              </div>
+            </section>
+            <section class="product-descriptions">
+              <h2>DESCRIPCIÓN DEL PRODUCTO</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
+              </p>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- aqui comienza el footer-->
+  <%- include ('./../partials/footer.ejs') %>
+  <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
 </html>
