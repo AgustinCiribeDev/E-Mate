@@ -19,15 +19,15 @@
       <div class="row text-secondary mt-4 mb-4">
         <!-- Formulario de carga de productos -->
         <div class="col-md-6">
-          <form>
+          <form action="/products/create" method="POST">
             <div class="form-group">
-              <label for="exampleFormControlInput1">Nombre del producto</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresar nombre">
+              <label for="nombre">Nombre del producto</label>
+              <input type="text" class="form-group" name="nombre" id="nombre" placeholder="Ingresar nombre">
             </div>
             <br />
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Categoría</label>
-              <select class="custom-select">
+              <label for="categoria">Categoría</label>
+              <select class="custom-select" name="categoria" id="categoria">
                 <option selected>Seleccione una categoría</option>
                 <option>Yerbas</option>
                 <option>Mates</option>
@@ -36,37 +36,49 @@
                 <option>Bombillas</option>
               </select>
             </div>
-            <br />
+            <br/>
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <select class="custom-select" name="estado" id="estado">
+                <option selected>En Oferta</option>
+                <option>Ultimos Agregados</option>
+              </select>
+            <br/>
+            <br>
             <div class="custom-file">
-              <label for="exampleFormControlTextarea1">Foto </label>
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Seleccionar archivo de imagen</label>
+              <label for="imagen">Foto </label>
+              <input type="file" class="custom-file-input" id="imagen">
+              <label class="custom-file-label" for="imagen" name="imagen">Seleccionar archivo de imagen</label>
             </div>
             <br />
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Descripción</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="descripcion">Descripción</label>
+              <textarea class="form-control" id="descripcion"name="descripcion" rows="3"></textarea>
             </div>
             <br />
             <div class="form-options-color-amount">
               <div class="form-options-amount">
-                <label for="cantidad">Precio de venta</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" max="10">
+                <label for="precioActual">Precio de venta</label>
+                <input type="number" id="precioActual" name="precioActual">
               </div>
               <div class="form-options-amount">
-                <label for="cantidad">Cantidad en stock</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" max="10">
+                <label for="descuento">Descuento</label>
+                <input type="number" id="descuento" name="descuento">
+              </div>
+              <div class="form-options-amount">
+                <label for="cuotas">Cuotas</label>
+                <input type="number" id="cuotas" name="cuotas">
               </div>
             </div>
             <br />
-            <button type="submit" class="btn btn-primary my-1">Aceptar</button>
+            <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
             <br />
           </form>
         </div>
         
         <!-- Vista previa -->
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6"> 
 
 
 
@@ -120,7 +132,7 @@
           </article>
         </div>
       </div>
-    </div>
+    </div>-->
   </main>
 
   <!-- aqui comienza el footer-->
