@@ -4,7 +4,6 @@ const app = express ();
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
 
-
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css"))); 
 
 app.use('/js', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/js"))); 
