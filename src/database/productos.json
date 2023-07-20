@@ -85,7 +85,6 @@
   "cuotas": 0,
   "estado": "En Oferta",
   "descuento": 0,
-<<<<<<< HEAD
   "imagen": "1689795390764Mate_calabaza_fondo_blanco.jpg"
  },
  {
@@ -120,8 +119,6 @@
   "estado": "Ultimos Agregados",
   "descuento": 10,
   "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689822575/1689822573304mate-and-kettle-with-a-plate-of-alfajores-and-yerba-mate-infusion-in-the-argentine-countryside-photo.jpg.jpg"
-=======
-  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821205890Mate_calabaza_fondo_blanco.jpg"
  },
  {
   "id": 9,
@@ -144,6 +141,16 @@
   "estado": "En Oferta",
   "descuento": 0,
   "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/1689822392775.jpg"
->>>>>>> f28478c0147a18c94ec4f7a66500bb47916154d8
+ },
+ {
+  "id": 11,
+  "nombre": "RocioEjemplo10",
+  "precioActual": 1000,
+  "categoria": "Mates",
+  "descripcion": "",
+  "cuotas": null,
+  "estado": "En Oferta",
+  "descuento": null,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689824484/16898244825311200px-Tipos_de_bombillas_para_mate.jpg.jpg"
  }
 ]
