@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../database/productos.json');
-let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
-
 
 cloudinary.config({ 
     cloud_name: 'dirx4wkl1', 
     api_key: '723134683983768', 
     api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
   });
+  
+  const productsFilePath = path.join(__dirname, '../database/productos.json');
+  let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const productsControllers = {
+
+  const productsControllers = {
         index: (req,res) => {
           productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
           let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");
@@ -76,7 +76,7 @@ const productsControllers = {
             cuotas: parseInt(req.body.cuotas),
             estado: req.body.estado,
             descuento: parseInt(req.body.descuento),
-            imagen: nombreImagen
+            imagen: "https://res.cloudinary.com/dirx4wkl1/image/upload/" + nombreImagen
           };
         
           productos.push(objNuevoProducto);
