@@ -75,5 +75,38 @@
   "estado": "En Oferta",
   "descuento": 0,
   "imagen": "1689795390764Mate_calabaza_fondo_blanco.jpg"
+ },
+ {
+  "id": 9,
+  "nombre": "Prueba 4",
+  "precioActual": 2300,
+  "categoria": "Termos",
+  "descripcion": "",
+  "cuotas": null,
+  "estado": "En Oferta",
+  "descuento": 0,
+  "imagen": "1689820877535mate1.jpeg"
+ },
+ {
+  "id": 10,
+  "nombre": "RocioEjemplo4",
+  "precioActual": null,
+  "categoria": "Yerbas",
+  "descripcion": "",
+  "cuotas": null,
+  "estado": "En Oferta",
+  "descuento": null,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689822439/1689822437026mate1.jpeg.jpg"
+ },
+ {
+  "id": 11,
+  "nombre": "Rocio Prueba 5",
+  "precioActual": 2000,
+  "categoria": "Yerbas",
+  "descripcion": "v",
+  "cuotas": null,
+  "estado": "Ultimos Agregados",
+  "descuento": 10,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689822575/1689822573304mate-and-kettle-with-a-plate-of-alfajores-and-yerba-mate-infusion-in-the-argentine-countryside-photo.jpg.jpg"
  }
 ]
