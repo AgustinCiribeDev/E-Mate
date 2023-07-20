@@ -33,47 +33,59 @@
   "imagen": "http://dummyimage.com/488x566.png/dddddd/000000"
  },
  {
-  "id": 5,
+  "id": 4,
   "nombre": "Mate Térmico Stanley",
   "precioActual": 18000,
   "categoria": "Mates",
-  "descripcion": "Mate térmico Stanley Blanco.",
+  "descripcion": "Mate Stanley Blanco",
   "cuotas": 6,
   "estado": "En Oferta",
-  "descuento": 20,
-  "imagen": null
+  "descuento": 30,
+  "imagen": "1689819597892mate-stanley-blanco.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "yerba kalena",
+  "precioActual": 1000,
+  "categoria": "Yerbas",
+  "descripcion": "yerba kalena",
+  "cuotas": 6,
+  "estado": "En Oferta",
+  "descuento": 0,
+  "imagen": "1689820056521Mate_calabaza_fondo_blanco.jpg"
  },
  {
   "id": 6,
-  "nombre": "mate calabaza",
+  "nombre": "pepep",
   "precioActual": 10000,
   "categoria": "Mates",
-  "descripcion": "mate calabaza",
-  "cuotas": 0,
+  "descripcion": "ddf",
+  "cuotas": 6,
   "estado": "En Oferta",
-  "descuento": 10,
-  "imagen": null
+  "descuento": 66,
+  "imagen": "1689820873050Mate_calabaza_fondo_blanco.jpg"
  },
  {
   "id": 7,
-  "nombre": "mate",
-  "precioActual": 500,
+  "nombre": "Mate Térmico Stanley",
+  "precioActual": 18000,
   "categoria": "Mates",
-  "descripcion": "mate calabaza",
-  "cuotas": 1,
+  "descripcion": "Mate blanco Stanley",
+  "cuotas": 6,
   "estado": "En Oferta",
-  "descuento": 0,
-  "imagen": "1689794570605Mate_calabaza_fondo_blanco.jpg"
+  "descuento": 10,
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821057335mate-stanley-blanco.jpg"
  },
  {
   "id": 8,
-  "nombre": "pepep",
+  "nombre": "mate calabaza",
   "precioActual": 1000,
-  "categoria": "Yerbas",
-  "descripcion": "das",
+  "categoria": "Mates",
+  "descripcion": "mate calabaza",
   "cuotas": 0,
   "estado": "En Oferta",
   "descuento": 0,
+<<<<<<< HEAD
   "imagen": "1689795390764Mate_calabaza_fondo_blanco.jpg"
  },
  {
@@ -108,5 +120,30 @@
   "estado": "Ultimos Agregados",
   "descuento": 10,
   "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689822575/1689822573304mate-and-kettle-with-a-plate-of-alfajores-and-yerba-mate-infusion-in-the-argentine-countryside-photo.jpg.jpg"
+=======
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821205890Mate_calabaza_fondo_blanco.jpg"
+ },
+ {
+  "id": 9,
+  "nombre": "pepep",
+  "precioActual": 10000,
+  "categoria": "Mates",
+  "descripcion": "dfsdf",
+  "cuotas": 6,
+  "estado": "En Oferta",
+  "descuento": 6,
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
+ },
+ {
+  "id": 10,
+  "nombre": "Mate Térmico Stanley",
+  "precioActual": 100,
+  "categoria": "Mates",
+  "descripcion": "asd",
+  "cuotas": 6,
+  "estado": "En Oferta",
+  "descuento": 0,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/1689822392775.jpg"
+>>>>>>> f28478c0147a18c94ec4f7a66500bb47916154d8
  }
 ]

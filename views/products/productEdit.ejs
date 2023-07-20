@@ -19,7 +19,7 @@
       <div class="row text-secondary mt-4 mb-4">
         <!-- Formulario de carga de productos -->
         <div class="col-md-6">
-          <form action="/products/edit/<%=productoAEditar.id%>?_method=PUT" method="POST">
+          <form action="/products/edit/<%=productoAEditar.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label for="nombre"><Nombre del producto></label>
               <input type="text" class="form-control" name="nombre" id="nombre" value="<%=productoAEditar.nombre%>" placeholder="Ingresar nombre">
@@ -51,9 +51,8 @@
             <br/>
             <br>
             <div class="custom-file">
-              <label for="imagen">Foto </label>
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Seleccionar archivo de imagen</label>
+              <label class="custom-file-label" for="imagen">Seleccionar archivo de imagen</label>
+              <input type="file" class="custom-file-input" id="imagen" name="imagen">
             </div>
             <br />
             <div class="form-group">

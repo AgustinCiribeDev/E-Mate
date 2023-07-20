@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../database/productos.json');
-let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
-
 
 cloudinary.config({ 
     cloud_name: 'dirx4wkl1', 
     api_key: '723134683983768', 
     api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
   });
+  
+  const productsFilePath = path.join(__dirname, '../database/productos.json');
+  let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const productsControllers = {
+
+  const productsControllers = {
         index: (req,res) => {
           productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
           let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");
@@ -56,27 +56,28 @@ const productsControllers = {
         addProduct: (req, res) => {
           const imageBuffer = req.file.buffer;
           const nombreImagen = Date.now() + req.file.originalname;
-        
-          const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
-            if (error) {
-              console.log('Error al cargar la imagen:', error);
-              res.status(500).send('Error al cargar la imagen');
-            } else {
-              console.log('Imagen cargada correctamente:', result);
-              // Aquí, en lugar de almacenar solo el nombre de la imagen,
-              // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
-              let idNuevoProducto = (productos[productos.length - 1].id) + 1;
-              let objNuevoProducto = {
-                id: idNuevoProducto,
-                nombre: req.body.nombre,
-                precioActual: parseInt(req.body.precioActual),
-                categoria: req.body.categoria,
-                descripcion: req.body.descripcion,
-                cuotas: parseInt(req.body.cuotas),
-                estado: req.body.estado,
-                descuento: parseInt(req.body.descuento),
-                imagen: result ? result.secure_url : null // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null
-              };
+
+          const stream = cloudinary.uploader.upload_stream({resource_type: 'image', public_id: nombreImagen}, (error, result) => {
+             if (error) {
+               console.log('Error al cargar la imagen:', error);
+             } else {
+               console.log('Imagen cargada correctamente:', result);
+               }
+           });
+           streamifier.createReadStream(imageBuffer).pipe(stream);
+          
+          let idNuevoProducto= (productos[productos.length-1].id)+1;
+          let objNuevoProducto= {
+            id: idNuevoProducto,
+            nombre: req.body.nombre,
+            precioActual: parseInt(req.body.precioActual),
+            categoria: req.body.categoria,
+            descripcion: req.body.descripcion,
+            cuotas: parseInt(req.body.cuotas),
+            estado: req.body.estado,
+            descuento: parseInt(req.body.descuento),
+            imagen: nombreImagen
+          };
         
               productos.push(objNuevoProducto);
               fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
