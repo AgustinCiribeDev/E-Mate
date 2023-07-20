@@ -3,6 +3,15 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../database/productos.json');
 let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
+
+
+cloudinary.config({ 
+    cloud_name: 'dirx4wkl1', 
+    api_key: '723134683983768', 
+    api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
+  });
 
 const productsControllers = {
         index: (req,res) => {
@@ -45,8 +54,19 @@ const productsControllers = {
           res.render('products/productCreate');
         },
         addProduct: (req, res) => {
-		      let idNuevoProducto= (productos[productos.length-1].id)+1;
-		      
+		      const imageBuffer = req.file.buffer;
+          const nombreImagen = Date.now() + req.file.originalname;
+
+          const stream = cloudinary.uploader.upload_stream({resource_type: 'image', public_id: nombreImagen}, (error, result) => {
+             if (error) {
+               console.log('Error al cargar la imagen:', error);
+             } else {
+               console.log('Imagen cargada correctamente:', result);
+               }
+           });
+           streamifier.createReadStream(imageBuffer).pipe(stream);
+          
+          let idNuevoProducto= (productos[productos.length-1].id)+1;
           let objNuevoProducto= {
             id: idNuevoProducto,
             nombre: req.body.nombre,
@@ -56,7 +76,7 @@ const productsControllers = {
             cuotas: parseInt(req.body.cuotas),
             estado: req.body.estado,
             descuento: parseInt(req.body.descuento),
-            imagen: req.body.imagen
+            imagen: nombreImagen
           };
         
           productos.push(objNuevoProducto);
@@ -112,70 +132,6 @@ const productsControllers = {
           res.redirect('/');
         }
         
-        
-        /*addProduct: (req, res) => {
-          const newProduct = {
-            id: req.body.id,
-            nombre: req.body.nombre,
-            precioActual: req.body.precioActual,
-            categoria: req.body.categoria,
-            descripcion: req.body.descripcion,
-            cuotas: req.body.cuotas,
-            estado: req.body.estado,
-            descuento: req.body.descuento,
-            imagen: req.body.imagen
-          };
-      
-          // Leer el archivo JSON existente
-          fs.readFile('src/database/productos.json', 'utf8', (err, data) => {
-            if (err) {
-              console.error(err);
-              res.status(500).json({ error: 'Error al leer el archivo JSON' });
-              return;
-            }
-      
-            try {
-              const productos = JSON.parse(data);
-      
-              // Agregar el nuevo producto al array existente
-              productos.push(newProduct);
-      
-              // Convertir el array actualizado a JSON
-              const updatedJson = JSON.stringify(productos, null, 2);
-      
-              // Escribir el JSON actualizado de vuelta al archivo
-              fs.writeFile('src/database/productos.json', updatedJson, 'utf8', (err) => {
-                if (err) {
-                  console.error(err);
-                  res.status(500).json({ error: 'Error al escribir en el archivo JSON' });
-                  return;
-                }
-      
-                res.render('products/productCatalogue', { productos });
-              });
-            } catch (err) {
-              console.error(err);
-              res.status(500).json({ error: 'Error al analizar el JSON' });
-            }
-          });
-        },
-        products: (req, res) => {
-          fs.readFile('src/database/productos.json', 'utf8', (err, data) => {
-            if (err) {
-              console.error(err);
-              res.status(500).json({ error: 'Error al leer el archivo JSON' });
-              return;
-            }
-      
-            try {
-              const productos = JSON.parse(data);
-              res.render('products/productCatalogue', { productos });
-            } catch (err) {
-              console.error(err);
-              res.status(500).json({ error: 'Error al analizar el JSON' });
-            }
-          });
-        }*/
       };
       
       module.exports = productsControllers;

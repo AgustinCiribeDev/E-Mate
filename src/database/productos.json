@@ -33,13 +33,47 @@
   "imagen": "http://dummyimage.com/488x566.png/dddddd/000000"
  },
  {
-  "id": 4,
+  "id": 5,
   "nombre": "Mate Térmico Stanley",
-  "precioActual": 20000,
+  "precioActual": 18000,
   "categoria": "Mates",
-  "descripcion": "mate termico",
-  "cuotas": 3,
+  "descripcion": "Mate térmico Stanley Blanco.",
+  "cuotas": 6,
   "estado": "En Oferta",
-  "descuento": 10
+  "descuento": 20,
+  "imagen": null
+ },
+ {
+  "id": 6,
+  "nombre": "mate calabaza",
+  "precioActual": 10000,
+  "categoria": "Mates",
+  "descripcion": "mate calabaza",
+  "cuotas": 0,
+  "estado": "En Oferta",
+  "descuento": 10,
+  "imagen": null
+ },
+ {
+  "id": 7,
+  "nombre": "mate",
+  "precioActual": 500,
+  "categoria": "Mates",
+  "descripcion": "mate calabaza",
+  "cuotas": 1,
+  "estado": "En Oferta",
+  "descuento": 0,
+  "imagen": "1689794570605Mate_calabaza_fondo_blanco.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "pepep",
+  "precioActual": 1000,
+  "categoria": "Yerbas",
+  "descripcion": "das",
+  "cuotas": 0,
+  "estado": "En Oferta",
+  "descuento": 0,
+  "imagen": "1689795390764Mate_calabaza_fondo_blanco.jpg"
  }
 ]

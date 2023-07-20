@@ -3,32 +3,9 @@ const router = express.Router();
 
 const productsControllers = require('./../controllers/productsControllers');
 
-///////////////IMAGENES
+//Configurando Multer
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-const cloudinary = require('cloudinary').v2;
-
-cloudinary.config({ 
-    cloud_name: 'dirx4wkl1', 
-    api_key: '723134683983768', 
-    api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI' 
-  });
-
-router.post('/create', upload.single('imagen'), (req, res) => {
-    const file = req.file;
-
- cloudinary.uploader.upload(file.path, (error, result) => {
-    if (error) {
-      console.log('Error al cargar la imagen:', error);
-    } else {
-      console.log('Imagen cargada correctamente:', result);
-      res.json(result);
-    }
-  });
-});
-
-
-///////////////// FIN IMAGENES
+const upload = multer();
 
 
 router.get('/', productsControllers.index);
@@ -44,7 +21,7 @@ router.get('/cart', productsControllers.cart);
 
 //Rutas de crear productos
 router.get('/create', productsControllers.create);
-router.post('/create', productsControllers.addProduct);
+router.post('/create', upload.single('imagen'),  productsControllers.addProduct);
 
 //Ruta para editar un producto
 router.get('/edit/:id', productsControllers.edit);
