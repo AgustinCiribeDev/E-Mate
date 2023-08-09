@@ -8,7 +8,7 @@
   "cuotas": 3,
   "estado": "En Oferta",
   "descuento": 20,
-  "imagen": "http://dummyimage.com/488x566.png/cc0000/ffffff"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 2,
@@ -19,7 +19,7 @@
   "cuotas": 3,
   "estado": "Ultimos Agregados",
   "descuento": 0,
-  "imagen": "http://dummyimage.com/488x566.png/dddddd/000000"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 3,
@@ -30,7 +30,7 @@
   "cuotas": 0,
   "estado": "En Oferta",
   "descuento": 0,
-  "imagen": "http://dummyimage.com/488x566.png/dddddd/000000"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 4,
@@ -41,29 +41,29 @@
   "cuotas": 6,
   "estado": "En Oferta",
   "descuento": 30,
-  "imagen": "1689819597892mate-stanley-blanco.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 5,
-  "nombre": "yerba kalena",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 1000,
   "categoria": "Yerbas",
   "descripcion": "yerba kalena",
   "cuotas": 6,
   "estado": "En Oferta",
   "descuento": 0,
-  "imagen": "1689820056521Mate_calabaza_fondo_blanco.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 6,
-  "nombre": "pepep",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 10000,
   "categoria": "Mates",
-  "descripcion": "ddf",
+  "descripcion": "Mate blanco Stanley",
   "cuotas": 6,
   "estado": "En Oferta",
   "descuento": 66,
-  "imagen": "1689820873050Mate_calabaza_fondo_blanco.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 7,
@@ -74,33 +74,33 @@
   "cuotas": 6,
   "estado": "En Oferta",
   "descuento": 10,
-  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821057335mate-stanley-blanco.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 8,
-  "nombre": "mate calabaza",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 1000,
   "categoria": "Mates",
   "descripcion": "mate calabaza",
   "cuotas": 0,
   "estado": "En Oferta",
   "descuento": 0,
-  "imagen": "1689795390764Mate_calabaza_fondo_blanco.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 9,
-  "nombre": "Prueba 4",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 2300,
   "categoria": "Termos",
   "descripcion": "",
   "cuotas": null,
   "estado": "En Oferta",
   "descuento": 0,
-  "imagen": "1689820877535mate1.jpeg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 10,
-  "nombre": "RocioEjemplo4",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": null,
   "categoria": "Yerbas",
   "descripcion": "",
@@ -111,7 +111,7 @@
  },
  {
   "id": 11,
-  "nombre": "Rocio Prueba 5",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 2000,
   "categoria": "Yerbas",
   "descripcion": "v",
@@ -122,7 +122,7 @@
  },
  {
   "id": 9,
-  "nombre": "pepep",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 10000,
   "categoria": "Mates",
   "descripcion": "dfsdf",
@@ -144,7 +144,7 @@
  },
  {
   "id": 11,
-  "nombre": "RocioEjemplo10",
+  "nombre": "Mate Térmico Stanley",
   "precioActual": 1000,
   "categoria": "Mates",
   "descripcion": "",

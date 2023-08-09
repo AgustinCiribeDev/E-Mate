@@ -68,4 +68,3 @@ const usersControllers = {
         }
     }
 
-    module.exports = usersControllers;

@@ -10,9 +10,11 @@ const multer = require('multer');
 const upload = multer();
 
 //Registro de usuario agregando una imagen como avatar
+
 router.get('/register', usersControllers.register);
 router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
 
 router.get('/login', usersControllers.login);
 
 module.exports = router;
+
