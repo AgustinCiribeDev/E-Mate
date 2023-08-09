@@ -1,0 +1,16 @@
+[
+ {
+  "id": 1,
+  "nombre": "Ezequiel",
+  "email": "ezequielallende@gmail.com",
+  "password": "123456",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691501547/16915015459781633090530832.jpg.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Sofia",
+  "email": "sofia@gmail.com",
+  "password": "123456",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691503007/16915030062411633090530832.jpg.jpg"
+ }
+]

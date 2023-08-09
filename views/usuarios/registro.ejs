@@ -17,47 +17,68 @@
 
 
     <div .container>
-
+        <form method="POST" action="/users/register" enctype="multipart/form-data">
         <div class="d-flex align-items-center justify-content-center" style="min-height: 55vh;">
             <div class="row"></div>
                 <article class="text-center col-8 col-sm-6  col-md-5 col-lg-4 col-xl-3" style="font-size: 18px;">
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
-                        <input type="name" class="form-control" id="floatingInput" placeholder="Nombre">
-                        <label for="floatingInput">Nombre</label>
+                        <input type="text" name="name" id="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
+                        <label for="name">Nombre</label>
+                        <% if (locals.errors && errors.name) { %>
+                        <div class="text-danger">
+                            <%= errors.name.msg %>
+                        </div>
+                        <% } %>
                     </div>
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email</label>
+                        <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
+                        <label for="email">Email</label>
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-
+                        <input type="password" class="form-control" id="password" name ="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
+                        <label for="password">Contraseña</label>
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                            <% } %>
+                        <div class="form-floating mb-2 col-12 mx-auto text-center">
+                            <div class="form-group">
+                            <label class="custom-file-label" for="avatar" >Selecciona una imagen de perfil</label>
+                            <input type="file" class="custom-file-input" id="avatar" name="avatar" >  
+                                    <% if (locals.errors && errors.avatar) { %>
+                                <div class="text-danger">
+                                    <%= errors.avatar.msg %>
+                                </div>
+                                    <% } %>  
+                            </div>
+                        </div>   
                     <div class="form-check m-3" style="font-size: 16px;">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
-                          Recibir Ofertas por E-mail
+                        Recibir Ofertas por E-mail
                         </label>
-                      </div>
-
+                    </div>
                     <div class="d-grid mb-5 gap-2 col-12 mx-auto btn btn-success">
-                        <button id="iniciarsesion"class="btn btn-success" type="button">REGISTRARSE</button>
+                        <button id="iniciarsesion"class="btn btn-success" type="submit">REGISTRARSE</button>
                     </div>
                     
-
                     <div class="d-grid mb-2 align-items-center gap-2 col-12 mx-auto">
                         <button id="iniciarsesion"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-google"></i>     Ingresar con Google</button>
                     </div>
-
                     <div class="d-grid mb-2 align-items-center col-12 mx-auto">
                         <button id="iniciarsesion"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i>   Ingresar con Apple</button>
                     </div>
-                    
                 </article>
         </div>
+    </form>
     </div>
-
+   
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
