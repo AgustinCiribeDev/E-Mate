@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('./../partials/head.ejs') %>
+<body>
+    
+  <%- include ('./../partials/headerLog.ejs') %>
+
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Aquí puedes mostrar la foto de perfil del usuario -->
+            <img src="<%= user.avatar %>" alt="Foto de Perfil" class="img-fluid rounded-circle">
+          </div>
+          <div class="col-md-8">
+            <!-- Aquí puedes mostrar los detalles del usuario -->
+            <h2>Hola <%= user.nombre %></h2>
+            <p>Email: <%= user.email %></p>
+          </div>
+        </div>
+      </div>
+
+      <%- include ('./../partials/footer.ejs') %>
+      <%- include ('./../partials/bootstrapJs.ejs') %>
+  </body>
+  </html>

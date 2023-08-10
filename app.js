@@ -2,7 +2,7 @@ const express = require ('express');
 const path = require ('path');
 const app = express ();
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
-
+const session = require('express-session')
 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css"))); 
 
@@ -13,6 +13,12 @@ app.use('/icons', express.static(path.resolve (__dirname, "node_modules/bootstra
 app.use (express.static (path.resolve (__dirname, './public')));
 
 //Configuración Middlewares 
+
+app.use(session({
+    secret: "Esta es la palabra SECRETA andoyerbeando",
+    resave: false,
+    saveUninitialized: false,
+}));
 
 app.use(express.urlencoded({ extended: false })); //para poder usar POST
 app.use(express.json());

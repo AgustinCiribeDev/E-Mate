@@ -3,14 +3,21 @@
   "id": 1,
   "nombre": "Ezequiel",
   "email": "ezequielallende@gmail.com",
-  "password": "123456",
-  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691501547/16915015459781633090530832.jpg.jpg"
+  "password": "$2a$10$wmiga3LcY7E1D5941Na93OFXndKjCEU40DSIWSUJav6./j5wYzcwy",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691640210/16916402089901633090530832.jpg.jpg"
  },
  {
   "id": 2,
+  "nombre": "Ezequiel",
+  "email": "eze@gmail.com",
+  "password": "$2a$10$Br7QDL4GqnpnNScGeqTdce0beMFaN47KdvmnW9UeiWiw8yruGEqFK",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691640495/1691640494472Mate_calabaza_fondo_blanco.jpg.jpg"
+ },
+ {
+  "id": 3,
   "nombre": "Sofia",
   "email": "sofia@gmail.com",
-  "password": "123456",
-  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691503007/16915030062411633090530832.jpg.jpg"
+  "password": "$2a$10$OyrNPQnBW5o5MuLrhNbl4.CwardVz0xr0nbEbQl3CGu/o5XnXTZti",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691640662/16916406615331633090530832.jpg.jpg"
  }
 ]
