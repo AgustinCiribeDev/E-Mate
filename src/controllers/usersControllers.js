@@ -110,7 +110,13 @@ const usersControllers = {
             delete userDeletePassword.password;
             
             req.session.userLogged = userDeletePassword;
+            
+            if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
+            }
+            
             return res.redirect('/users/profile');
+          
           } 
           
           else {
@@ -133,13 +139,14 @@ const usersControllers = {
         }
   },
       profile: (req, res) => {
-
+console.log(req.cookies.userEmail);
         res.render('usuarios/perfil', {
           user: req.session.userLogged
         });
       },
 
       logout: (req, res) => {
+        res.clearCookie('userEmail');
         req.session.destroy();
         res.redirect('/');
       }

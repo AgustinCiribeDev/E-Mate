@@ -1,75 +1,74 @@
 <!-- ./partials/head.ejs -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <header>
-      
-  <!-- Barra verde-->
-<div class="container-fluid small mr-0 p-1 mx-auto bg-success row justify-content-center text-white">
+          <!-- Barra verde-->
+        <div class="container-fluid small mr-0 p-1 mx-auto bg-success row justify-content-center text-white">
   3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS
-</div>
+        </div>
 
-<!-- Barra gris-->
-<div class="container-fluid mr-0 pr-0 mx-auto p-3 bg-secondary align-items-center">
-  <div class="row">
-    <div class="col-6">       
-      <div class="logo col-8">
-        <a class="nav-link" href="/"><img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></img></a>
-    </div>
-    </div>        
-    <div class="col-6 d-flex justify-content-end align-items-center">
-      <% if(locals.isLogged) {%>
-      <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle mr-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%">
-          Hola <%= locals.userLogged.nombre %>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="/users/profile">Perfil</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
-        </ul>
-      </div>
-      <% } else {%>
-      <a class="nav-item mr-5" href="/users/login"><i class="bx bxs-user-circle mr-5 pd-5"></i>Ingresar</a>
-      <a class="nav-item mr-5" href="/users/register"><i class="bx bxs-user-circle mr-5 pd-5"></i>Registrarse</a>
-    <% }%>
-    </div>
-  </div>
-</div>
 
+  
+        <div class="container-fluid mr-0 pr-0 mx-auto p-3 bg-secondary align-items-center">
+          <div class="row">
+            <div class="col-6">       
+              <div class="logo col-8">
+                <a class="nav-link" href="/"><img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></img></a>
+            </div>
+            </div>        
+            <div class="col-6 d-flex justify-content-end align-items-center">
+              <% if(locals.isLogged) {%>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%">
+                  Hola <%= locals.userLogged.nombre %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/users/profile">Perfil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+              <% } else {%>
+              <a class="nav-item mr-5" href="/users/login"><i class="bx bxs-user-circle mr-5 pd-5"></i>Ingresar</a>
+              <a class="nav-item mr-5" href="/users/register"><i class="bx bxs-user-circle mr-5 pd-5"></i>Registrarse</a>
+            <% }%>
+            </div>
+          </div>
+        </div>
   <!-- Barra buscar productos-->
 
-<div class="row">
-  <div class="col-12 p-0 m-0 row align-items-center justify-content-center">
-    <input class="col-8 m-1" type="search " placeholder="Buscar productos..." aria-label="Search">
-    <button class="btn btn-secondary col-1 m-1 " type="submit"><i class="bi bi-search row align-items-center justify-content-center"></i></button>
-    <a class="btn btn-link col-1 m-1 row align-items-center justify-content-center" href="/cart"> <span class="badge badge-danger row align-items-center justify-content-center"><i class="bi bi-cart4 text-secondary fs-3 row align-items-center justify-content-center"></i></span></a>
-  </div>
-</div>
-
-<!-- Menu Hamburguesa-->
-<nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/products/productCatalogue">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/products/create">Crear producto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/contacto">Contacto</a>
-        </li>
-      </ul>
+  <div class="row">
+    <div class="col-12 p-0 m-0 row align-items-center justify-content-center">
+      <input class="col-8 m-1" type="search " placeholder="Buscar productos..." aria-label="Search">
+      <button class="btn btn-secondary col-1 m-1 " type="submit"><i class="bi bi-search row align-items-center justify-content-center"></i></button>
+      <a class="btn btn-link col-1 m-1 row align-items-center justify-content-center" href="/cart"> <span class="badge badge-danger row align-items-center justify-content-center"><i class="bi bi-cart4 text-secondary fs-3 row align-items-center justify-content-center"></i></span></a>
     </div>
   </div>
-</nav>
+  
+  <!-- Menu Hamburguesa-->
+  <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/products/productCatalogue">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/products/create">Crear producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/contacto">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </header>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

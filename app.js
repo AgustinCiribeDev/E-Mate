@@ -2,7 +2,8 @@ const express = require ('express');
 const path = require ('path');
 const app = express ();
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
-const session = require('express-session')
+const session = require('express-session');
+const cookies = require('cookie-parser');
 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css"))); 
 
@@ -19,6 +20,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+app.use(cookies());
 
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 app.use(userLoggedMiddleware);
