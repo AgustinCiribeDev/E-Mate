@@ -106,7 +106,7 @@ const usersControllers = {
           let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
     
           if (passwordOk) {
-            let userDeletePassword = userFound //creo esta variable porque sino la propiedad delete no funciona porq los datos vienen del json.
+            let userDeletePassword = { ...userFound}; //crea una copia del objeto userFound sin la propiedad password
             delete userDeletePassword.password;
             
             req.session.userLogged = userDeletePassword;
