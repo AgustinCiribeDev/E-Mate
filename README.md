@@ -48,19 +48,3 @@ https://www.figma.com/file/pCQFqERj3WZmz39kNlLTFr/WireFrames-(Copy)?type=design&
 - Link al sitio:
 
 https://yerbeando.onrender.com/
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
