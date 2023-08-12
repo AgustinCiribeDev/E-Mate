@@ -5,16 +5,17 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 const session = require('express-session');
 const cookies = require('cookie-parser');
 
+//Bootstrap
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css"))); 
 
 app.use('/js', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/js"))); 
 
 app.use('/icons', express.static(path.resolve (__dirname, "node_modules/bootstrap-icons/font"))); 
 
+// Capeta public
 app.use (express.static (path.resolve (__dirname, './public')));
 
 //Configuración Middlewares 
-
 app.use(session({
     secret: "Esta es la palabra SECRETA andoyerbeando",
     resave: false,
@@ -35,7 +36,6 @@ app.set("view engine", "ejs");
 
 
 //configuracion rutas
-
 const mainRoutes =  require ('./src/routes/mainRoutes')
 const productsRoutes =  require ('./src/routes/productsRoutes')
 const usersRoutes =  require ('./src/routes/usersRoutes')

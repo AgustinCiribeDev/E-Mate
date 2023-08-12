@@ -19,5 +19,47 @@
   "email": "sofia@gmail.com",
   "password": "$2a$10$OyrNPQnBW5o5MuLrhNbl4.CwardVz0xr0nbEbQl3CGu/o5XnXTZti",
   "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691640662/16916406615331633090530832.jpg.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Santiago",
+  "email": "smarconetti@gmail.com",
+  "password": "$2a$10$SyGgSj0V9Rc4C4VmoWIWROftpg86.NWQ2bqnqQDSd9M2Ol3zJkQOe",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691802909/1691802849731IMG_20190224_192235.jpg.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "Juan",
+  "email": "juan@gmail.com",
+  "password": "$2a$10$UoJApj8LtFSk3bZezHvWver6zBvsB2Ngwpu.fiwCozh3nQQWrmSGS",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691802964/1691802960699laptop%201.jpg.jpg"
+ },
+ {
+  "id": 6,
+  "nombre": "Santiago",
+  "email": "smarconetti@gmail.com",
+  "password": "$2a$10$GcBjY6XnwCpoOmdILJRsguKQ177s6GTNPKujgXYJzuLT1KGMc5LA.",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691802974/1691802860543IMG_20190224_192235.jpg.jpg"
+ },
+ {
+  "id": 7,
+  "nombre": "Santiago",
+  "email": "smarconetti@gmail.com",
+  "password": "$2a$10$YNypmEeIswgSSmvsSwV3neuqDwHXMV9BM7Km9jmMXUlk4M5xI6/Fq",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691802975/1691802863023IMG_20190224_192235.jpg.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "Santiago",
+  "email": "smarconetti@gmail.com",
+  "password": "$2a$10$druCUyVoeG2aMy3vsvJHieUlfHeRdey7PRezjH581OV/s/3Judgc.",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691802977/1691802863261IMG_20190224_192235.jpg.jpg"
+ },
+ {
+  "id": 9,
+  "nombre": "Santiago",
+  "email": "SM@gmail.com",
+  "password": "$2a$10$6mPELL4nHlo9ZIzpk8.IaeTyjvqZjm0bz7lVkhgr2PutHG0/RGzTK",
+  "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691803090/1691803088821laptop%201.jpg.jpg"
  }
 ]
