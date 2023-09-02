@@ -7,10 +7,12 @@ cloudinary.config({
     cloud_name: 'dirx4wkl1', 
     api_key: '723134683983768', 
     api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
-  });
+});
   
   const productsFilePath = path.join(__dirname, '../database/productos.json');
   let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+  const db = require('../database/models');
 
 
   const productsControllers = {
