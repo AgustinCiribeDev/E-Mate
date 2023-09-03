@@ -12,6 +12,8 @@ cloudinary.config({
   const productsFilePath = path.join(__dirname, '../database/productos.json');
   let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+  
+//BASE DE DATOS
   const db = require('../database/models');
 
 

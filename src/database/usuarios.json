@@ -61,5 +61,13 @@
   "email": "SM@gmail.com",
   "password": "$2a$10$6mPELL4nHlo9ZIzpk8.IaeTyjvqZjm0bz7lVkhgr2PutHG0/RGzTK",
   "avatar": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1691803090/1691803088821laptop%201.jpg.jpg"
+ },
+ {
+  "id": 10,
+  "nombre": "Rocio",
+  "email": "hola@gmail.com",
+  "clave": "$2a$10$gTrtBrYilQl0wGbgV0skWOb9ksVJRSA4Etlm1qJ.RJFtnT6K390ZO",
+  "rol": "Rocio",
+  "local_id": "Rocio"
  }
 ]
