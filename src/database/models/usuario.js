@@ -29,7 +29,7 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let Usuario = sequelize.define(alias, cols, config);
+	let usuario = sequelize.define(alias, cols, config);
 	
 	usuario.associate = function(models){
         usuario.hasMany(models.producto, {

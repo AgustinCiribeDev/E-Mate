@@ -38,5 +38,5 @@ module.exports = function(sequelize, dataTypes){
         })
 	}
 
-	return Registro_venta; 
+	return registro_venta
 }
