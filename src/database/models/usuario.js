@@ -32,9 +32,13 @@ module.exports = function(sequelize, dataTypes){
 	let Usuario = sequelize.define(alias, cols, config);
 	
 	usuario.associate = function(models){
-        usuario.hasMany(models.Producto, {
+        usuario.hasMany(models.producto, {
             as: "productos",
             foreignKey: "usuario_id"
+        });
+		usuario.belongsTo(models.local, {
+            as: "local",
+            foreignKey: "local_id"
         })
 		
 	}

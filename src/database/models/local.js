@@ -26,7 +26,7 @@ module.exports = function(sequelize, dataTypes){
 	let local = sequelize.define(alias, cols, config);
 	
 	local.associate = function(models){
-        local.hasMany(models.Usuario, {
+        local.hasMany(models.usuario, {
             as: "usuarios",
             foreignKey: "usuario_id"
         })
