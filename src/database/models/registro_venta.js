@@ -22,7 +22,7 @@ module.exports = function(sequelize, dataTypes){
 	let Registro_venta = sequelize.define(alias, cols, config);
 	
 	Registro_venta.associate = function(models){
-        Registro_venta.hasMany(models.venta, {
+        Registro_venta.hasMany(models.Venta, {
             as: "ventas",
             foreignKey: "registro_venta_id"
         })

@@ -20,9 +20,9 @@ module.exports = function(sequelize, dataTypes){
 	let Local = sequelize.define(alias, cols, config);
 	
 	Local.associate = function(models){
-        Local.hasMany(models.usuario, {
+        Local.hasMany(models.Usuario, {
             as: "usuarios",
-            foreignKey: "usuario_id"
+            foreignKey: "local_id"
         })
 		
 	}

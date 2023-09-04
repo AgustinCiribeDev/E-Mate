@@ -29,11 +29,11 @@ module.exports = function(sequelize, dataTypes){
 	let Venta = sequelize.define(alias, cols, config);
 	
 	Venta.associate = function(models){
-        Venta.belongsTo(models.producto, {
+        Venta.belongsTo(models.Producto, {
             as: "producto",
             foreignKey: "producto_id"
         });
-		Venta.belongsTo(models.registro_venta, {
+		Venta.belongsTo(models.Registro_venta, {
             as: "registro_venta",
             foreignKey: "registro_venta_id"
         });
