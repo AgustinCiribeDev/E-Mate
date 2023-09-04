@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-	let alias = "registro_venta"     //como queremos que sequelize llame a nuestra tabla//
+	let alias = "Registro_venta"     //como queremos que sequelize llame a nuestra tabla//
 	
 	let cols = {    
 		id:{
@@ -7,21 +7,11 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
 		},
-        fecha:{
-			type:dataTypes.DATE
-		},
-		direccion:{
-			type:dataTypes.STRING
-		},
-		email:{
-			type:dataTypes.STRING
-		},
-		dni:{
-			type:dataTypes.STRING
-		},
-		medios_pago:{
-			type:dataTypes.STRING
-		},
+        fecha:{type:dataTypes.DATE},
+		direccion:{type:dataTypes.STRING},
+		email:{type:dataTypes.STRING},
+		dni:{type:dataTypes.STRING},
+		medios_pago:{type:dataTypes.STRING}
 	}
 
     let config = {
@@ -29,14 +19,14 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let registro_venta = sequelize.define(alias, cols, config);
+	let Registro_venta = sequelize.define(alias, cols, config);
 	
-	registro_venta.associate = function(models){
-        registro_venta.hasMany(models.venta, {
+	Registro_venta.associate = function(models){
+        Registro_venta.hasMany(models.venta, {
             as: "ventas",
             foreignKey: "registro_venta_id"
         })
 	}
 
-	return registro_venta
+	return Registro_venta;
 }

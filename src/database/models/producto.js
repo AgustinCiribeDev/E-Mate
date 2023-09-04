@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-	let alias = "producto"     //como queremos que sequelize llame a nuestra tabla//
+	let alias = "Producto"     //como queremos que sequelize llame a nuestra tabla//
 	
 	let cols = {    
 		id:{
@@ -7,33 +7,15 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
 		},
-        nombre:{
-			type:dataTypes.STRING
-		},
-        descripcion:{
-			type:dataTypes.STRING
-		},
-        precio:{
-			type:dataTypes.FLOAT
-		},
-        fecha_creacion:{
-			type:dataTypes.DATE
-		},
-        fecha_eliminacion:{
-			type:dataTypes.DATE
-		},
-        imagen:{
-			type:dataTypes.STRING
-		},
-        stock:{
-			type: dataTypes.INTEGER
-		},
-        usuario_id:{
-			type: dataTypes.INTEGER
-		},
-        categoria_id:{
-			type: dataTypes.INTEGER
-		},
+        nombre:{type:dataTypes.STRING},
+        descripcion:{type:dataTypes.STRING},
+        precio:{type:dataTypes.FLOAT},
+        fecha_creacion:{type:dataTypes.DATE},
+        fecha_eliminacion:{type:dataTypes.DATE},
+        imagen:{type:dataTypes.STRING},
+        stock:{type: dataTypes.INTEGER},
+        usuario_id:{type: dataTypes.INTEGER},
+        categoria_id:{type: dataTypes.INTEGER}
 	}
 
     let config = {
@@ -41,25 +23,25 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let producto = sequelize.define(alias, cols, config);
+	let Producto = sequelize.define(alias, cols, config);
 	
-	producto.associate = function(models){
-        producto.hasMany(models.venta, {
+	Producto.associate = function(models){
+        Producto.hasMany(models.venta, {
             as: "ventas",
             foreignKey: "producto_id"
         });
 
-		producto.belongsTo(models.usuario, {
+		Producto.belongsTo(models.usuario, {
             as: "usuario",
             foreignKey: "usuario_id"
         });
 	
-        producto.belongsTo(models.categoria, {
+        Producto.belongsTo(models.categoria, {
             as: "categoria",
             foreignKey: "categoria_id"
         })
 	}
 
-	return producto; 
+	return Producto; 
 }
 

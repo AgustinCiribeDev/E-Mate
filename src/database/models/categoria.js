@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-	let alias = "categoria"     //como queremos que sequelize llame a nuestra tabla//
+	let alias = "Categoria"     //como queremos que sequelize llame a nuestra tabla//
 	
 	let cols = {    
 		id:{
@@ -7,9 +7,7 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
 		},
-        nombre:{
-			type:dataTypes.STRING
-		},
+        nombre:{type:dataTypes.STRING}
 	}
 
     let config = {
@@ -17,16 +15,16 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let categoria = sequelize.define(alias, cols, config);
+	let Categoria = sequelize.define(alias, cols, config);
 	
-	categoria.associate = function(models){
-        categoria.hasMany(models.producto, {
+	Categoria.associate = function(models){
+        Categoria.hasMany(models.producto, {
             as: "productos",
             foreignKey: "categoria_id"
         })
 		
 	}
 
-	return categoria; 
+	return Categoria; 
 }
 

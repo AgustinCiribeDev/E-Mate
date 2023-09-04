@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-	let alias = "usuario"     //como queremos que sequelize llame a nuestra tabla//
+	let alias = "Usuario"     //como queremos que sequelize llame a nuestra tabla//
 	
 	let cols = {    
 		id:{
@@ -13,7 +13,7 @@ module.exports = function(sequelize, dataTypes){
         rol:{ type:dataTypes.STRING },
         local_id:{ type: dataTypes.INTEGER },
 		imagen:{ type:dataTypes.STRING },
-		ofertas:{ type:dataTypes.STRING },
+		oferta:{ type:dataTypes.STRING }
 	}
 
     let config = {
@@ -21,19 +21,19 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let usuario = sequelize.define(alias, cols, config);
+	let Usuario = sequelize.define(alias, cols, config);
 	
-	usuario.associate = function(models){
-        usuario.hasMany(models.producto, {
+	Usuario.associate = function(models){
+        Usuario.hasMany(models.producto, {
             as: "productos",
             foreignKey: "usuario_id"
         });
-		usuario.belongsTo(models.local, {
+		Usuario.belongsTo(models.local, {
             as: "local",
             foreignKey: "local_id"
         })
 		
 	}
 
-	return usuario; 
+	return Usuario; 
 }

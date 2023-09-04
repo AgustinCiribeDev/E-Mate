@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-	let alias = "venta"     //como queremos que sequelize llame a nuestra tabla//
+	let alias = "Venta"     //como queremos que sequelize llame a nuestra tabla//
 	
 	let cols = {    
 		id:{
@@ -26,21 +26,21 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-	let venta = sequelize.define(alias, cols, config);
+	let Venta = sequelize.define(alias, cols, config);
 	
-	venta.associate = function(models){
-        venta.belongsTo(models.producto, {
+	Venta.associate = function(models){
+        Venta.belongsTo(models.producto, {
             as: "producto",
             foreignKey: "producto_id"
         });
-		venta.belongsTo(models.registro_venta, {
+		Venta.belongsTo(models.registro_venta, {
             as: "registro_venta",
             foreignKey: "registro_venta_id"
         });
 		
 	}
 
-	return venta; 
+	return Venta; 
 }
 
 
