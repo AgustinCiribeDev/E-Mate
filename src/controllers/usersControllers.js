@@ -18,6 +18,8 @@ cloudinary.config({
 const usuariosFilePath = path.join(__dirname, '../database/usuarios.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
+//Base de Datos
+const db = require('../database/models');
 
 const usersControllers = {
         register: (req, res) => {

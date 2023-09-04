@@ -13,7 +13,7 @@ cloudinary.config({
   let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
   
-//BASE DE DATOS
+//Base de Datos
   const db = require('../database/models');
 
 

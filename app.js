@@ -34,7 +34,6 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 // ************ Template Engine - (don't touch) ************
 app.set("view engine", "ejs");
 
-
 //configuracion rutas
 const mainRoutes =  require ('./src/routes/mainRoutes')
 const productsRoutes =  require ('./src/routes/productsRoutes')
