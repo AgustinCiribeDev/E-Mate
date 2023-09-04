@@ -7,18 +7,10 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
 		},
-        monto_unidad:{
-			type:dataTypes.FLOAT
-		},
-        cantidad:{
-			type:dataTypes.INTEGER
-		},
-        producto_id:{
-			type:dataTypes.INTEGER
-		},
-        registro_venta_id:{
-			type:dataTypes.INTEGER
-		},
+        monto_unidad:{type:dataTypes.FLOAT},
+        cantidad:{type:dataTypes.INTEGER},
+        producto_id:{type:dataTypes.INTEGER},
+        registro_venta_id:{type:dataTypes.INTEGER},
 	}
 
     let config = {
