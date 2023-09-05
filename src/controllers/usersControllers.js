@@ -37,8 +37,10 @@ const usersControllers = {
         // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
 
         let userInDb = req.body.email
-        for (let i = 0; i< usuarios.length; i++ ){
-          if (usuarios[i].email == userInDb){
+        db.Usuario.findOne ({
+          where : {email: userInDb}
+        }).then ((email) => {
+          if (email) {
             return res.render('usuarios/registro', {
               errors: {
                 email: {
@@ -48,7 +50,10 @@ const usersControllers = {
               oldData: req.body
             });
           }
-        }
+        }).catch ((error) => {
+          console.log (error);
+        })
+
 
         // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
         
@@ -64,22 +69,23 @@ const usersControllers = {
               // Aquí, en lugar de almacenar solo el nombre de la imagen,
               // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
               
-              // Creación del Id
-              let idNuevoUsuario = usuarios[usuarios.length - 1].id + 1
               
                // creando el objeto nuevo usuario
-              let objNuevoUsuario = {
-                id: idNuevoUsuario,
+              db.Usuario.create({
                 nombre: req.body.name,
                 email: req.body.email,
-                password: bcryptjs.hashSync(req.body.password,10 ),    // hasheando el password
-                avatar: result ? result.secure_url : null // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null
-              };
+                clave: bcryptjs.hashSync(req.body.password,10 ),    // hasheando el password
+                rol: req.body.rol,
+                local_id: req.body.local_id,
+                imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
+                oferta: req.body.oferta,
+              })
+              .then((resultados)  => { 
+                res.redirect('/users/profile');
+               })
+              .catch((error) => {
+                console.error(error)});
         
-              usuarios.push(objNuevoUsuario);
-              fs.writeFileSync(usuariosFilePath, JSON.stringify(usuarios, null, ' '));
-        
-              res.redirect('/users/profile');
             }
           });
         

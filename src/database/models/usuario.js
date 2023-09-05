@@ -13,7 +13,7 @@ module.exports = function(sequelize, dataTypes){
         rol:{ type:dataTypes.STRING },
         local_id:{ type: dataTypes.INTEGER },
 		imagen:{ type:dataTypes.STRING },
-		oferta:{ type:dataTypes.STRING }
+		oferta:{ type:dataTypes.BOOLEAN }
 	}
 
     let config = {
