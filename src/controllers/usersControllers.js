@@ -103,13 +103,18 @@ const usersControllers = {
           let userLogin = req.body.email;
           let userFound = null;
 
-          for (let i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].email === userLogin) {
-              userFound = usuarios[i];
-              break; // No necesitamos seguir buscando si encontramos al usuario
-            }
-          }
-
+          db.Usuario.findOne ({
+            where : {email: userLogin}
+          })
+          .then ((resultados) => {
+            if (resultados) {
+              userFound = userLogin;
+               // No necesitamos seguir buscando si encontramos al usuario
+          }})
+          .catch ((error) => {
+            console.log (error);
+          })
+           
           if (userFound) {
           let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
     
