@@ -6,6 +6,7 @@ const usersControllers = require('./../controllers/usersControllers');
 const validationsUsers = require ('./../middlewares/validationsUsers')
 const guestMiddleware = require ('./../middlewares/guestMiddleware')
 const authMiddleware = require ('./../middlewares/authMiddleware')
+const validationsLogin = require ('./../middlewares/validationsLogin')
 
 //Configurando Multer
 const multer = require('multer');
@@ -14,7 +15,7 @@ const upload = multer();
 //Registro de usuario agregando una imagen como avatar
 
 router.get('/register', guestMiddleware, usersControllers.register);
-router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
+router.post('/register', upload.single('avatar'), validationsUsers, validationsLogin, usersControllers.processRegister);
 
 router.get('/login', guestMiddleware, usersControllers.login);
 router.post('/login', usersControllers.loginProcess)

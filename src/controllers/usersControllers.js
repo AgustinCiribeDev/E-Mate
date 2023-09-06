@@ -104,6 +104,16 @@ const usersControllers = {
         
         loginProcess: async (req, res) => {
           try {
+            const resultValidation = validationResult(req);
+       
+            if(resultValidation.errors.length > 0) {
+              return res.render('usuarios/registro', {
+              errors: resultValidation.mapped(),
+              oldData: req.body
+            });
+            }
+        // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
+
           // validar lo que llega del formulario, email y password con algo como esto const resultValidation = validationResult(req);
           let userFound = await db.Usuario.findOne ({
             where : {email: req.body.email}
