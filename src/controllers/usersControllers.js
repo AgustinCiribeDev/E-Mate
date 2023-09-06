@@ -22,7 +22,7 @@ let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 const db = require('../database/models');
 
 const usersControllers = {
-        register: (req, res) => {
+        register: async (req, res) => {
           res.render('usuarios/registro');
         },
         processRegister: (req, res) => {
@@ -93,76 +93,67 @@ const usersControllers = {
         
         },
         
-        
-        login: (req, res) => {
+        login: async (req, res) => {
 
-          res.render('usuarios/inicio');
+          try {
+            return res.render('usuarios/inicio')
+          } catch (error) {
+            console.log (error.message);
+          }
         },
         
-        loginProcess: (req, res) => {
-          let userLogin = req.body.email;
-          let userFound = null;
-
-          db.Usuario.findOne ({
-            where : {email: userLogin}
+        loginProcess: async (req, res) => {
+          try {
+          // validar lo que llega del formulario, email y password con algo como esto const resultValidation = validationResult(req);
+          let userFound = await db.Usuario.findOne ({
+            where : {email: req.body.email}
           })
-          .then ((resultados) => {
-            if (resultados) {
-              userFound = userLogin;
-               // No necesitamos seguir buscando si encontramos al usuario
-          }})
-          .catch ((error) => {
-            console.log (error);
-          })
-           
-          if (userFound) {
-          let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
-    
-          if (passwordOk) {
-            let userDeletePassword = { ...userFound}; //crea una copia del objeto userFound sin la propiedad password
-            delete userDeletePassword.password;
-            
-            req.session.userLogged = userDeletePassword;
-            
-            if(req.body.remember_user) {
-              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
-            }
-            
-            return res.redirect('/users/profile');
-          
-          } 
-          
-          else {
-            return res.render('usuarios/inicio', {
-                errors: {
-                email: {
-                msg: 'Contraseña incorrecta'
-              }
-            },
-          });
-          }
-         } else {
-            return res.render('usuarios/inicio', {
-                errors: {
-                email: {
+           if (!userFound) {
+          return res.render('usuarios/inicio', {
+            errors: {
+              email: {
                 msg: 'Este email no está registrado'
               }
-            },
-          });
+            }
+          })
         }
-  },
-      profile: (req, res) => {
-console.log(req.cookies.userEmail);
+
+        let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
+
+          if (passwordOk) {
+            delete userFound.password
+            req.session.userLogged = userFound;
+            if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
+              }
+            return res.redirect('/users/profile');
+          } else {
+          return res.render('usuarios/inicio', {
+            errors: {
+              password: {
+                msg: 'Contraseña incorrecta'
+              }
+            }
+          })
+        }
+      }
+        catch (error) {
+          console.log (error.message);
+        }
+    },
+
+    profile: (req, res) => {
+      console.log(req.cookies.userEmail);
         res.render('usuarios/perfil', {
           user: req.session.userLogged
         });
-      },
+    },
 
-      logout: (req, res) => {
+    logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
         res.redirect('/');
-      }
+    }
 }
 
-    module.exports = usersControllers;
+module.exports = usersControllers;
