@@ -10,10 +10,13 @@ module.exports = function(sequelize, dataTypes){
         nombre:{type:dataTypes.STRING},
         descripcion:{type:dataTypes.STRING},
         precio:{type:dataTypes.FLOAT},
-        fecha_creacion:{type:dataTypes.DATE},
-        fecha_eliminacion:{type:dataTypes.DATE},
         imagen:{type:dataTypes.STRING},
         stock:{type: dataTypes.INTEGER},
+        estado:{type: dataTypes.STRING},
+        descuento:{type: dataTypes.INTEGER},
+        cuota:{type: dataTypes.STRING},
+        fecha_creacion:{type:dataTypes.DATE},
+        fecha_eliminacion:{type:dataTypes.DATE},
         usuario_id:{type: dataTypes.INTEGER},
         categoria_id:{type: dataTypes.INTEGER}
 	}
