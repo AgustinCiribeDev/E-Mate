@@ -78,34 +78,35 @@
 <!-- comienza el contenedor de productos -->
 <div class="container">
   <div class="row text-secondary mt-4 mb-4">
-    <% productosOferta.slice(0, 4).forEach((producto) => { %>
+    <% for (let i = 0; i < producto.length; i++ ) { %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card" style="width: 18rem;">
-          <a href="/products/productDetail/<%=producto.id%>">
-            <img class="card-img-top img-fluid" src="<%= producto.imagen %>" alt="Card image cap">
+          <a href="<%= producto[i].id %>">
+            <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap">
           </a>
           <div class="card-body">
-            <h5 class="card-title"><%= producto.nombre %></h5>
+            <h5 class="card-title"><%= producto[i].nombre %></h5>
           </div>
+
           <!-- Agregar el nombre del local -->
           <div class="card-body">
-            <p class="card-text">Local: Nombre </p>
+            <p class="card-text">Local: TBD </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= producto.cuotas %> cuotas</li>
+            <li class="list-group-item"><%= producto[i].cuota %></li>
             <li class="list-group-item">
               <div class="block-products-feed__product-price text--primary">
-                $<%= producto.precioActual %> (<%= producto.descuento %>% de descuento)
+                $<%= producto[i].precio %> (<%= producto[i].descuento %>% de descuento)
               </div>
             </li>
-            <li class="list-group-item"><%= producto.estado %></li>
+            <li class="list-group-item"><%= producto[i].estado %></li>
           </ul>
           <div class="card-body">
             <a href="/products/cart" class="btn btn-primary"><i class="bi bi-cart4"> Agregar al carrito</i></a>
           </div>
         </div>
       </div>
-    <% }) %>
+    <% } %>
   </div>
 </div>
 

@@ -1,14 +1,24 @@
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../database/productos.json');
-let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier'); // esto es de Jero, ver clase...¿?
+const db = require('../database/models'); /* Base de Datos */
 
+/* Credenciales de Cloudinary */
+cloudinary.config({ 
+    cloud_name: 'dirx4wkl1', 
+    api_key: '723134683983768', 
+    api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
+});
+  
 const mainControllers = {
-        index: (req, res) => {
-          productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");         
-          res.render('index', {productosOferta});
-          }
+  index: (req,res) => {
+    db.Producto.findAll ({
+      where: {estado: 'En Oferta'}
+    })
+    .then ((producto) => {
+      return res.render('index', {producto:producto});
+    })
+  }
 }      
-module.exports = mainControllers;
-    
+module.exports = mainControllers;  
