@@ -67,10 +67,11 @@
               <div class="form-group">
                 <label for="cuota">Cuotas</label>
                   <select class="custom-select" name="cuota" id="cuota">
-                    <option selected>Seleccioná las cuotas</option>
-                    <option>1 cuota</option>
-                    <option>3 cuotas</option>
-                    <option>6 cuotas</option>
+                    <% for (let i = 0; i < producto.length; i++) { %>
+                      <option value = "<%= producto[i].id %>">
+                        <%= producto[i].cuota %>
+                      </option>
+                    <% } %>
                   </select>
               </div>
               <div class="form-options-amount">

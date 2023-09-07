@@ -1,7 +1,7 @@
 const fs = require('fs');
-const path = require('path');
+const path = require('path'); // ver si hace falta, pero al final
 const cloudinary = require('cloudinary').v2;
-const streamifier = require('streamifier');
+const streamifier = require('streamifier'); // esto es de Jero, ver clase...
 
 cloudinary.config({ 
     cloud_name: 'dirx4wkl1', 
@@ -12,18 +12,22 @@ cloudinary.config({
   const productsFilePath = path.join(__dirname, '../database/productos.json');
   let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-  
 //Base de Datos
-  const db = require('../database/models');
+const db = require('../database/models');
 
+const  productsControllers = {
+  index: (req,res) => {
+    let productosOferta = db.Producto.findAll ({
+      where: {estado: 'En Oferta'}
+    })
+    .then ((oferta) => {
+      return res.render('index', {productosOferta});
+    })
 
-  const productsControllers = {
-        index: (req,res) => {
-          productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");
-          
-          res.render('index', {productosOferta});
-        },
+    /*productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");      
+    res.render('index', {productosOferta});*/
+    },
   
   
         productCatalogue: (req,res)=>{
@@ -53,11 +57,15 @@ cloudinary.config({
           res.render('products/productEdit');
         },
         
-        // Crear producto
-        create: (req, res) => {
-          res.render('products/productCreate');
-        },
-        addProduct: (req, res) => {
+  // Crear producto
+  create: (req, res) => {
+    db.Producto.findAll ()
+      .then ((producto) => {
+        res.render('products/productCreate', {producto:producto});
+      })
+    },
+    
+    addProduct: (req, res) => {
           const imageBuffer = req.file.buffer;
           const nombreImagen = Date.now() + req.file.originalname;
         
