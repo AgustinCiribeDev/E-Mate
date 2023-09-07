@@ -7,9 +7,6 @@ const productsControllers = require('./../controllers/productsControllers');
 const multer = require('multer');
 const upload = multer();
 
-
-router.get('/', productsControllers.index);
-
 //Ruta de todos los productos
 router.get('/productCatalogue', productsControllers.productCatalogue);
 

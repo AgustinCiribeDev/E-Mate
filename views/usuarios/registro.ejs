@@ -24,14 +24,15 @@
                 <article class="text-center col-8 col-sm-6  col-md-5 col-lg-4 col-xl-3" style="font-size: 18px;">
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="name" id="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
-                        <label for="name">Nombre</label>
+                        <label for="name">Nombre y apellido</label>
                         <% if (locals.errors && errors.name) { %>
                         <div class="text-danger">
                             <%= errors.name.msg %>
                         </div>
                         <% } %>
                     </div>
-                    <div class="form-floating mb-2 col-12 mx-auto text-center">
+
+                    <!--<div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
                         <label for="rol">Rol</label>
                         <% if (locals.errors && errors.rol) { %>
@@ -39,8 +40,9 @@
                             <%= errors.rol.msg %>
                         </div>
                         <% } %>
-                    </div>
-                    <div class="form-floating mb-2 col-12 mx-auto text-center">
+                    </div> -->
+
+                    <!-- <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
                         <label for="local_id">Local ID</label>
                         <% if (locals.errors && errors.local_id) { %>
@@ -48,7 +50,7 @@
                             <%= errors.local_id.msg %>
                         </div>
                         <% } %>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
                         <label for="email">Email</label>
@@ -87,11 +89,11 @@
                         <button id="iniciarsesion"class="btn btn-success" type="submit">REGISTRARSE</button>
                     </div>
                     
-                    <div class="d-grid mb-2 align-items-center gap-2 col-12 mx-auto">
-                        <button id="inicioGoogle"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-google"></i>     Ingresar con Google</button>
+                    <div class="d-grid mb-2 align-items-center col-12 mx-auto">
+                        <button id="inicioGoogle"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-google" style="font-size: 22px;"></i> Ingresar con Google</button>
                     </div>
                     <div class="d-grid mb-2 align-items-center col-12 mx-auto">
-                        <button id="inicioApple"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i>   Ingresar con Apple</button>
+                        <button id="inicioApple"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i> Ingresar con Apple</button>
                     </div>
                 </article>
         </div>
