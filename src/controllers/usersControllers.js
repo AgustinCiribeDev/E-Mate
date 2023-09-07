@@ -81,7 +81,7 @@ const usersControllers = {
                 oferta: req.body.oferta,
               })
               .then((resultados)  => { 
-                res.redirect('/users/profile');
+                res.redirect('/usuarios/perfil');
                })
               .catch((error) => {
                 console.error(error)});
@@ -107,11 +107,12 @@ const usersControllers = {
             const resultValidation = validationResult(req);
        
             if(resultValidation.errors.length > 0) {
-              return res.render('usuarios/registro', {
+              return res.render('usuarios/inicio', {
               errors: resultValidation.mapped(),
               oldData: req.body
             });
             }
+
         // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
 
           // validar lo que llega del formulario, email y password con algo como esto const resultValidation = validationResult(req);
@@ -136,7 +137,7 @@ const usersControllers = {
             if(req.body.remember_user) {
               res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
               }
-            return res.redirect('/users/profile');
+            return res.redirect('/usuarios/perfil');
           } else {
           return res.render('usuarios/inicio', {
             errors: {
