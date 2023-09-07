@@ -120,24 +120,24 @@ const usersControllers = {
             where : {email: req.body.email}
           })
            if (!userFound) {
-          return res.render('usuarios/inicio', {
-            errors: {
-              email: {
-                msg: 'Este email no está registrado'
+            return res.render('usuarios/inicio', {
+              errors: {
+                email: {
+                  msg: 'Este email no está registrado'
+                }
               }
-            }
-          })
-        }
+            })
+          }
 
         let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
 
           if (passwordOk) {
             delete userFound.password
-            req.session.userLogged = userFound;
+            req.session.userLogged = userFound;    // configura variable de sesión  userLogged  sobre el usuario que ha iniciado sesión.
             if(req.body.remember_user) {
               res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
               }
-            return res.redirect('/usuarios/perfil');
+            return res.redirect('/users/profile');
           } else {
           return res.render('usuarios/inicio', {
             errors: {
