@@ -152,5 +152,27 @@
   "estado": "En Oferta",
   "descuento": null,
   "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689824484/16898244825311200px-Tipos_de_bombillas_para_mate.jpg.jpg"
+ },
+ {
+  "id": 12,
+  "nombre": "Súper mate",
+  "precioActual": 5000,
+  "categoria": "Yerbas",
+  "descripcion": "ruego que funcione",
+  "cuotas": null,
+  "estado": "En Oferta",
+  "descuento": 20,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1694116187/1694116183151mate.jpeg.jpg"
+ },
+ {
+  "id": 13,
+  "nombre": "Mate",
+  "precioActual": 5000,
+  "categoria": "Mates",
+  "descripcion": "popopop",
+  "cuotas": null,
+  "estado": "En Oferta",
+  "descuento": 10,
+  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1694116352/1694116350353mate.jpeg.jpg"
  }
 ]

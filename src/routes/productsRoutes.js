@@ -18,7 +18,7 @@ router.get('/cart', productsControllers.cart);
 
 //Rutas de crear productos
 router.get('/create', productsControllers.create);
-router.post('/create', upload.single('imagen'),  productsControllers.addProduct);
+router.post('/create', upload.single('imagen'), productsControllers.addProduct);
 
 //Ruta para editar un producto
 router.get('/edit/:id', productsControllers.edit);

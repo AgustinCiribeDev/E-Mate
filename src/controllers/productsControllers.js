@@ -49,44 +49,69 @@ const  productsControllers = {
   create: (req, res) => {
     db.Producto.findAll ()
       .then ((producto) => {
-        res.render('products/productCreate', {producto:producto});
-      })
-    },
+      res.render('products/productCreate', {producto:producto});
+    })
+  },
     
-    addProduct: (req, res) => {
-          const imageBuffer = req.file.buffer;
-          const nombreImagen = Date.now() + req.file.originalname;
+  addProduct: async (req, res) => {
+    try {
+      const imageBuffer = req.file.buffer;
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const newProduct = db.Producto.create ({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        precio: req.body.precioActual,
+        imagen: result.secure_url,
+        stock:req.body.stock,
+        estado:req.body.estado,
+        descuento: req.body.descuento,
+        cuota:req.body.cuota,
+        categoria_id: req.body.categoria,
+      })
+      res.redirect('/');
+    }
+
+    catch (error) {
+      console.error(error);
+        res.status(500).json({ message: 'Error al crear el producto' });
+    }
+
+    /* const imageBuffer = req.file.buffer;
+    const nombreImagen = Date.now() + req.file.originalname;   
+    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
+      if (error) {
+        console.log('Error al cargar la imagen:', error);
+          res.status(500).send('Error al cargar la imagen');
+      } 
+      else {
+        console.log('Imagen cargada correctamente:', result);
+          //Aquí, en lugar de almacenar solo el nombre de la imagen,
+          // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
+         
+          let idNuevoProducto = (productos[productos.length - 1].id) + 1;
+          let objNuevoProducto = {
+          id: idNuevoProducto,
+          nombre: req.body.nombre,
+          precioActual: parseInt(req.body.precioActual),
+          categoria: req.body.categoria,
+          descripcion: req.body.descripcion,
+          cuotas: parseInt(req.body.cuotas),
+          estado: req.body.estado,
+          descuento: parseInt(req.body.descuento),
+          imagen: result ? result.secure_url : null // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null
+          };
         
-          const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
-            if (error) {
-              console.log('Error al cargar la imagen:', error);
-              res.status(500).send('Error al cargar la imagen');
-            } else {
-              console.log('Imagen cargada correctamente:', result);
-              // Aquí, en lugar de almacenar solo el nombre de la imagen,
-              // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
-              let idNuevoProducto = (productos[productos.length - 1].id) + 1;
-              let objNuevoProducto = {
-                id: idNuevoProducto,
-                nombre: req.body.nombre,
-                precioActual: parseInt(req.body.precioActual),
-                categoria: req.body.categoria,
-                descripcion: req.body.descripcion,
-                cuotas: parseInt(req.body.cuotas),
-                estado: req.body.estado,
-                descuento: parseInt(req.body.descuento),
-                imagen: result ? result.secure_url : null // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null
-              };
-        
-              productos.push(objNuevoProducto);
-              fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
+          productos.push(objNuevoProducto);
+          fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
         
               res.redirect('/');
             }
-          });
-        
-          streamifier.createReadStream(imageBuffer).pipe(stream);
-        },
+          }); */
+
+      streamifier.createReadStream(imageBuffer).pipe(stream);
+
+    },
+
         // Buscar producto a editar
         edit: (req,res) => {
           let idProducto= req.params.id;

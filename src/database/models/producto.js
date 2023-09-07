@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes){
 		},
         nombre:{type:dataTypes.STRING},
         descripcion:{type:dataTypes.STRING},
-        precio:{type:dataTypes.FLOAT},
+        precio:{type:dataTypes.INTEGER},
         imagen:{type:dataTypes.STRING},
         stock:{type: dataTypes.INTEGER},
         estado:{type: dataTypes.STRING},
