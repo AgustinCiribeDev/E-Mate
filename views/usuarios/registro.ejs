@@ -12,7 +12,6 @@
             <p class="bg-secondary-subtle p-1 col-6 m-30 h-10"></p>
             <p class="text-bg-success p-1 col-6 m-30 h-10" ></p>
         </div>
-
     </div>
 
 
@@ -63,25 +62,26 @@
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="password" class="form-control" id="password" name ="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
                         <label for="password">Contraseña</label>
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger">
-                                <%= errors.password.msg %>
-                            </div>
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
                             <% } %>
-                        <div class="form-floating mb-2 col-12 mx-auto text-center">
-                            <div class="form-group">
-                            <label class="custom-file-label" for="avatar" >Selecciona una imagen de perfil</label>
-                            <input type="file" class="custom-file-input" id="avatar" name="avatar" >  
-                                    <% if (locals.errors && errors.avatar) { %>
+                    </div>
+                    <div class="form-floating mb-2 col-12 mx-auto text-center">
+                        <div class="form-group">
+                        <label class="custom-file-label" for="avatar" >Selecciona una imagen de perfil</label>
+                        <input type="file" class="custom-file-input" id="avatar" name="avatar" >  
+                            <% if (locals.errors && errors.avatar) { %>
                                 <div class="text-danger">
                                     <%= errors.avatar.msg %>
                                 </div>
-                                    <% } %>  
-                            </div>
-                        </div>   
+                            <% } %>  
+                        </div>
+                    </div>   
                     <div class="form-check m-3" style="font-size: 16px;">
                         <input class="form-check-input" type="checkbox" value="" name= "oferta" id="oferta">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckD efault">
                         Recibir Ofertas por E-mail
                         </label>
                     </div>
