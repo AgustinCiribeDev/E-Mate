@@ -24,22 +24,11 @@ const  productsControllers = {
         },
   
   productDetail: (req, res) => {
-    /* let idProducto= req.params.id;
-		let productoBuscado;
-
-		for(let i=0; i< productos.length; i++){
-		  if (productos[i].id == idProducto) {
-				    productoBuscado = productos[i];
-				break;
-      }
-    } */
-
     db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"},]})
       .then ((producto) => {
-        res.render('products/productDetail', {producto: producto});
-      })
-      /* res.render('products/productDetail', {producto: productoBuscado}); */
-    },
+      res.render('products/productDetail', {producto: producto});
+    })
+  },
         
         cart: (req, res) => {
           res.render('products/productCart');
@@ -161,17 +150,14 @@ const  productsControllers = {
         
         },
 
-        destroy: (req,res) => {
-          let idProducto= req.params.id;
-
-		      let nuevoArregloProductos = productos.filter (function(e){
-			    return e.id != idProducto;
-		      });
-		      fs.writeFileSync(productsFilePath, JSON.stringify(nuevoArregloProductos, null, ' '));
-		      
-          res.redirect('/');
-        }
-        
-      };
+  destroy: (req,res) => {
+    db.Producto.destroy ({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect('/');
+  }       
+};
       
-      module.exports = productsControllers;
+module.exports = productsControllers;

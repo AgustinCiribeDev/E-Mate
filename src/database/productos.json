@@ -55,17 +55,6 @@
   "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
-  "id": 6,
-  "nombre": "Mate Térmico Stanley",
-  "precioActual": 10000,
-  "categoria": "Mates",
-  "descripcion": "Mate blanco Stanley",
-  "cuotas": 6,
-  "estado": "En Oferta",
-  "descuento": 66,
-  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
- },
- {
   "id": 7,
   "nombre": "Mate Térmico Stanley",
   "precioActual": 18000,
