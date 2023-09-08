@@ -94,52 +94,35 @@ const usersControllers = {
         
         },
         
-        login: async (req, res) => {
+  login: async (req, res) => {
 
-          try {
-            return res.render('usuarios/inicio')
-          } catch (error) {
-            console.log (error.message);
-          }
-        },
+    try {
+      return res.render('usuarios/inicio')
+    } catch (error) {
+          console.log (error.message);
+      }
+  },
         
-        loginProcess: async (req, res) => {
-          try {
-            const resultValidation = validationResult(req);
-       
-            if(resultValidation.errors.length > 0) {
-              return res.render('usuarios/inicio', {
-              errors: resultValidation.mapped(),
-              oldData: req.body
-            });
+  loginProcess: async (req, res) => {
+    try {
+      let userFound = await db.Usuario.findOne ({
+        where : {email: req.body.email}
+      })
+      if (!userFound) {
+        return res.render('usuarios/inicio', {
+          errors: {
+            email: {
+            msg: 'Este email no está registrado'
             }
-
-        // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
-
-          // validar lo que llega del formulario, email y password con algo como esto const resultValidation = validationResult(req);
-          let userFound = await db.Usuario.findOne ({
-            where : {email: req.body.email}
-          })
-           if (!userFound) {
-            return res.render('usuarios/inicio', {
-              errors: {
-                email: {
-                  msg: 'Este email no está registrado'
-                }
-              }
-            })
           }
+        })
+      }
 
-        let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
+      let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
 
-          if (passwordOk) {
-            delete userFound.password
-            req.session.userLogged = userFound;    // configura variable de sesión  userLogged  sobre el usuario que ha iniciado sesión.
-            if(req.body.remember_user) {
-              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
-              }
+      if (passwordOk) {
             return res.redirect('/users/profile');
-          } else {
+      } else {
           return res.render('usuarios/inicio', {
             errors: {
               password: {
@@ -151,8 +134,61 @@ const usersControllers = {
       }
         catch (error) {
           console.log (error.message);
+          res.status(500).json({ message: 'Error en el servidor' });
         }
     },
+  
+  /*loginProcess: async (req, res) => {
+    try {
+      /*const resultValidation = validationResult(req);
+       
+      if(resultValidation.errors.length > 0) {
+          return res.render('usuarios/inicio', {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
+      }
+
+      // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
+
+      // validar lo que llega del formulario, email y password con algo como esto const resultValidation = validationResult(req);
+      let userFound = await db.Usuario.findOne ({
+        where : {email: req.body.email}
+      })
+      if (!userFound) {
+        return res.render('usuarios/inicio', {
+          errors: {
+            email: {
+            msg: 'Este email no está registrado'
+            }
+          }
+        })
+      }
+
+      let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
+
+      if (passwordOk) {
+        /*delete userFound.password
+          req.session.userLogged = userFound;    // configura variable de sesión  userLogged  sobre el usuario que ha iniciado sesión.
+            if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
+              }
+            return res.redirect('/users/profile');
+      } else {
+          return res.render('usuarios/inicio', {
+            errors: {
+              password: {
+                msg: 'Contraseña incorrecta'
+              }
+            }
+          })
+        }
+      }
+        catch (error) {
+          console.log (error.message);
+          res.status(500).json({ message: 'Error en el servidor' });
+        }
+    },*/
 
     profile: (req, res) => {
       console.log(req.cookies.userEmail);
