@@ -2,13 +2,12 @@
 <html lang="en">
   <%- include ('./partials/head.ejs') %>
 <body>  
-  
   <%- include ('./partials/header.ejs') %>
   <main>
 
 <!-- carrusel (aun no funciona, faltan rutas en app.js)-->
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 300px">
+  <div class="carousel-inner" style="max-height: 100%; width: auto;   margin-right: 0; flex: 0 0 auto;">
     <div class="carousel-item active">
       <img class="d-block w-100" src="https://santiagom.alwaysdata.net/carrusel1.jpg">
     </div>
@@ -42,29 +41,30 @@
 <div class="container">
   <div class="row">
     <div class="justify-content-start d-flex flex-wrap">
-      <div class="category col-lg-2 col-md-3 col-sm-4">
-        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-          <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-box2-heart"></i></button></span>
+      <div class="category col-lg-3 col-md-3 col-sm-4">
+        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px;">
+          <span><i class="bi bi-box2-heart" style="font-size: 36px;"></i></span>
         </div>
       </div>
-      <div class="category col-lg-2 col-md-3 col-sm-4">
-        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-          <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-cup-straw"></i></button></span>
+      <div class="category col-lg-3 col-md-3 col-sm-4">
+        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px;">
+          <span><i class="bi bi-cup-straw" style="font-size: 36px;"></i></span>
         </div>
       </div>
-      <div class="category col-lg-2 col-md-3 col-sm-4">
-        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-          <span><i class="fa-solid"></i><button type="button" class="btn"><i class="bi bi-basket2-fill"></i></button></span>
+      <div class="category col-lg-3 col-md-3 col-sm-4">
+        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px;">
+          <span><i class="bi bi-basket2-fill" style="font-size: 36px;"></i></span>
         </div>
       </div>
-      <div class="category col-lg-2 col-md-3 col-sm-4">
-        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 60px; height: 60px;">
-          <span><button type="button" class="btn"><i class="bi bi-flower1"></i></button></span>
+      <div class="category col-lg-3 col-md-3 col-sm-4">
+        <div class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px;">
+          <span><i class="bi bi-flower1" style="font-size: 36px;"></i></span>
         </div>
       </div>
     </div>  
   </div>
 </div>
+
   
 <!-- titulo de las listado de productos de oferta-->    
 <div class="container">
