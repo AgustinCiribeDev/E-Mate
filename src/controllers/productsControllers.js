@@ -23,18 +23,23 @@ const  productsControllers = {
           res.render('products/productCatalogue', {productos});
         },
   
-        productDetail: (req, res) => {
-          let idProducto= req.params.id;
-		      let productoBuscado;
+  productDetail: (req, res) => {
+    /* let idProducto= req.params.id;
+		let productoBuscado;
 
-		      for(let i=0; i< productos.length; i++){
-			    if (productos[i].id == idProducto) {
-				      productoBuscado = productos[i];
-				      break;
-            }
-          }
-          res.render('products/productDetail', {producto: productoBuscado});
-        },
+		for(let i=0; i< productos.length; i++){
+		  if (productos[i].id == idProducto) {
+				    productoBuscado = productos[i];
+				break;
+      }
+    } */
+
+    db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"},]})
+      .then ((producto) => {
+        res.render('products/productDetail', {producto: producto});
+      })
+      /* res.render('products/productDetail', {producto: productoBuscado}); */
+    },
         
         cart: (req, res) => {
           res.render('products/productCart');

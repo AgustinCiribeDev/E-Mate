@@ -81,7 +81,7 @@
     <% for (let i = 0; i < producto.length; i++ ) { %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card" style="width: 18rem;">
-          <a href="<%= producto[i].id %>">
+          <a href="products/productDetail/<%=producto[i].id %>">
             <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap">
           </a>
           <div class="card-body">
