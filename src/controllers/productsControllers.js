@@ -56,25 +56,37 @@ const  productsControllers = {
   addProduct: async (req, res) => {
     try {
       const imageBuffer = req.file.buffer;
-      const result = await cloudinary.uploader.upload(req.file.path);
-      const newProduct = db.Producto.create ({
+      const nombreImagen = Date.now() + req.file.originalname;
+      const result = await cloudinary.uploader.upload(imageBuffer, {
+        resource_type: 'image',
+        public_id: nombreImagen,
+      });
+    
+      if (result) {
+        console.log('Imagen cargada correctamente:', result);
+        const newProduct = await db.Producto.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
         precio: req.body.precioActual,
         imagen: result.secure_url,
-        stock:req.body.stock,
-        estado:req.body.estado,
+        stock: req.body.stock,
+        estado: req.body.estado,
         descuento: req.body.descuento,
-        cuota:req.body.cuota,
+        cuota: req.body.cuota,
         categoria_id: req.body.categoria,
-      })
-      res.redirect('/');
-    }
-
-    catch (error) {
-      console.error(error);
+        });
+        res.redirect('/');
+      } 
+      else {
+          console.log('Error al cargar la imagen:', error);
+          res.status(500).send('Error al cargar la imagen');
+      }
+      } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Error al crear el producto' });
-    }
+      }
+      streamifier.createReadStream(imageBuffer).pipe(stream);
+    },
 
     /* const imageBuffer = req.file.buffer;
     const nombreImagen = Date.now() + req.file.originalname;   
@@ -107,10 +119,6 @@ const  productsControllers = {
               res.redirect('/');
             }
           }); */
-
-      streamifier.createReadStream(imageBuffer).pipe(stream);
-
-    },
 
         // Buscar producto a editar
         edit: (req,res) => {

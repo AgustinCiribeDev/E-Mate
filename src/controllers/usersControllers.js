@@ -25,6 +25,7 @@ const usersControllers = {
         register: async (req, res) => {
           res.render('usuarios/registro');
         },
+
         processRegister: (req, res) => {
         const resultValidation = validationResult(req);
        
@@ -74,14 +75,14 @@ const usersControllers = {
               db.Usuario.create({
                 nombre: req.body.name,
                 email: req.body.email,
-                clave: bcryptjs.hashSync(req.body.password,10 ),    // hasheando el password
+                password: bcryptjs.hashSync(req.body.password,10 ),    // hasheando el password
                 rol: req.body.rol,
                 local_id: req.body.local_id,
                 imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
                 oferta: req.body.oferta,
               })
               .then((resultados)  => { 
-                res.redirect('/usuarios/perfil');
+                res.redirect('/users/login');
                })
               .catch((error) => {
                 console.error(error)});
