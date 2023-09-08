@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
-                        <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
+                        <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.rol ? 'is-invalid' : null %>" placeholder="Rol" value="<%= locals.oldData ? oldData.rol : null%>" >
                         <label for="rol">Rol</label>
                         <% if (locals.errors && errors.rol) { %>
                         <div class="text-danger">
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
-                        <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
+                        <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.local_id ? 'is-invalid' : null %>" placeholder="Local" value="<%= locals.oldData ? oldData.local_id : null%>" >
                         <label for="local_id">Local ID</label>
                         <% if (locals.errors && errors.local_id) { %>
                         <div class="text-danger">
