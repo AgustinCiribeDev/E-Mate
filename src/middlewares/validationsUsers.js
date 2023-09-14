@@ -10,6 +10,7 @@ const { body } = require('express-validator');
 //Validaciones
 const validationsUsers = [
     body ('name').notEmpty().withMessage('Tienes que escribir tu nombre'),
+    body ('rol').notEmpty().withMessage('Tenés que elegir un rol'),
     body ('email')
     .notEmpty().withMessage('Tienes que escribir tu correo electrónico').bail()
     .isEmail().withMessage('Tienes que escribir un formato de correo válido'),
