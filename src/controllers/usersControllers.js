@@ -100,7 +100,16 @@ const usersControllers = {
   },
         
   loginProcess: async (req, res) => {
-    try {
+      
+     const resultValidation = validationResult(req);
+       
+      if(resultValidation.errors.length > 0) {
+          return res.render('usuarios/inicio', {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
+      }
+
       let userFound = await db.Usuario.findOne ({
         where : {email: req.body.email}
       });
@@ -120,6 +129,9 @@ const usersControllers = {
 
       if (passwordOk) {
         req.session.userLogged = userFound;
+          if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
+          }
         res.redirect('/users/profile');
       } else {
           return res.render('usuarios/inicio', {
@@ -130,11 +142,6 @@ const usersControllers = {
             }
           })
         }
-      }
-      catch (error) {
-          console.log (error.message);
-          res.status(500).json({ message: 'Error en el servidor' });
-      }
   },
   
   /*loginProcess: async (req, res) => {
