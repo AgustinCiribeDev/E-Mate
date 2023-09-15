@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 
-//Requerimientos para guardar las imagenes de perfil
+/*Requerimientos para guardar las imagenes de perfil*/
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const { log } = require('console');
@@ -14,88 +14,84 @@ cloudinary.config({
   api_secret: 'vTNJrOTeoaJA1vYQaNwNKdWI0SI',
 });
 
-//Requerimientos para guardar la información de los usuarios en el json
+/*Requerimientos para guardar la información de los usuarios en el json*/
 const usuariosFilePath = path.join(__dirname, '../database/usuarios.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
-//Base de Datos
+/*Base de Datos*/
 const db = require('../database/models');
 
 const usersControllers = {
-        register: async (req, res) => {
-          res.render('usuarios/registro');
-        },
+  register: async (req, res) => {
+    res.render('usuarios/registro');
+  },
 
-        processRegister: (req, res) => {
-        const resultValidation = validationResult(req);
+  processRegister: async (req, res) => {
+    const resultValidation = validationResult(req);
        
-        if(resultValidation.errors.length > 0) {
-          return res.render('usuarios/registro', {
-          errors: resultValidation.mapped(),
-          oldData: req.body
-        });
-        }
-        // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
+    if(resultValidation.errors.length > 0) {
+      return res.render('usuarios/registro', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
+    }
+    
+    // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
 
-        let userInDb = req.body.email
-        db.Usuario.findOne ({
-          where : {email: userInDb}
-        }).then ((email) => {
-          if (email) {
-            return res.render('usuarios/registro', {
-              errors: {
-                email: {
-                  msg: 'Este email ya está registrado'
-                }
-              },
-              oldData: req.body
-            });
+    let userInDb = req.body.email
+    let c = await db.Usuario.findOne ({
+       where : {email: userInDb}
+    }) 
+    if (c) {
+      return res.render('usuarios/registro', {
+        errors: {
+          email: {
+            msg: 'Este email ya está registrado'
           }
-        }).catch ((error) => {
-          console.log (error);
-        })
-
-
-        // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
-        
-        const imageBuffer = req.file.buffer;
-        const nombreImagen = Date.now() + req.file.originalname;
-        
-        const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
-            if (error) {
-              console.log('Error al cargar la imagen:', error);
-              res.status(500).send('Error al cargar la imagen');
-            } else {
-              console.log('Imagen cargada correctamente:', result);
-              // Aquí, en lugar de almacenar solo el nombre de la imagen,
-              // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
-              
-              
-               // creando el objeto nuevo usuario
-              db.Usuario.create({
-                nombre: req.body.name,
-                email: req.body.email,
-                password: bcryptjs.hashSync(req.body.password,10 ),    // hasheando el password
-                rol: req.body.rol,
-                local_id: req.body.local_id,
-                imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
-                oferta: req.body.oferta,
-              })
-              .then((resultados)  => { 
-                res.redirect('/users/login');
-               })
-              .catch((error) => {
-                console.error(error)});
-        
-            }
-          });
-        
-          streamifier.createReadStream(imageBuffer).pipe(stream);
-        
         },
+        oldData: req.body
+      });
+    }
+
+    // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
+        
+    const imageBuffer = req.file.buffer;
+    const nombreImagen = Date.now() + req.file.originalname;
+        
+    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
+    if (error) {
+      console.log('Error al cargar la imagen:', error);
+      res.status(500).send('Error al cargar la imagen');
+    } else {
+      console.log('Imagen cargada correctamente:', result);
+        // Aquí, en lugar de almacenar solo el nombre de la imagen,
+        // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
+      
+        // creando el objeto nuevo usuario
+      db.Usuario.create({
+        nombre: req.body.name,
+        email: req.body.email,
+        password: bcryptjs.hashSync(req.body.password,10 ), // hasheando el password
+        rol: req.body.rol,
+        local_id: req.body.local_id,
+        imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
+        oferta: req.body.oferta,
+      })
+      .then((resultados)  => { 
+        res.redirect('/users/login');
+      })
+      .catch((error) => {
+        console.error(error)
+      });
+          
+      }
+    });
+        
+    streamifier.createReadStream(imageBuffer).pipe(stream);
+        
+  },
         
   login: async (req, res) => {
-
     try {
       return res.render('usuarios/inicio')
     } catch (error) {
@@ -107,7 +103,7 @@ const usersControllers = {
     try {
       let userFound = await db.Usuario.findOne ({
         where : {email: req.body.email}
-      })
+      });
       if (!userFound) {
         return res.render('usuarios/inicio', {
           errors: {
@@ -116,12 +112,15 @@ const usersControllers = {
             }
           }
         })
-      }
-
+      };
+     
       let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
 
+      console.log (passwordOk);
+
       if (passwordOk) {
-            return res.redirect('/users/profile');
+        req.session.userLogged = userFound;
+        res.redirect('/users/profile');
       } else {
           return res.render('usuarios/inicio', {
             errors: {
@@ -132,11 +131,11 @@ const usersControllers = {
           })
         }
       }
-        catch (error) {
+      catch (error) {
           console.log (error.message);
           res.status(500).json({ message: 'Error en el servidor' });
-        }
-    },
+      }
+  },
   
   /*loginProcess: async (req, res) => {
     try {
@@ -190,18 +189,18 @@ const usersControllers = {
         }
     },*/
 
-    profile: (req, res) => {
-      console.log(req.cookies.userEmail);
-        res.render('usuarios/perfil', {
-          user: req.session.userLogged
-        });
-    },
+  profile: (req, res) => {
+    console.log(req.cookies.userEmail);
+      res.render('usuarios/perfil', {
+        user: req.session.userLogged
+      });
+  },
 
-    logout: (req, res) => {
-        res.clearCookie('userEmail');
-        req.session.destroy();
-        res.redirect('/');
-    }
+  logout: (req, res) => {
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    res.redirect('/');
+  }
 }
 
 module.exports = usersControllers;
