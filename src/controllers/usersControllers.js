@@ -15,21 +15,22 @@ cloudinary.config({
 });
 
 /*Requerimientos para guardar la información de los usuarios en el json*/
-const usuariosFilePath = path.join(__dirname, '../database/usuarios.json');
-let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
+// const usuariosFilePath = path.join(__dirname, '../database/usuarios.json');
+// let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
 /*Base de Datos*/
 const db = require('../database/models');                                        //0
 
 const usersControllers = {                                                       //0
-  register: (req, res) => {
+  register: (req, res) => {          // METODO OK
     db.Usuario.findAll()
       .then (function (usuario){
-        res.render('usuarios/registro', { usuario: usuario });
+        res.render('usuarios/registro', { usuario: usuario });      //Comparto los datos del modelo que quiero moestrar en la vista
       })
   },
 
-  processRegister: async (req, res) => {
+  processRegister: async (req, res) => {     //si cargo la foto anda, sino tira error
+    
     const resultValidation = validationResult(req);
        
     if(resultValidation.errors.length > 0) {
@@ -55,6 +56,7 @@ const usersControllers = {                                                      
         oldData: req.body
       });
     }
+    
 
     // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
         
@@ -81,7 +83,7 @@ const usersControllers = {                                                      
         oferta: req.body.oferta,
       })
       .then((resultados)  => { 
-        res.redirect('/users/login');
+        res.redirect('/users/register');
       })
       .catch((error) => {
         console.error(error)
@@ -93,7 +95,39 @@ const usersControllers = {                                                      
     streamifier.createReadStream(imageBuffer).pipe(stream);
         
   },
-        
+
+  editUser: (req, res) => {          // EN PROCESO
+    let pedidoUsuario = db.Usuario.findByPk(req.params.id)
+    let pedidoListado = db.Usuario.findAll()
+
+    Promise.all([pedidoUsuario, pedidoListado])
+      .then (function ([usuarioEditar, usuario]){
+        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario });      //Comparto los datos del modelo que quiero moestrar en la vista
+      })
+  }
+  ,
+  processEditUser:  (req, res) => {   
+    db.Usuario.update({
+      nombre: req.body.name,
+      email: req.body.email,
+      password: bcryptjs.hashSync(req.body.password,10 ), // hasheando el password
+      rol: req.body.rol,
+      local_id: req.body.local_id,
+      imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
+      oferta: req.body.oferta,
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then((resultados)  => { 
+      res.redirect('/users/register');
+    })
+    .catch((error) => {
+      console.error(error)
+    });
+  } 
+  ,
   login: async (req, res) => {
     try {
       return res.render('usuarios/inicio')

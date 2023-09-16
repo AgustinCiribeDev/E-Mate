@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<body>
+    
+    <div class="container-fluid m-0 d-flex pr-0 align-items-end" style="min-height: 5vh; font-size:22px">
+        <div class="row w-100 justify-content-end" >
+            <p class="text-success m-0 px-5"> Listado de Usuarios</p>
+            <p class="text-bg-success p-1 col-12 m-30 h-10" ></p>
+        </div>
+    </div>
+
+    <!-- LISTADO DE USUARIOS-->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre y Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Rol</th>
+            <th scope="col">ID Local</th>
+            <th scope="col">Acciones</th> <!-- Columna de acciones -->
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <% for (let i = 0; i < usuario.length; i++) { %>
+          <tr>
+            <th scope="row"><%= usuario[i].id %></th>
+            <td><%= usuario[i].nombre %></td>
+            <td><%= usuario[i].email %></td>
+            <td><%= usuario[i].rol %></td>
+            <td><%= usuario[i].local_id %></td>
+            <td>
+                <a href="/users/editUser/<%= usuario[i].id %>">
+                    <button id="editar" class="btn btn-light">Editar</button> <!-- Botón de editar para la fila 1 -->
+                </a>
+            </td>           
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+      <div class="row p-5 bg-secondary text-white ">  <!-- Pie de pagina gris sin nada mas -->
+      </div>
+   
+    
+</body>
+</html>
+

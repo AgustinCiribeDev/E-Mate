@@ -5,25 +5,32 @@
 <body>
     <%- include ('./../partials/headerLog.ejs') %>  
 
+    <div class="container-fluid m-0 d-flex pr-0 align-items-end" style="min-height: 10vh; font-size:22px">
+        <div class="row w-100 justify-content-end" >
+            <a href="/users/register">
+                <p class="text-secondary m-0 px-5"> Crear Usuario</p>
+            </a>
+            
+            <p class="text-bg-secondary p-1 col-12 m-30 h-10" ></p>
+        </div>
+    </div>
 
     <div class="container-fluid m-0 d-flex pr-0 align-items-end" style="min-height: 10vh; font-size:22px">
         <div class="row w-100 justify-content-end" >
-            <!-- COMENTO POR VIEJO  <a class="text-body-tertiary col-6 m-0 row justify-content-end px-5" href="/users/login" style="text-decoration:none;">Iniciar Sesión</a>  -->
-            <p class="text-success m-0 px-5"> Registro de Usuarios</p>
-            <!-- COMENTO POR VIEJO <p class="bg-secondary-subtle p-1 col-6 m-30 h-10"></p> -->
+            <p class="text-success m-0 px-5"> Editar Usuario</p>
             <p class="text-bg-success p-1 col-12 m-30 h-10" ></p>
         </div>
     </div>
 
 
     <div .container>
-        <form method="POST" action="/users/register" enctype="multipart/form-data"> 
+        <form method="POST" action="/users/editUser/<%= usuario.id %>" enctype="multipart/form-data"> 
         <div class="d-flex align-items-center justify-content-center" style="min-height: 25vh;">
             <div class="row"></div>
                 
                 <article class="text-center col-12 " style="font-size: 18px;">
                     <div class="form-floating mb-2 col-4 text-center d-inline-block">
-                        <input type="text" name="name" id="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
+                        <input type="text" name="name" id="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= usuarioEditar.nombre %>" >
                         <label for="name">Nombre y apellido</label>
                         <% if (locals.errors && errors.name) { %>
                         <div class="text-danger">
@@ -33,7 +40,7 @@
                     </div>
 
                     <div class="form-floating mb-2 col-4 text-center d-inline-block">
-                        <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.rol ? 'is-invalid' : null %>" placeholder="Rol" value="<%= locals.oldData ? oldData.rol : null%>" >
+                        <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.rol ? 'is-invalid' : null %>" placeholder="Rol" value="<%= usuarioEditar.rol %>" >
                         <label for="rol">Rol</label>
                         <% if (locals.errors && errors.rol) { %>
                         <div class="text-danger">
@@ -45,7 +52,7 @@
                     
 
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
-                        <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.local_id ? 'is-invalid' : null %>" placeholder="Local" value="<%= locals.oldData ? oldData.local_id : null%>" >
+                        <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.local_id ? 'is-invalid' : null %>" placeholder="Local" value="<%= usuarioEditar.local_id %>" >
                         <label for="local_id">Local ID</label>
                         <% if (locals.errors && errors.local_id) { %>
                         <div class="text-danger">
@@ -54,7 +61,7 @@
                         <% } %>
                     </div>
                     <div class="form-floating mb-2 col-4 mx-auto text-center d-inline-block">
-                        <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
+                        <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= usuarioEditar.email %>">
                         <label for="email">Email</label>
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
@@ -75,29 +82,20 @@
                     
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
                         <div class="form-group">
-                        <label class="custom-file-label" for="avatar" >Imagen de perfil</label>
-                        <input type="file" class="custom-file-input" id="avatar" name="avatar" >  
+                        <label class="custom-file-label" for="avatar" >Selecciona una imagen de perfil</label>
+                        <input type="file" class="custom-file-input" id="avatar" name="avatar" value="<%= usuarioEditar.avatar %>">  
                             <% if (locals.errors && errors.avatar) { %>
                                 <div class="text-danger">
                                     <%= errors.avatar.msg %>
                                 </div>
-                            <% } %> 
-                            <div id="file-name"></div> 
+                            <% } %>  
                         </div>
                     </div>   
 
-                    <!-- NO VA MAS
-                    <div class="form-check m-3" style="font-size: 16px;">
-                        <input class="form-check-input" type="checkbox" value="" name= "oferta" id="oferta">
-                        <label class="form-check-label" for="flexCheckD efault">
-                        Recibir Ofertas por E-mail
-                        </label>
+                    <div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-success">
+                        <button id="guardarUsuario"class="btn btn-success" type="submit">GUARDAR USUARIO</button>
                     </div>
-                      -->
 
-                    <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
-                        <button id="iniciarsesion"class="btn btn-success" type="submit">CREAR USUARIO</button>
-                    </div>
                     
                     
                 </article>
@@ -105,19 +103,13 @@
     </form>
     </div>
 
-<%- include ('./listado.ejs') %>
-    
+    <%- include ('./listado.ejs') %>
 </body>
 </html>
 
 
-<!-- BOTONES QUE NO VAN MAS
-<div class="d-grid mb-2 align-items-center col-12 mx-auto">
-    <button id="inicioGoogle"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-google" style="font-size: 22px;"></i> Ingresar con Google</button>
+<!--
+<div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger">
+    <button id="eliminarUsuario"class="btn btn-danger" type="submit">ELIMINAR USUARIO</button>
 </div>
-<div class="d-grid mb-2 align-items-center col-12 mx-auto">
-    <button id="inicioApple"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i> Ingresar con Apple</button>
-</div>
-
-
---> 
+-->

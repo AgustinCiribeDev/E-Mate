@@ -1,7 +1,7 @@
 const express = require('express');                                         //0
 const router = express.Router();                                            //0
 const path = require('path');
-const usersControllers = require('./../controllers/usersControllers');      //0
+const usersControllers = require('./../controllers/usersControllers');        
 
 const validationsUsers = require ('./../middlewares/validationsUsers')
 const validationsLogin = require ('./../middlewares/validationsLogin')
@@ -16,6 +16,9 @@ const upload = multer();
 
 router.get('/register', guestMiddleware, usersControllers.register);                   //0
 router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
+router.get('/editUser/:id', usersControllers.editUser);  
+router.post('/editUser/:id', usersControllers.processEditUser);  
+
 
 router.get('/login', guestMiddleware, usersControllers.login);
 router.post('/login', validationsLogin, usersControllers.loginProcess)
