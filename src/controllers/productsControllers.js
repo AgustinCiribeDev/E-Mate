@@ -158,6 +158,13 @@ const  productsControllers = {
     })
     res.redirect('/');
   }       
+,
+  local: (req,res) => {
+    db.Producto.findAll ()
+      .then ((producto) => {
+        return res.render('products/localProducts', {producto:producto});
+      })
+  }
 };
       
 module.exports = productsControllers;

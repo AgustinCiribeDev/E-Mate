@@ -96,7 +96,7 @@
   "cuotas": null,
   "estado": "En Oferta",
   "descuento": null,
-  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689822439/1689822437026mate1.jpeg.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jp"
  },
  {
   "id": 11,
@@ -129,7 +129,7 @@
   "cuotas": 6,
   "estado": "En Oferta",
   "descuento": 0,
-  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/1689822392775.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {
   "id": 11,
@@ -140,7 +140,7 @@
   "cuotas": null,
   "estado": "En Oferta",
   "descuento": null,
-  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1689824484/16898244825311200px-Tipos_de_bombillas_para_mate.jpg.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jp"
  },
  {
   "id": 12,
@@ -151,7 +151,7 @@
   "cuotas": null,
   "estado": "En Oferta",
   "descuento": 20,
-  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1694116187/1694116183151mate.jpeg.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jp"
  },
  {
   "id": 13,
@@ -162,6 +162,6 @@
   "cuotas": null,
   "estado": "En Oferta",
   "descuento": 10,
-  "imagen": "https://res.cloudinary.com/dirx4wkl1/image/upload/v1694116352/1694116350353mate.jpeg.jpg"
+  "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jp"
  }
 ]

@@ -26,4 +26,9 @@ router.put('/edit/:id', upload.single('imagen'), productsControllers.update);
 
 //Ruta para eliminar un producto
 router.delete('/delete/:id', productsControllers.destroy);
+
+//Ruta por el momento a todos los locales sin filtro por id_local
+router.get('/local', productsControllers.local);
+
 module.exports = router;
+
