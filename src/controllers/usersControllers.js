@@ -19,11 +19,14 @@ const usuariosFilePath = path.join(__dirname, '../database/usuarios.json');
 let usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
 /*Base de Datos*/
-const db = require('../database/models');
+const db = require('../database/models');                                        //0
 
-const usersControllers = {
-  register: async (req, res) => {
-    res.render('usuarios/registro');
+const usersControllers = {                                                       //0
+  register: (req, res) => {
+    db.Usuario.findAll()
+      .then (function (usuario){
+        res.render('usuarios/registro', { usuario: usuario });
+      })
   },
 
   processRegister: async (req, res) => {
@@ -210,4 +213,4 @@ const usersControllers = {
   }
 }
 
-module.exports = usersControllers;
+module.exports = usersControllers;                                           //0 

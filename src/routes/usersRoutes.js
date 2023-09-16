@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express');                                         //0
+const router = express.Router();                                            //0
 const path = require('path');
-const usersControllers = require('./../controllers/usersControllers');
+const usersControllers = require('./../controllers/usersControllers');      //0
 
 const validationsUsers = require ('./../middlewares/validationsUsers')
 const validationsLogin = require ('./../middlewares/validationsLogin')
@@ -14,7 +14,7 @@ const upload = multer();
 
 //Registro de usuario agregando una imagen como avatar
 
-router.get('/register', guestMiddleware, usersControllers.register);
+router.get('/register', guestMiddleware, usersControllers.register);                   //0
 router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
 
 router.get('/login', guestMiddleware, usersControllers.login);

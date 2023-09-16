@@ -37,11 +37,11 @@ app.set("view engine", "ejs");
 //configuracion rutas
 const mainRoutes =  require ('./src/routes/mainRoutes')
 const productsRoutes =  require ('./src/routes/productsRoutes')
-const usersRoutes =  require ('./src/routes/usersRoutes')
+const usersRoutes =  require ('./src/routes/usersRoutes')                 //0
 
 app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
-app.use('/users', usersRoutes); 
+app.use('/users', usersRoutes);                                           //0
 
 app.use('*', function(req, res) {
     res.send("Error de acceso, esta ruta no existe en el sitio")

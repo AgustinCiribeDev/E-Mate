@@ -124,39 +124,28 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
+            <% for (let i = 0; i < usuario.length; i++) { %>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark Otto</td>
-            <td>mark@mdo</td>
-            <td>Administrador</td>
-            <td>null</td>
+            <th scope="row"><%= usuario[i].id %></th>
+            <td><%= usuario[i].nombre %></td>
+            <td><%= usuario[i].email %></td>
+            <td><%= usuario[i].rol %></td>
+            <td><%= usuario[i].local_id %></td>
             <td>
                 <button class="btn btn-light">Editar</button> <!-- Botón de editar para la fila 1 -->
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob Thornton</td>
-            <td>jacob@mdo</td>
-            <td>Empleado</td>
-            <td>1</td>
-            <td>
-                <button class="btn btn-light">Editar</button> <!-- Botón de editar para la fila 1 -->
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Marco Perez</td>
-            <td>marco@mdo</td>
-            <td>Empleado</td>
-            <td>2</td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
 
+      <div class="row p-5 bg-secondary text-white ">  <!-- Pie de pagina gris sin nada mas -->
+      </div>
    
-    <%- include ('./../partials/footer.ejs') %>
-    <%- include ('./../partials/bootstrapJs.ejs') %>
+
+   
+    
+    
 </body>
 </html>
 
@@ -168,4 +157,6 @@
 <div class="d-grid mb-2 align-items-center col-12 mx-auto">
     <button id="inicioApple"class="btn btn-outline-primary" type="button"><i class="fa-brands fa-apple" style="font-size: 22px;"></i> Ingresar con Apple</button>
 </div>
+
+
 --> 
