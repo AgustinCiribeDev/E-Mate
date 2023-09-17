@@ -18,10 +18,14 @@ const  productsControllers = {
     let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");      
     res.render('index', {productosOferta});*/
   
-        productCatalogue: (req,res)=>{
-          productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-          res.render('products/productCatalogue', {productos});
-        },
+  productCatalogue: (req,res)=>{
+    /*productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));*/
+    db.Producto.findAll ()
+    .then ((productos) => {
+      return res.render('products/productCatalogue',{productos:productos});
+    })
+    /*res.render('products/productCatalogue', {productos});*/
+  },
   
   productDetail: (req, res) => {
     db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"},]})

@@ -88,12 +88,17 @@
             <p class="card-text">Local: TBD </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= producto[i].cuota %></li>
             <li class="list-group-item">
               <div class="block-products-feed__product-price text--primary">
-                $<%= producto[i].precio %> (<%= producto[i].descuento %>% de descuento)
+                $<%= producto[i].precio %> 
+                <% if (producto[i].descuento === null) { %>
+                  <%= "" %>
+                <% } else { %> 
+                  (<%= producto[i].descuento %>% de descuento)
+                <% } %>
               </div>
             </li>
+            <li class="list-group-item"><%= producto[i].cuota %></li>
             <li class="list-group-item"><%= producto[i].estado %></li>
           </ul>
           <div class="card-body">
@@ -132,12 +137,13 @@
             <p class="card-text">Local: TBD </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= producto[i].cuota %></li>
+            
             <li class="list-group-item">
               <div class="block-products-feed__product-price text--primary">
                 $<%= producto[i].precio %> (<%= producto[i].descuento %>% de descuento)
               </div>
             </li>
+            <li class="list-group-item"><%= producto[i].cuota %></li>
             <li class="list-group-item"><%= producto[i].estado %></li>
           </ul>
           <div class="card-body">
