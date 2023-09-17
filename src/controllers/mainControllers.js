@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const cloudinary = require('cloudinary').v2;
-const streamifier = require('streamifier'); // esto es de Jero, ver clase...¿?
+const streamifier = require('streamifier');
 const db = require('../database/models'); /* Base de Datos */
 
 /* Credenciales de Cloudinary */

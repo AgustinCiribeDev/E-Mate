@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path'); // ver si hace falta, pero al final
 const cloudinary = require('cloudinary').v2;
-const streamifier = require('streamifier'); // esto es de Jero, ver clase...
+const streamifier = require('streamifier');
+const { log } = require('console');
 const db = require('../database/models'); /* Base de Datos */
 
 cloudinary.config({ 
@@ -52,7 +53,41 @@ const  productsControllers = {
   },
     
   addProduct: async (req, res) => {
-    try {
+    const imageBuffer = req.file.buffer;
+    const nombreImagen = Date.now() + req.file.originalname;
+        
+    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
+    if (error) {
+      console.log('Error al cargar la imagen:', error);
+      res.status(500).send('Error al cargar la imagen');
+    } else {
+      console.log('Imagen cargada correctamente:', result);
+        // Aquí, en lugar de almacenar solo el nombre de la imagen,
+        // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
+      
+        // creando el objeto nuevo usuario
+      db.Producto.create({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        precio: req.body.precio,
+        imagen: result ? result.secure_url : null,
+        stock: req.body.stock,
+        estado: req.body.estado,
+        descuento: req.body.descuento,
+        cuota: req.body.cuota,
+        categoria_id: req.body.categoria,
+        })
+        .then((resultados)  => { 
+        res.redirect('/');
+        })
+        .catch((error) => {
+        console.error(error)
+        });   
+      }
+    });
+        
+  streamifier.createReadStream(imageBuffer).pipe(stream);
+    /*try {
       const imageBuffer = req.file.buffer;
       const nombreImagen = Date.now() + req.file.originalname;
       const result = await cloudinary.uploader.upload(imageBuffer, {
@@ -83,8 +118,8 @@ const  productsControllers = {
         console.error(error);
         res.status(500).json({ message: 'Error al crear el producto' });
       }
-      streamifier.createReadStream(imageBuffer).pipe(stream);
-    },
+      streamifier.createReadStream(imageBuffer).pipe(stream);*/
+  },
 
     /* const imageBuffer = req.file.buffer;
     const nombreImagen = Date.now() + req.file.originalname;   
