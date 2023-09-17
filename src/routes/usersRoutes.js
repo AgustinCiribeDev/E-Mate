@@ -24,8 +24,8 @@ router.post('/editUser/:id', usersControllers.processEditUser);
 //Borrar Usuario
 router.post('/delete/:id', usersControllers.delete); 
 
-
 router.get('/login', guestMiddleware, usersControllers.login);
+
 router.post('/login', validationsLogin, usersControllers.loginProcess)
 
 router.get('/profile', authMiddleware, usersControllers.profile);
