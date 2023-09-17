@@ -99,35 +99,73 @@ const usersControllers = {                                                      
   editUser: (req, res) => {          // EN PROCESO
     let pedidoUsuario = db.Usuario.findByPk(req.params.id)
     let pedidoListado = db.Usuario.findAll()
+    const id = req.params.id;
 
     Promise.all([pedidoUsuario, pedidoListado])
       .then (function ([usuarioEditar, usuario]){
-        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario });      //Comparto los datos del modelo que quiero moestrar en la vista
+        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario, id: req.params.id });      //Comparto los datos del modelo que quiero moestrar en la vista
       })
+      .catch(err => {
+        console.error('Error:', err);
+        res.status(500).send('Error interno del servidor');
+      });
   }
   ,
-  processEditUser:  (req, res) => {   
-    db.Usuario.update({
-      nombre: req.body.name,
-      email: req.body.email,
-      password: bcryptjs.hashSync(req.body.password,10 ), // hasheando el password
-      rol: req.body.rol,
-      local_id: req.body.local_id,
-      imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
-      oferta: req.body.oferta,
-    }, {
-      where: {
-        id: req.params.id
-      }
-    })
-    .then((resultados)  => { 
-      res.redirect('/users/register');
+  processEditUser: async function (req, res) {
+    try {
+      
+      // Hasheando la contraseña de forma asincrónica
+      const hashedPassword = await bcryptjs.hash(req.body.password, 10);
+  
+      // Actualizar el usuario en la base de datos
+      await db.Usuario.update({
+        nombre: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+        rol: req.body.rol,
+        local_id: req.body.local_id,
+        imagen: result ? result.secure_url : null,
+        oferta: req.body.oferta,
+      }, {
+        where: {
+          id: req.params.id
+        }
+      });
+  
+      // Redirigir después de la actualización
+      res.redirect("/users/register/" + req.params.id);
+    } catch (error) {
+      // Manejar cualquier error que ocurra
+      console.error("Error en processEditUser:", error);
+      // Envía una respuesta de error adecuada al cliente, por ejemplo:
+      res.status(500).send("Ocurrió un error al procesar la solicitud.");
+    }
+  },
+ //despues borrar
+
+/*
+    .then((resultados) => {
+        res.redirect('/users/register/:id');
     })
     .catch((error) => {
-      console.error(error)
+        console.error(error);
     });
-  } 
+    
+  },
+  */
+
+  delete: (req, res) => {
+    db.Usuario.destroy({
+      where:{
+        id: req.params.id
+      }
+  })
+  }
   ,
+  
+  
+
+  //METODOS DEL LOGIN:
   login: async (req, res) => {
     try {
       return res.render('usuarios/inicio')

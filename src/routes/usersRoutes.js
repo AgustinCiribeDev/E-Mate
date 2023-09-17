@@ -16,8 +16,13 @@ const upload = multer();
 
 router.get('/register', guestMiddleware, usersControllers.register);                   //0
 router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
+
+//Editar Usuario
 router.get('/editUser/:id', usersControllers.editUser);  
 router.post('/editUser/:id', usersControllers.processEditUser);  
+
+//Borrar Usuario
+router.post('/delete/:id', usersControllers.delete); 
 
 
 router.get('/login', guestMiddleware, usersControllers.login);
