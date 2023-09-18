@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path'); // ver si hace falta, pero al final
+const { validationResult } = require('express-validator');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const { log } = require('console');
@@ -44,28 +45,39 @@ const  productsControllers = {
           res.render('products/productEdit');
         },
         
-  // Crear producto
+  /* Método crear productos */
   create: (req, res) => {
     db.Producto.findAll ()
       .then ((producto) => {
       res.render('products/productCreate', {producto:producto});
     })
   },
-    
+  
+  /* Método crear un producto nuevo */
   addProduct: async (req, res) => {
+
+    /* Express Validator */
+    const resultValidation = validationResult(req);
+       
+    if(resultValidation.errors.length > 0) {
+      return res.render('products/productCreate', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
+    };
+
     const imageBuffer = req.file.buffer;
     const nombreImagen = Date.now() + req.file.originalname;
-        
+    
+    /* Se genero url de imagen */
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
     if (error) {
       console.log('Error al cargar la imagen:', error);
       res.status(500).send('Error al cargar la imagen');
     } else {
       console.log('Imagen cargada correctamente:', result);
-        // Aquí, en lugar de almacenar solo el nombre de la imagen,
-        // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
       
-        // creando el objeto nuevo usuario
+      /* Creando el objeto nuevo de producto en la BD */
       db.Producto.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,

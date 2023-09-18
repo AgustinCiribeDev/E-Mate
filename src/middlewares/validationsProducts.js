@@ -1,21 +1,21 @@
 const path = require('path');
 
-//Configurando Multer
+/* Configurando Multer */
 const multer = require('multer');
 const upload = multer();
 
-// Requiriendo express-validator
+/* Requiriendo express-validator */
 const { body } = require('express-validator');
 
-//Validaciones
+/* Validaciones */
 const validationsUsers = [
-    body ('name').notEmpty().withMessage('Tienes que escribir tu nombre'),
-    body ('rol').notEmpty().withMessage('Tenés que elegir un rol'),
-    body ('email')
-    .notEmpty().withMessage('Tienes que escribir tu correo electrónico').bail()
-    .isEmail().withMessage('Tienes que escribir un formato de correo válido'),
-    body ('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
-    body ('avatar').custom((value, {req}) => {
+    body ('nombre').notEmpty().withMessage('Tienes que escribir el nombre del producto'),
+    body ('categoria').notEmpty().withMessage('Tienes que elegir una categoría de producto'),
+    body ('estado').notEmpty().withMessage('Tienes que elegir si el producto está en oferta o no'),
+    body ('descripcion').notEmpty().withMessage('Tienes que describir tu producto'),
+    body ('precio').notEmpty().withMessage('Tienes definir el precio de tu producto'),
+    body ('stock').notEmpty().withMessage('Tienes definir el precio de tu producto'),
+    body ('imagen').custom((value, {req}) => {
         let file = req.file;
         let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp'];
 
