@@ -1,14 +1,14 @@
 const path = require('path');
 
-/* Configurando Multer */
+// Configurando Multer
 const multer = require('multer');
 const upload = multer();
 
-/* Requiriendo express-validator */
+// Requiriendo express-validator
 const { body } = require('express-validator');
 
-/* Validaciones */
-const validationsUsers = [
+// Validaciones
+const validationsProducts= [
     body ('nombre').notEmpty().withMessage('Tienes que escribir el nombre del producto'),
     body ('categoria').notEmpty().withMessage('Tienes que elegir una categoría de producto'),
     body ('estado').notEmpty().withMessage('Tienes que elegir si el producto está en oferta o no'),
@@ -31,4 +31,4 @@ const validationsUsers = [
     })
 ];
 
-module.exports = validationsUsers;
+module.exports = validationsProducts;

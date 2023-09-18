@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const { log } = require('console');
-const db = require('../database/models'); /* Base de Datos */
+const db = require('../database/models'); // Base de Datos
 
 cloudinary.config({ 
     cloud_name: 'dirx4wkl1', 
@@ -45,7 +45,7 @@ const  productsControllers = {
           res.render('products/productEdit');
         },
         
-  /* Método crear productos */
+  // Método crear productos
   create: (req, res) => {
     db.Producto.findAll ()
       .then ((producto) => {
@@ -53,10 +53,10 @@ const  productsControllers = {
     })
   },
   
-  /* Método crear un producto nuevo */
+  // Método crear un producto nuevo
   addProduct: async (req, res) => {
 
-    /* Express Validator */
+    // Express Validator
     const resultValidation = validationResult(req);
        
     if(resultValidation.errors.length > 0) {
@@ -64,12 +64,12 @@ const  productsControllers = {
         errors: resultValidation.mapped(),
         oldData: req.body
       });
-    };
-
+    } 
+    
     const imageBuffer = req.file.buffer;
     const nombreImagen = Date.now() + req.file.originalname;
     
-    /* Se genero url de imagen */
+    // Se genero url de imagen
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
     if (error) {
       console.log('Error al cargar la imagen:', error);
@@ -77,7 +77,7 @@ const  productsControllers = {
     } else {
       console.log('Imagen cargada correctamente:', result);
       
-      /* Creando el objeto nuevo de producto en la BD */
+      // Creando el objeto nuevo de producto en la BD
       db.Producto.create({
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -99,6 +99,7 @@ const  productsControllers = {
     });
         
   streamifier.createReadStream(imageBuffer).pipe(stream);
+ 
     /*try {
       const imageBuffer = req.file.buffer;
       const nombreImagen = Date.now() + req.file.originalname;
