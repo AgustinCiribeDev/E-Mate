@@ -24,44 +24,81 @@
               <label for="nombre">Nombre del producto</label>
               <br />
               <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresar nombre">
+              <% if (locals.errors && errors.nombre) { %>
+                <div class="text-danger">
+                    <%= errors.nombre.msg %>
+                </div>
+                <% } %>
             </div>
+
             <br />
             <div class="form-group">
               <label for="categoria">Categoría</label>
               <select class="custom-select" name="categoria" id="categoria">
-                <option selected>Seleccione una categoría</option>
+                <option selected>
+                <option><%= "" %></option>
                 <option>Yerbas</option>
                 <option>Mates</option>
                 <option>Sets</option>
                 <option>Termos</option>
                 <option>Bombillas</option>
               </select>
+              <% if (locals.errors && errors.categoria) { %>
+                <div class="text-danger">
+                    <%= errors.categoria.msg %>
+                </div>
+              <% } %>
             </div>
+
             <br/>
             <div class="form-group">
               <label for="estado">Estado</label>
               <select class="custom-select" name="estado" id="estado">
-                <option selected>En Oferta</option>
+                <option selected>
+                <option><%= "" %></option>
+                <option>Oferta</option>
                 <option>Ultimos Agregados</option>
               </select>
+              <% if (locals.errors && errors.estado) { %>
+                <div class="text-danger">
+                    <%= errors.estado.msg %>
+                </div>
+              <% } %>
             <br/>
+
             <br>
-
             <div class="custom-file">
-              <label class="custom-file-label" for="imagen">Seleccionar una imagen</label>
-              <input type="file" class="custom-file-input" id="imagen" name="imagen">
+              <label class="form-label" for="imagen">Seleccionar una imagen</label>
+              <input type="file" class="form-control" id="imagen" name="imagen">
+              <% if (locals.errors && errors.imagen) { %>
+                <div class="text-danger">
+                    <%= errors.imagen.msg %>
+                </div>
+              <% } %>
             </div>
-
             <br />
+
+            <br>
             <div class="form-group">
               <label for="descripcion">Descripción</label>
               <textarea class="form-control" id="descripcion"name="descripcion" rows="3"></textarea>
+              <% if (locals.errors && errors.descripcion) { %>
+                <div class="text-danger">
+                    <%= errors.descripcion.msg %>
+                </div>
+              <% } %>
             </div>
             <br />
+            
             <div class="form-options-color-amount">
               <div class="form-options-amount">
                 <label for="precio">Precio de venta</label>
                 <input type="number" id="precio" name="precio">
+                <% if (locals.errors && errors.precio) { %>
+                  <div class="text-danger">
+                      <%= errors.precio.msg %>
+                  </div>
+                <% } %>
               </div>
               <div class="form-options-amount">
                 <label for="descuento">Descuento</label>
@@ -79,6 +116,11 @@
               <div class="form-options-amount">
                 <label for="stock">Cantidad en Stock</label>
                 <input type="number" id="stock" name="stock">
+                <% if (locals.errors && errors.stock) { %>
+                  <div class="text-danger">
+                      <%= errors.stock.msg %>
+                  </div>
+                <% } %>
               </div>
             </div>
             </div>
