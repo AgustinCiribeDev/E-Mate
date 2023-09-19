@@ -38,7 +38,8 @@
                     </div>
                     <div>
                     <button type="submit" class="btn-buy">Comprar Ahora</button>
-                    <button type="submit" class="btn-cart">Agregar al Carrito</button>
+                    <button type="button" class="btn-cart" onclick="window.location.href = '/products/cart';">Agregar al Carrito</button>
+                    <button type="button" class="btn-cart" onclick="agregarAlCarrito()">Agregar al Carrito prueba </button>
                     </div>
                     <div>
                         <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
@@ -56,7 +57,7 @@
             </p>
         </section>
     </article>
-    
+    <script src="/src/controllers/cartController.js"></script>
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
