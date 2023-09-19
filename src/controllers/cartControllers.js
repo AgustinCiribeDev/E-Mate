@@ -7,9 +7,14 @@ const { log } = require('console');
 const db = require('../database/models'); // Base de Datos
 
 
-function addToCart(cantidad, id, nombre, imagen, precio) {
-    let carrito = getCart();
-    let productoExistente = carrito.find(item => item.id === id);
+const cartControllers = {
+    cart: (req, res) => {
+        res.render('products/productCart');
+        },
+
+      addToCart : (req, res) => {(cantidad, id, nombre, imagen, precio) {
+        let carrito = getCart();
+        let productoExistente = carrito.find(item => item.id === id);
 
     if (productoExistente) {
         // Si el producto ya existe, actualiza la cantidad
@@ -24,7 +29,7 @@ function addToCart(cantidad, id, nombre, imagen, precio) {
             precio: precio
         });
     }
-
+},
     updateCart(carrito);
 }
 
@@ -62,5 +67,6 @@ function agregarAlCarrito() {
     // Redirige a la ruta deseada
     window.location.href = '/products/cart';
 }
+}
 
-module.exports = cartController;  
+module.exports = cartControllers;  

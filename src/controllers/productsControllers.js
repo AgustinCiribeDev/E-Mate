@@ -36,9 +36,6 @@ const  productsControllers = {
     })
   },
         
-        cart: (req, res) => {
-          res.render('products/productCart');
-        },
         
         //Editar Productos
         edit: (req, res) => {

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const productsControllers = require('./../controllers/productsControllers');
-const validationsProducts = require ('./../middlewares/validationsProducts')
+const validationsProducts = require ('./../middlewares/validationsProducts');
+const cartControllers = require('./../controllers/cartControllers')
 
 // Configurando Multer
 const multer = require('multer');
@@ -14,7 +15,7 @@ router.get('/productCatalogue', productsControllers.productCatalogue);
 router.get('/productDetail/:id', productsControllers.productDetail);
 
 // Ruta carrito de compras
-router.get('/cart', productsControllers.cart);
+router.get('/cart', cartControllers.cart);
 
 // Rutas de crear productos
 router.get('/create', productsControllers.create);
