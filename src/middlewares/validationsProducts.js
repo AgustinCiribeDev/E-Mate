@@ -13,8 +13,8 @@ const validationsProducts= [
     body ('categoria').notEmpty().withMessage('Tienes que elegir una categoría de producto'),
     body ('estado').notEmpty().withMessage('Tienes que elegir si el producto está en oferta o no'),
     body ('descripcion').notEmpty().withMessage('Tienes que describir tu producto'),
-    body ('precio').notEmpty().withMessage('Tienes definir el precio de tu producto'),
-    body ('stock').notEmpty().withMessage('Tienes definir el precio de tu producto'),
+    body ('precio').notEmpty().withMessage('Falta el precio'),
+    body ('stock').notEmpty().withMessage('Falta el stock'),
     body ('imagen').custom((value, {req}) => {
         let file = req.file;
         let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp'];

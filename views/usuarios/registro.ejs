@@ -42,8 +42,6 @@
                         <% } %>
                     </div>
 
-                    
-
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
                         <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.local_id ? 'is-invalid' : null %>" placeholder="Local" value="<%= locals.oldData ? oldData.local_id : null%>" >
                         <label for="local_id">Local ID</label>
@@ -53,6 +51,7 @@
                         </div>
                         <% } %>
                     </div>
+
                     <div class="form-floating mb-2 col-4 mx-auto text-center d-inline-block">
                         <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
                         <label for="email">Email</label>
@@ -62,6 +61,7 @@
                             </div>
                             <% } %>
                     </div>
+
                     <div class="form-floating mb-2 col-4 mx-auto text-center d-inline-block">
                         <input type="password" class="form-control" id="password" name ="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
                         <label for="password">Contraseña</label>
@@ -72,7 +72,6 @@
                             <% } %>
                     </div>
 
-                    
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
                         <div class="form-group">
                         <label class="custom-file-label" for="avatar" >Imagen de perfil</label>
