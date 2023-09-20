@@ -39,7 +39,7 @@
                     <div>
                     <button type="submit" class="btn-buy">Comprar Ahora</button>
                     <button type="button" class="btn-cart" onclick="window.location.href = '/products/cart';">Agregar al Carrito</button>
-                    <button type="button" class="btn-cart" onclick="agregarAlCarrito()">Agregar al Carrito prueba </button>
+                    <button type="button" class="btn-cart" onclick="addToCart(1, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); window.location.href = '/products/cart';">Agregar al Carrito prueba </button>
                     </div>
                     <div>
                         <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
@@ -57,7 +57,7 @@
             </p>
         </section>
     </article>
-    <script src="/src/controllers/cartController.js"></script>
+    <script src="../../js/cartControllers.js"></script>
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
