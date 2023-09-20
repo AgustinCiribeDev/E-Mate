@@ -1,4 +1,15 @@
+/* PONER COSAS EN EL CARRITO */
+function getCart() {
+    let carrito = [];
 
+    try {
+        carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    } catch (e) {
+        console.log(e);
+    }
+
+    return carrito;
+}
 
 function addToCart (cantidad, id, nombre, imagen, precio )  {
     let carrito = getCart();
@@ -20,32 +31,28 @@ function addToCart (cantidad, id, nombre, imagen, precio )  {
 
     updateCart(carrito);
 }
-
-
-function removeFromCart (id) {
-    let carrito = getCart();
-    // Filtra los productos que no coincidan con el id a eliminar
-    carrito = carrito.filter(item => item.id !== id);
-    updateCart(carrito);
-}
-
+/* SACAR COSAS DEL CARRITO */
 function updateCart(carrito) {
     // Aquí deberías almacenar el carrito en tu base de datos o en otro sistema de almacenamiento adecuado
     // En este ejemplo, se asume que se guarda en el almacenamiento local del navegador
     localStorage.setItem("carrito", JSON.stringify(carrito));
     console.log(carrito)
 }
+function removeFromCart (id) {
+    let carrito = getCart();
+    // Filtra los productos que no coincidan con el id a eliminar
+    carrito = carrito.filter(item => item.id !== id);
+    updateCart(carrito);
+};
 
-function getCart() {
-    let carrito = [];
+function showAddedToCartMessage() {
+    const messageDiv = document.getElementById('addedToCartMessage');
+    const mensaje = "Artículo agregado al carrito"; // Aquí defines tu mensaje
+    // messageDiv.innerText = Agregado; // Establece el texto del mensaje
 
-    try {
-        carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    } catch (e) {
-        console.log(e);
-    }
+    messageDiv.style.display = 'block';
 
-    return carrito;
-}
-
-// En este ejemplo, asumo que estás utilizando Express.js y que has configurado las rutas adecuadamente para las funciones addToCart y removeFromCart.
+    setTimeout(function() {
+        messageDiv.style.display = 'none';
+    }, 2000); 
+};
