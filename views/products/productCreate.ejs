@@ -28,20 +28,19 @@
                 <div class="text-danger">
                     <%= errors.nombre.msg %>
                 </div>
-                <% } %>
+              <% } %>
             </div>
 
             <br />
             <div class="form-group">
               <label for="categoria">Categoría</label>
               <select class="custom-select <%= locals.errors && errors.categoria ? 'is-invalid' : null %>" name="categoria" id="categoria">
-                <option selected>
                 <option><%= "" %></option>
-                <option>Yerbas</option>
-                <option>Mates</option>
-                <option>Sets</option>
-                <option>Termos</option>
-                <option>Bombillas</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </select>
               <% if (locals.errors && errors.categoria) { %>
                 <div class="text-danger">
@@ -54,9 +53,8 @@
             <div class="form-group">
               <label for="estado">Estado</label>
               <select class="custom-select <%= locals.errors && errors.estado ? 'is-invalid' : null %>" name="estado" id="estado">
-                <option selected>
                 <option><%= "" %></option>
-                <option>Oferta</option>
+                <option>En Oferta</option>
                 <option>Ultimos Agregados</option>
               </select>
               <% if (locals.errors && errors.estado) { %>
@@ -125,8 +123,16 @@
             </div>
             </div>
             <br />
+            <label for="usuario">Email del usuario</label>
+              <br />
+              <input type="text" class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" name="usuario" id="usuario" placeholder="34">
+              <% if (locals.errors && errors.usuario) { %>
+                <div class="text-danger">
+                    <%= errors.usuario.msg %>
+                </div>
+              <% } %>
+            <br>
             <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
-            <br />
           </form>
         </div>
         

@@ -12,7 +12,7 @@ const cartControllers = {
         res.render('products/productCart');
         },
 
-      addToCart : (req, res) => {(cantidad, id, nombre, imagen, precio) {
+     /* addToCart : (req, res) => {(cantidad, id, nombre, imagen, precio) {
         let carrito = getCart();
         let productoExistente = carrito.find(item => item.id === id);
 
@@ -66,7 +66,7 @@ function agregarAlCarrito() {
 
     // Redirige a la ruta deseada
     window.location.href = '/products/cart';
-}
+}*/
 }
 
 module.exports = cartControllers;  

@@ -84,6 +84,7 @@ const  productsControllers = {
         estado: req.body.estado,
         descuento: req.body.descuento,
         cuota: req.body.cuota,
+        usuario_id: req.body.usuario,
         categoria_id: req.body.categoria,
         })
         .then((resultados)  => { 

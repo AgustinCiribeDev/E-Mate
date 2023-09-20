@@ -14,7 +14,8 @@ const validationsProducts= [
     body ('estado').notEmpty().withMessage('Tienes que elegir si el producto está en oferta o no'),
     body ('descripcion').notEmpty().withMessage('Tienes que describir tu producto'),
     body ('precio').notEmpty().withMessage('Falta el precio'),
-    body ('stock').notEmpty().withMessage('Falta el stock'),
+    body ('stock').notEmpty().withMessage('Falta el stock'), 
+    body ('usuario').notEmpty().withMessage('Tenes que ingresar el email de usuario'),
     body ('imagen').custom((value, {req}) => {
         let file = req.file;
         let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp'];
