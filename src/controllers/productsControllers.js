@@ -214,7 +214,15 @@ const  productsControllers = {
       .then ((producto) => {
         return res.render('products/localProducts', {producto:producto});
       })
+  },
+
+   cart: (req,res) => {
+    res.render('products/productCart');
   }
+
+
 };
-      
+
+
+
 module.exports = productsControllers;
