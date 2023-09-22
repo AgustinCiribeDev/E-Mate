@@ -8,137 +8,30 @@
     <table class="table  table-hover">
         <thead>
           <tr class="text primary">
-            <th scope="col">#</th>
             <th scope="col">Productos</th>
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="table__Productos">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_623243-MLA54951041089_042023-O.webp" alt="">
-            <h6 class="title">Mate Negro</h6>
-            </td>
-            <td class="table__Precio"><p>$ 100</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="table__Productos">
-            <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/176/840/products/ym-mate-co-organica-500gr-001-f7b1216500f6e884e116515845812286-640-0.webp" alt="">
-            <h6 class="title">Yerba Mate & Co.</h6>
-            </td>
-            <td class="table__Precio"><p>$ 500</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="table__Productos">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_733310-MLA54009960467_022023-O.webp" alt="">
-            <h6 class="title">Mate Rosa</h6>
-            </td>
-            <td class="table__Precio"><p>$ 1</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <tbody id="carritoDeCompras">
+          <!-- Aquí se generará dinámicamente el contenido del carrito -->
+      </tbody>
+    </table>
       <div class="row mx-4">
-        <div class="col">
-            <h3 class="ItemCartTotal text-black">Total: $601</h3>            
+          <div class="col">
+            <h3 class="ItemCartTotal text-black">Total: $0.00</h3>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <button class="btn btn-success" onclick= >COMPRAR</button>
+            <div id="cartelFelicitaciones" style="display: none;">
+          </div>
+          </div>
         </div>
-        <div class="col d-flex justify-content-end">
-            <button class="btn btn-success">COMPRAR</button>
-        </div>
-     </div>
     </div>
 
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>
-<!DOCTYPE html>
-<html lang="en">
-<%- include ('./../partials/head.ejs') %>
-<body>
-  <%- include ('./../partials/header.ejs') %>
-    <div class="carrito">
-    <br>
-    <table class="table  table-hover">
-        <thead>
-          <tr class="text primary">
-            <th scope="col">#</th>
-            <th scope="col">Productos</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="table__Productos">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_623243-MLA54951041089_042023-O.webp" alt="">
-            <h6 class="title">Mate Negro</h6>
-            </td>
-            <td class="table__Precio"><p>$ 100</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="table__Productos">
-            <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/176/840/products/ym-mate-co-organica-500gr-001-f7b1216500f6e884e116515845812286-640-0.webp" alt="">
-            <h6 class="title">Yerba Mate & Co.</h6>
-            </td>
-            <td class="table__Precio"><p>$ 500</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="table__Productos">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_733310-MLA54009960467_022023-O.webp" alt="">
-            <h6 class="title">Mate Rosa</h6>
-            </td>
-            <td class="table__Precio"><p>$ 1</p>
-            </td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="1">
-                <button class="delete btn btn-danger">x</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row mx-4">
-        <div class="col">
-            <h3 class="ItemCartTotal text-black">Total: $601</h3>            
-        </div>
-        <div class="col d-flex justify-content-end">
-            <button class="btn btn-success">COMPRAR</button>
-        </div>
-     </div>
-    </div>
-
-    <%- include ('./../partials/footer.ejs') %>
-    <%- include ('./../partials/bootstrapJs.ejs') %>
-
+    <%- include ('./../partials/cartjs.ejs') %>
 </body>
 </html>
 

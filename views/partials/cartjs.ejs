@@ -1,5 +1,4 @@
 <script>
-    /* PONER COSAS EN EL CARRITO */
 function getCart() {
     let carrito = [];
 
@@ -12,39 +11,57 @@ function getCart() {
     return carrito;
 }
 
-function addToCart (cantidad, id, nombre, imagen, precio )  {
+function addToCart(cantidad, id, nombre, imagen, precio) {
     let carrito = getCart();
     let productoExistente = carrito.find(item => item.id === id);
 
     if (productoExistente) {
-        // Si el producto ya existe, actualiza la cantidad
-        productoExistente.cantidad += parseInt(cantidad); // Asegúrate de que la cantidad sea un número
+        productoExistente.cantidad += parseInt(cantidad);
     } else {
-        // Si el producto no existe, agrégalo al carrito
         carrito.push({
             id: id,
             nombre: nombre,
             imagen: imagen,
-            cantidad: parseInt(cantidad), // Asegúrate de que la cantidad sea un número
-            precio: parseFloat(precio) // Asegúrate de que el precio sea un número decimal
+            cantidad: parseInt(cantidad),
+            precio: parseFloat(precio)
         });
     }
 
     updateCart(carrito);
 }
-/* SACAR COSAS DEL CARRITO */
-function updateCart(carrito) {
-    // Aquí deberías almacenar el carrito en tu base de datos o en otro sistema de almacenamiento adecuado
-    // En este ejemplo, se asume que se guarda en el almacenamiento local del navegador
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    console.log(carrito)
-}
-function removeFromCart (id) {
+
+function removeFromCart(id) {
+    alert('Eliminado del tu carrito!');
     let carrito = getCart();
-    // Filtra los productos que no coincidan con el id a eliminar
     carrito = carrito.filter(item => item.id !== id);
     updateCart(carrito);
-};
+}
+
+function updateCart(carrito) {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    const carritoContainer = document.getElementById('carritoDeCompras');
+    carritoContainer.innerHTML = '';
+
+    carrito.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <th scope="row">${index + 1}</th>
+            <td class="table__Productos">
+                <h6 class="title">${item.nombre}</h6>
+            </td>
+            <td class="table__Precio"><p>$ ${item.precio.toFixed(2)}</p></td>
+            <td class="table__Cantidad">
+                <input type="number" min="1" value="${item.cantidad}">
+                <button class="delete btn btn-danger" onclick="removeFromCart('${item.id}')">x</button>
+            </td>
+        `;
+        carritoContainer.appendChild(row);
+    });
+
+    const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+    const totalElement = document.querySelector('.ItemCartTotal');
+    totalElement.textContent = `Total: $ ${total.toFixed(2)}`;
+}
 
 function showAddedToCartMessage() {
     const messageDiv = document.getElementById('addedToCartMessage');
@@ -57,4 +74,11 @@ function showAddedToCartMessage() {
         messageDiv.style.display = 'none';
     }, 2000); 
 };
+
+const carritoDeCompras = getCart();
+updateCart(carritoDeCompras);
+
+
+
+
 </script>
