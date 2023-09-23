@@ -1,4 +1,4 @@
-<script>
+
 function getCart() {
     let carrito = [];
 
@@ -79,6 +79,3 @@ const carritoDeCompras = getCart();
 updateCart(carritoDeCompras);
 
 
-
-
-</script>
