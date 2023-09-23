@@ -14,11 +14,13 @@
 </div>
 
 <div .container>
-    <form method="POST" action="/users/login">
+    <form class ='formulario' method="POST" action="/users/login">
         <div class="d-flex align-items-center justify-content-center" style="min-height: 55vh;">
             <div class="row"></div>
                 <article class="text-center col-8 col-sm-6  col-md-5 col-lg-4 col-xl-3" style="font-size: 18px;">
-                    
+                    <div class="errores">
+                        <ul></ul>
+                    </div>
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
                             <label for="email">Email</label>
@@ -48,11 +50,11 @@
                         <button id="iniciarsesion"class="btn btn-success" type="submit">INICIAR SESIÓN</button>
                     </div>
                     
-                </article>
+                </article >
         </div>
     </form>
     </div>
-
+    <script src="/js/validationLoginFront.js"></script>
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>
 </body>
