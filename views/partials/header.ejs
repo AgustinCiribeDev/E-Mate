@@ -13,6 +13,9 @@
               </div>
             </div>        
             <div class="col-6 d-flex justify-content-end align-items-center">
+              
+              <a class="nav-item mx-3" href="/">Home</a>
+              <a class="nav-item mx-3" href="/products/productCatalogue">Productos</a>
               <% if(locals.isLogged) {%>
               <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,8 +29,8 @@
                 </ul>
               </div>
               <% } else {%>
-              <a class="nav-item mr-5" href="/users/login"><i class="bx bxs-user-circle mr-5 pd-5"></i>Empleados</a>
-              <a class="nav-item mr-5" href="/users/register"><i class="bx bxs-user-circle mr-5 pd-5"></i>Registrarse</a>
+                <a class="nav-item mx-3" href="/users/login">Empleados</a>
+                <a class="nav-item mx-3" href="/users/register">Registrarse</a>
             <% }%>
             </div>
           </div>
@@ -46,28 +49,6 @@
       
     </div>
   </div>
-  
-  <!-- Menu Hamburguesa-->
-  <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu justify-content-center">
-    <div class="container text-center"> <!-- Agregamos la clase "text-center" para centrar el contenido -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav mx-auto"> <!-- Cambiamos "ml-auto" por "mx-auto" para centrar los elementos en el eje horizontal -->
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/products/productCatalogue">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/contacto">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
+ 
 
 </header>
