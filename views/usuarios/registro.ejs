@@ -20,8 +20,11 @@
         <form method="POST" action="/users/register" enctype="multipart/form-data"> 
         <div class="d-flex align-items-center justify-content-center" style="min-height: 25vh;">
             <div class="row"></div>
-                
+            
                 <article class="text-center col-12 " style="font-size: 18px;">
+                    <div class="errores">
+                        <ul></ul>
+                    </div>
                     <div class="form-floating mb-2 col-4 text-center d-inline-block">
                         <input type="text" name="name" id="name" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.name : null%>" >
                         <label for="name">Nombre y apellido</label>
@@ -105,13 +108,15 @@
                         }
                     </script>  
 
+
                     <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
                         <button id="iniciarsesion"class="btn btn-success" type="submit">CREAR USUARIO</button>
                     </div>
                 </article>
         </div>
     </form>
-    </div>
+    </div> 
     <%- include ('./listado.ejs') %>
+    <script src="/js/validationRegisterFront.js"></script>
 </body>
 </html>

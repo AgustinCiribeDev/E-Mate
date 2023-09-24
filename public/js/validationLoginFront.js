@@ -15,7 +15,7 @@ formLogin.addEventListener('submit', function (evento){
     if(campoPassword.value == ""){
         errores.push('No escribiste tu contraseña');
     }
-console.log(errores)
+
     if(errores.length > 0){
         evento.preventDefault();
         let ulErrores = document.querySelector('div.errores ul');
