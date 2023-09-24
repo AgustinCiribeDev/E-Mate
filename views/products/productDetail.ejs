@@ -37,14 +37,12 @@
                         </form>
                     </div>
                     <div>
-                        <div id="addedToCartMessage" style="display: none; text-align: center;" class="btn-cart">
-                            <p style="padding: 5px;">Agregado al carrito</p>
-                        </div>
+
                         <button type="submit" class="btn-buy">Comprar Ahora</button>
                         <button  type="button" class="btn-cart" onclick="addToCart(1, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'), showAddedToCartMessage();">Agregar al Carrito</button>
-                            <div id="addedToCartMessage" style="display: none; text-align: center;" class="btn-cart">
-                                <p style="padding: 5px;">Agregado al carrito</p>
-                            </div>
+                        <div id="addedToCartMessage" style="display: none; text-align: center;margin-bottom: 10px;">
+                            <span style="padding: 5px;" class="text-success">Agregado al carrito</s>
+                        </div>
                     </div>
                     <div>
                         <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
