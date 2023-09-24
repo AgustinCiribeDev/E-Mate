@@ -27,7 +27,7 @@ function addToCart(cantidad, id, nombre, imagen, precio) {
         });
     }
 
-    updateCart(carrito);
+    updateCart(carrito); console.log(carrito);
 }
 
 function removeFromCart(id) {
@@ -38,9 +38,10 @@ function removeFromCart(id) {
 }
 
 function updateCart(carrito) {
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    const carritoContainer = document.getElementById('carritoDeCompras');
-    carritoContainer.innerHTML = '';
+    let carritoContainer = document.getElementById('carritoDeCompras');
+    carritoContainer.innerHTML = ''; 
 
     carrito.forEach((item, index) => {
         const row = document.createElement('tr');
