@@ -3,7 +3,10 @@ window.addEventListener('load', function(){
     let formRegister = document.querySelector('form');
 
     formRegister.addEventListener('submit', function (evento){
+        evento.preventDefault();
         let errores = [];
+        let ulErrores = document.querySelector('div.errores ul');
+        ulErrores.innerHTML = '';
 
         let validationName = document.querySelector('#name');
         let validationRol = document.querySelector('#rol');
@@ -35,16 +38,9 @@ window.addEventListener('load', function(){
         }
 
         if (errores.length > 0){
-            evento.preventDefault();
-            let ulErrores = document.querySelector('div.errores ul');
-
             for(let i =0; i< errores.length; i++){
                 ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
             }
         }
     })
-
-
-
-
-})
+});
