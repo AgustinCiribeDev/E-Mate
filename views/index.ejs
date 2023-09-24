@@ -28,37 +28,6 @@
   </a>
 </div>
 
-<!-- titulo de las locales-->    
-<div class="container">
-  <div class="row">
-    <div class="col align-items-center d-flex">
-      <h4 class="p-2 mr-1"><i class="bi bi-arrow-right-circle-fill"></i> Locales </h4>
-    </div>
-  </div>
-</div>
-
-<!-- contenedor de locales-->
-<div class="container">
-  <div class="row">
-    <div class="justify-content-start d-flex flex-wrap">
-      <div class="category col-lg-3 col-md-3 col-sm-4">
-        <a href="/products/local" class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px; font-size: 22px; text-decoration: none;">
-          NORTE
-        </a>
-      </div>
-      <div class="category col-lg-3 col-md-3 col-sm-4">
-        <a href="/products/local" class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px; font-size: 22px; text-decoration: none;">
-          CENTRO
-        </a>
-      </div>
-      <div class="category col-lg-3 col-md-3 col-sm-4">
-        <a href="/products/local" class="d-flex justify-content-center align-items-center rounded-circle bg-secondary text-white" style="width: 120px; height: 120px; font-size: 22px; text-decoration: none;">
-          SUR
-        </a>
-      </div>
-    </div>  
-  </div>
-</div>
 
 
 <!-- titulo de las listado de productos de oferta-->    
@@ -72,12 +41,14 @@
 
 <!-- comienza el contenedor de productos -->
 <div class="container">
-  <div class="row text-secondary mt-4 mb-4">
+  <div class="row text-secondary mt-4 mb-4 justify-content-center align-items-center">
     <% for (let i = 0; i < producto.length; i++ ) { %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card" style="width: 18rem;">
           <a href="products/productDetail/<%=producto[i].id %>">
-            <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap">
+            <div class="d-flex justify-content-center align-items-center">
+              <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap" style="width: 15vw; height: 15vw;">
+            </div>
           </a>
           <div class="card-body">
             <h5 class="card-title"><%= producto[i].nombre %></h5>
@@ -102,7 +73,7 @@
             <li class="list-group-item"><%= producto[i].estado %></li>
           </ul>
           <div class="card-body">
-            <a href="/products/cart" class="btn btn-primary"><i class="bi bi-cart4"> Agregar al carrito</i></a>
+            <button  type="button" class="btn-cart" onclick="addToCart(1, '<%=producto[i].id%>', '<%=producto[i].nombre%>', '', '<%=producto[i].precio%>'); alert('¡Producto agregado correctamente!')">Agregar al Carrito</button>
           </div>
         </div>
       </div>
@@ -110,7 +81,7 @@
   </div>
 </div>
 
-<!-- titulo de las listado de productos de oferta-->    
+<!-- titulo de las listado de productos de oferta 
 <div class="container">
   <div class="row">
     <div class="col align-items-center d-flex ">
@@ -119,25 +90,26 @@
   </div>
 </div>
 
-<!-- comienza el contenedor de productos -->
+<!-- comienza el contenedor de productos
 <div class="container">
-  <div class="row text-secondary mt-4 mb-4">
+  <div class="row text-secondary mt-4 mb-4 justify-content-center">
     <% for (let i = 0; i < producto.length; i++ ) { %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card" style="width: 18rem;">
           <a href="products/productDetail/<%=producto[i].id %>">
-            <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap">
+            <div class="d-flex justify-content-center align-items-center">
+              <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap" style="width: 15vw; height: 15vw;">
+            </div>
           </a>
           <div class="card-body">
             <h5 class="card-title"><%= producto[i].nombre %></h5>
           </div>
 
-          <!-- Agregar el nombre del local -->
+          <!-- Agregar el nombre del local
           <div class="card-body">
-            <p class="card-text">Local: TBD </p>
+            <p class="card-text">Local: TBD</p>
           </div>
           <ul class="list-group list-group-flush">
-            
             <li class="list-group-item">
               <div class="block-products-feed__product-price text--primary">
                 $<%= producto[i].precio %> (<%= producto[i].descuento %>% de descuento)
@@ -147,7 +119,7 @@
             <li class="list-group-item"><%= producto[i].estado %></li>
           </ul>
           <div class="card-body">
-            <a href="/products/cart" class="btn btn-primary"><i class="bi bi-cart4"> Agregar al carrito</i></a>
+            <button type="button" class="btn-cart" onclick="addToCart(1, '<%=producto[i].id%>', '<%=producto[i].nombre%>', '', '<%=producto[i].precio%>'); alert('¡Producto agregado correctamente!')">Agregar al Carrito</button>
           </div>
         </div>
       </div>
@@ -169,6 +141,7 @@
 <!-- aqui comienza el footer-->
 <%- include ('./partials/footer.ejs') %>
 <%- include ('./partials/bootstrapJs.ejs') %>
-<!--    ('./partials/cartjs.ejs') %>  COMENTADO POR ROCIO, DABA ERROR-->
+
+<script src="/js/cart.js"></script>
 </body>
 </html>

@@ -102,24 +102,24 @@
             <br>
             <div class="form-group">
               <label for="descripcion" class="form-label">Descripción</label>
-              <textarea 
+              <textarea
                 class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" 
-                value="<%= locals.oldData ? oldData.descripcion : null %>"
                 id="descripcion" 
                 name="descripcion"  
                 rows="3"
-              >
-              </textarea>
+                placeholder="Describe el producto"
+              ><%= locals.oldData ? oldData.descripcion : null %></textarea>
               <% if (locals.errors && errors.descripcion) { %>
                 <div class="text-danger">
                     <%= errors.descripcion.msg %>
                 </div>
-              <% } %>
+              <% } %>   
             </div>
-            <br />
 
+          <!--Precio,descuento, cuotas y stock-->
+            <br>
             <div class="form-options-color-amount">
-              <div class="form-options-amount">
+              <div class="form-options-amount" style="padding-left:0px">
                 <label for="precio">Precio de venta</label>
                 <input 
                   type="number" 
@@ -143,9 +143,9 @@
                   value="<%= locals.oldData ? oldData.descuento : null %>" 
                 >
               </div>
-              <div class="form-group">
-                <label for="cuota" class = "form-label">Cuotas</label>
-                  <select class="custom-select" name="cuota" id="cuota">
+              <div class="form-options-amount">
+                <label for="cuota">Cuotas</label>
+                  <select class="form-select rounded-2" style="height: 40px" name="cuota" id="cuota">
                     <option>1 cuota</option>
                     <option>3 cuotas</option>
                     <option>6 cuotas</option>
@@ -153,7 +153,7 @@
                   </select>
               </div>
               <div class="form-options-amount">
-                <label for="stock">Cantidad en Stock</label>
+                <label for="stock">Stock</label>
                 <input 
                   type="number" 
                   class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
