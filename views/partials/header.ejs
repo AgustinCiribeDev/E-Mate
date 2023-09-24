@@ -40,26 +40,26 @@
       <button class="btn btn-secondary col-1 m-1 " type="submit"><i class="bi bi-search row align-items-center justify-content-center"></i></button>
       <a class="btn btn-link col-1 m-1 row align-items-center justify-content-center" href="/products/cart"> 
         <span class="badge badge-danger row align-items-center justify-content-center">
-      <i class="bi bi-cart4 text-secondary fs-3 row align-items-center justify-content-center"></i></span></a>
+          <i class="bi bi-cart4 text-white fs-3"></i>
+        </span>
+      </a>
+      
     </div>
   </div>
   
   <!-- Menu Hamburguesa-->
-  <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
-    <div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu justify-content-center">
+    <div class="container text-center"> <!-- Agregamos la clase "text-center" para centrar el contenido -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav mx-auto"> <!-- Cambiamos "ml-auto" por "mx-auto" para centrar los elementos en el eje horizontal -->
           <li class="nav-item">
             <a class="nav-link text-dark" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark" href="/products/productCatalogue">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/products/create">Crear producto</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark" href="/contacto">Contacto</a>
@@ -68,5 +68,6 @@
       </div>
     </div>
   </nav>
+  
 
 </header>
