@@ -102,11 +102,11 @@ const usersControllers = {                                                      
   editUser: (req, res) => {          // EN PROCESO
     let pedidoUsuario = db.Usuario.findByPk(req.params.id)
     let pedidoListado = db.Usuario.findAll()
-    const id = req.params.id;
+    let id = req.params.id;
 
     Promise.all([pedidoUsuario, pedidoListado])
       .then (function ([usuarioEditar, usuario]){
-        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario, id: req.params.id });      //Comparto los datos del modelo que quiero moestrar en la vista
+        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario, id});      //Comparto los datos del modelo que quiero moestrar en la vista
       })
       .catch(err => {
         console.error('Error:', err);
@@ -115,23 +115,14 @@ const usersControllers = {                                                      
   }
   ,
   processEditUser: async function (req, res) {
+    console.log(req.body.password)
     try {
-      const password = req.body.password;
-      console.log(password);
-
-      // Validar que password sea un string
-      if (typeof password !== 'string') {
-        return res.status(400).json({ error: 'La contraseña debe ser un string válido.' });
-      }
-
-      // Luego procedes a hashear la contraseña
-      const hashedPassword = await bcryptjs.hash(password, 10);
   
       // Actualizar el usuario en la base de datos
       await db.Usuario.update({
         nombre: req.body.name,
         email: req.body.email,
-        password: hashedPassword,
+        password: bcryptjs.hashSync(req.body.password,10),
         rol: req.body.rol,
         local_id: req.body.local_id,
         imagen: result ? result.secure_url : null,
@@ -160,7 +151,7 @@ const usersControllers = {                                                      
           id: req.params.id
         }
       });
-      const usuarios = await db.Usuario.findAll();
+      let usuarios = await db.Usuario.findAll();
       res.render('usuarios/registro', { usuarios: usuarios });
     } catch (error) {
       console.error('Error en el método delete:', error);

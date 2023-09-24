@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-floating mb-2 col-4 mx-auto text-center d-inline-block">
-                        <input type="password" class="form-control" id="password" name ="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
                         <label for="password">Contraseña</label>
                             <% if (locals.errors && errors.password) { %>
                                 <div class="text-danger">
