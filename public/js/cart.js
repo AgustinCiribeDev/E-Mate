@@ -35,24 +35,39 @@ function removeFromCart(id) {
     let carrito = getCart();
     carrito = carrito.filter(item => item.id !== id);
     updateCart(carrito);
+    renderCart();
 }
 
 function updateCart(carrito) {
-
     localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function updateQuantity(newQuantity, id) {
+    let carrito = getCart();
+    const productoExistente = carrito.find(item => item.id === id);
+
+    if (productoExistente) {
+        productoExistente.cantidad = parseInt(newQuantity);
+        updateCart(carrito);
+        renderCart();
+    }
+}
+
+
+function renderCart(){
+    var carrito = getCart()
     let carritoContainer = document.getElementById('carritoDeCompras');
     carritoContainer.innerHTML = ''; 
 
     carrito.forEach((item, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <th scope="row">${index + 1}</th>
             <td class="table__Productos">
                 <h6 class="title">${item.nombre}</h6>
             </td>
             <td class="table__Precio"><p>$ ${item.precio.toFixed(2)}</p></td>
             <td class="table__Cantidad">
-                <input type="number" min="1" value="${item.cantidad}">
+                <input type="number" min="1" value="${item.cantidad}" oninput="updateQuantity(this.value, '${item.id}')">
                 <button class="delete btn btn-danger" onclick="removeFromCart('${item.id}')">x</button>
             </td>
         `;
@@ -76,7 +91,31 @@ function showAddedToCartMessage() {
     }, 2000); 
 };
 
-const carritoDeCompras = getCart();
-updateCart(carritoDeCompras);
-
-
+function mostrarDetalleCompra() {
+    const carrito = getCart();
+    const detalleCompraContainer = document.getElementById('detalleCompra');
+    const totalCompraElement = document.getElementById('totalCompra');
+  
+    // Limpia el contenido anterior del detalle de compra
+    detalleCompraContainer.innerHTML = '';
+  
+    carrito.forEach((item, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="table__Productos">
+          <h6 class="title">${item.nombre}</h6>
+        </td>
+        <td class="table__Precio"><p>$ ${item.precio.toFixed(2)}</p></td>
+        <td class="table__Cantidad">${item.cantidad}</td>
+      `;
+      detalleCompraContainer.appendChild(row);
+    });
+  
+    // Calcula el total de la compra
+    const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+    totalCompraElement.textContent = total.toFixed(2);
+  
+    // Abre el modal utilizando Bootstrap
+    $('#myModal').modal('show');
+  }
+  
