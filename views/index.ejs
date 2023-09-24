@@ -76,9 +76,10 @@
     <% for (let i = 0; i < producto.length; i++ ) { %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card" style="width: 18rem;">
-          <a href="products/productDetail/<%=producto[i].id %>">
-            <img class="card-img-top img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap">
-          </a>
+          <figure class="mx-auto">
+          <a href="products/productDetail/<%=producto[i].id %>"> 
+            <img class="img-fluid" src="<%= producto[i].imagen %>" alt="Card image cap"></a>
+          </figure>
           <div class="card-body">
             <h5 class="card-title"><%= producto[i].nombre %></h5>
           </div>
@@ -110,7 +111,7 @@
   </div>
 </div>
 
-<!-- titulo de las listado de productos de oferta-->    
+<!-- titulo de las listado de productos de oferta 
 <div class="container">
   <div class="row">
     <div class="col align-items-center d-flex ">
@@ -119,7 +120,7 @@
   </div>
 </div>
 
-<!-- comienza el contenedor de productos -->
+<!-- comienza el contenedor de productos
 <div class="container">
   <div class="row text-secondary mt-4 mb-4">
     <% for (let i = 0; i < producto.length; i++ ) { %>
@@ -132,7 +133,7 @@
             <h5 class="card-title"><%= producto[i].nombre %></h5>
           </div>
 
-          <!-- Agregar el nombre del local -->
+          <!-- Agregar el nombre del local
           <div class="card-body">
             <p class="card-text">Local: TBD </p>
           </div>
@@ -153,7 +154,7 @@
       </div>
     <% } %>
   </div>
-</div>
+</div> -->
 
 <!-- Enlace para ver más productos -->
 <!-- <div class="container">
