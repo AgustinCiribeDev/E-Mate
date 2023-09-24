@@ -32,11 +32,13 @@ const usersControllers = {                                                      
   processRegister: async (req, res) => {     //si cargo la foto anda, sino tira error
     
     const resultValidation = validationResult(req);
-       
+    const usuarios = await db.Usuario.findAll();
+
     if(resultValidation.errors.length > 0) {
       return res.render('usuarios/registro', {
+        usuario: usuarios,
         errors: resultValidation.mapped(),
-        oldData: req.body
+        oldData: req.body,
       });
     }
     
@@ -53,7 +55,8 @@ const usersControllers = {                                                      
             msg: 'Este email ya está registrado'
           }
         },
-        oldData: req.body
+        oldData: req.body,
+        usuario: usuarios
       });
     }
     
