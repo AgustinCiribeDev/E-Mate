@@ -72,7 +72,7 @@
                 name="estado" 
                 id="estado"
               >
-                <option><%= "" %></option>
+                <option value="<%=producto.estado%>"><%=producto.estado%></option>
                 <option value="En Oferta" <%= locals.oldData && locals.oldData.estado === 'En Oferta' ? 'selected' : null %>>En Oferta</option>
                 <option value="Ultimos Agregados" <%= locals.oldData && locals.oldData.estado === 'Ultimos Agregados' ? 'selected' : null %>>Últimos Agregados</option>
               </select>
@@ -149,6 +149,7 @@
               <div class="form-options-amount">
                 <label for="cuota">Cuotas</label>
                   <select class="form-select rounded-2" style="height: 40px" name="cuota" id="cuota">
+                    <option value="<%=producto.cuota%>"><%=producto.cuota%></option>
                     <option>1 cuota</option>
                     <option>3 cuotas</option>
                     <option>6 cuotas</option>
@@ -160,7 +161,7 @@
                 <input 
                   type="number" 
                   class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
-                  value="<%= locals.oldData ? oldData.stock : null %>"  
+                  value="<%=producto.stock%>"  
                   id="stock" 
                   name="stock"
                 >
@@ -193,126 +194,6 @@
 
              <!--Botón cargar-->
               <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
-
-
-
-            <div class="form-group">
-              <label for="nombre"><Nombre del producto></label>
-              <input type="text" class="form-control" name="nombre" id="nombre" value="<%=producto.nombre%>" placeholder="Ingresar nombre">
-            </div>
-            <br />
-            <div class="form-group">
-              <label for="categoria">Categoría</label>
-              <select class="custom-select" name="categoria" id="categoria" value="<%=producto.categoria%>">
-                <option selected>Seleccione una categoría</option> <!-- Ver la manera de que la vista traiga la seleccion-->
-                <option>Yerbas</option>
-                <option>Mates</option>
-                <option>Sets</option>
-                <option>Termos</option>
-                <option>Bombillas</option>
-              </select>
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="estado">Estado</label>
-              <select class="custom-select" name="estado" id="estado">
-                <% if(producto.estado == "En Oferta") {%>
-                <option selected>En Oferta</option>
-                <option>Ultimos Agregados</option>
-                <% } else { %>
-                <option >En Oferta</option>
-                <option selected>Ultimos Agregados</option> 
-                <% }%> 
-              </select>
-            <br/>
-            <br>
-            <div class="custom-file">
-              <label class="custom-file-label" for="imagen">Seleccionar archivo de imagen</label>
-              <input type="file" class="custom-file-input" id="imagen" name="imagen">
-            </div>
-            <br />
-            <div class="form-group">
-              <label for="descripcion">Descripción</label>
-              <textarea class="form-control" id="descripcion" name="descripcion"  rows="3"><%=producto.descripcion%></textarea >
-            </div>
-            <br />
-            <div class="form-options-color-amount">
-              <div class="form-options-amount">
-                <label for="precio">Precio de venta</label>
-                <input type="number" id="precio" name="precio" value="<%=producto.precio%>">
-              </div>
-              <div class="form-options-amount">
-                <label for="descuento">Descuento</label>
-                <input type="number" id="descuento" name="descuento" value="<%=producto.descuento%>">
-              </div>
-              <div class="form-options-amount">
-                <label for="cuota">Cuotas</label>
-                <input type="number" id="cuota" name="cuota" value="<%=producto.cuota%>">
-              </div>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-primary my-1">Aceptar</button>
-            <br />
-          </form>
-        </div>
-        
-        <!-- Vista previa -->
-
-        <!-- <div class="col-md-6"> 
-
-
-
-          <article class="main-product">
-            
-            <h5>Previsualización</h5>
-
-            <section class="product-photo">
-              <div class="product-photo-left">
-                <img src="https://d22fxaf9t8d39k.cloudfront.net/d99cc2d360c4f380d57bff545508030f0b8e5888d7bd9bd8cc7c1cdaae35c0f919762.jpeg" class="product-photo-img img-thumbnail" alt="mate">
-              </div>
-              <div class="product-buy-options">
-                <h2>MATE TÉRMICO</h2>
-                <h3>$12.000</h3>
-                <h4>3 cuotas sin interés de $4.000</h4>
-                <h5>Ver formas de pago</h5>
-                <form action="/carrito" method="post" class="form-options">
-                  <div class="form-options-color-amount">
-                    <div class="form-options-color">
-                      <label for="color">Color</label>
-                      <select name="color" id="color">
-                        <option value="negro">Negro</option>
-                        <option value="marron">Marrón</option>
-                      </select>
-                    </div>
-                    <div class="form-options-amount">
-                      <label for="cantidad">Cantidad</label>
-                      <input type="number" id="cantidad" name="cantidad" min="1" max="10"> 
-                    </div>
-                  </div>
-                  <div class="form-zip-code">
-                    <form action="#" method="get">
-                      <label for="zip-code">Calculá el costo de envío</label>
-                      <div class="form-zip-code-search-submit">
-                        <input type="search" placeholder="Ingresá tu código postal" aria-label="Buscar">
-                        <button type="submit">Calcular</button>
-                      </div>
-                    </form>
-                  </div>
-                  <button type="submit" class="btn-buy">Comprar Ahora</button>
-                  <button type="submit" class="btn-cart">Agregar al Carrito</button>
-                </form>
-              </div>
-            </section>
-            <section class="product-descriptions">
-              <h2>DESCRIPCIÓN DEL PRODUCTO</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
-              </p>
-            </section>
-          </article>
-        </div>
-      </div>
-    </div>-->
   </main>
 
   <!-- aqui comienza el footer-->
