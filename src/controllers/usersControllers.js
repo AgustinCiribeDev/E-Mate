@@ -116,9 +116,16 @@ const usersControllers = {                                                      
   ,
   processEditUser: async function (req, res) {
     try {
-      
-      // Hasheando la contraseña de forma asincrónica
-      const hashedPassword = await bcryptjs.hash(req.body.password, 10);
+      const password = req.body.password;
+      console.log(password);
+
+      // Validar que password sea un string
+      if (typeof password !== 'string') {
+        return res.status(400).json({ error: 'La contraseña debe ser un string válido.' });
+      }
+
+      // Luego procedes a hashear la contraseña
+      const hashedPassword = await bcryptjs.hash(password, 10);
   
       // Actualizar el usuario en la base de datos
       await db.Usuario.update({
@@ -144,27 +151,22 @@ const usersControllers = {                                                      
       res.status(500).send("Ocurrió un error al procesar la solicitud.");
     }
   },
- //despues borrar
 
-/*
-    .then((resultados) => {
-        res.redirect('/users/register/:id');
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-    
+
+  delete: async (req, res) => {
+    try {
+      await db.Usuario.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+      const usuarios = await db.Usuario.findAll();
+      res.render('usuarios/registro', { usuarios: usuarios });
+    } catch (error) {
+      console.error('Error en el método delete:', error);
+      res.status(500).send('Ocurrió un error al eliminar el usuario.');
+    }
   },
-  */
-
-  delete: (req, res) => {
-    db.Usuario.destroy({
-      where:{
-        id: req.params.id
-      }
-  })
-  }
-  ,
   
   
 

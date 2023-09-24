@@ -42,31 +42,31 @@
                     <div class="form-floating mb-2 col-4 text-center d-inline-block">
                         <label for="rol"></label>
                         <select id="rol" name="rol" class="form-select <%= locals.errors && errors.rol ? 'is-invalid' : null %>">
-                            <option value="" selected disabled>Selecciona un rol</option>
-                            <option value="Administrador" >Administrador</option>
-                            <option value="Empleado" >Empleado</option>
+                          <option value="" disabled>Selecciona un rol</option>
+                          <option value="Administrador" <% if (usuarioEditar.rol === 'Administrador') { %>selected<% } %>>Administrador</option>
+                          <option value="Empleado" <% if (usuarioEditar.rol === 'Empleado') { %>selected<% } %>>Empleado</option>
                         </select>
                         <% if (locals.errors && errors.rol) { %>
-                            <div class="text-danger">
-                                <%= errors.rol.msg %>
-                            </div>
+                          <div class="text-danger">
+                            <%= errors.rol.msg %>
+                          </div>
                         <% } %>
-                    </div>
+                      </div>
 
-                    <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
+                      <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
                         <label for="local_id"></label>
                         <select id="local_id" name="local_id" class="form-select <%= locals.errors && errors.local_id ? 'is-invalid' : null %>">
-                            <option value="" selected disabled>Selecciona un Local ID</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                          <option value="" disabled>Selecciona un Local ID</option>
+                          <option value="1" <% if (usuarioEditar.local_id === 1) { %>selected<% } %>>1</option>
+                          <option value="2" <% if (usuarioEditar.local_id === 2) { %>selected<% } %>>2</option>
+                          <option value="3" <% if (usuarioEditar.local_id === 3) { %>selected<% } %>>3</option>
                         </select>
                         <% if (locals.errors && errors.local_id) { %>
-                            <div class="text-danger">
-                                <%= errors.local_id.msg %>
-                            </div>
+                          <div class="text-danger">
+                            <%= errors.local_id.msg %>
+                          </div>
                         <% } %>
-                    </div>
+                      </div>
 
                     <!--// IMAGEN DE PERFIL -->
                     <div class="form-floating mb-2 col-1 mx-auto text-center d-inline-block">
@@ -82,8 +82,9 @@
                             </div>
                             <% } %>
                     </div>
+
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
-                        <input type="password" class="form-control" id="password" name ="password" placeholder="Password" value="<%= locals.oldData ? oldData.password : null%>">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                         <label for="password">Contraseña</label>
                             <% if (locals.errors && errors.password) { %>
                                 <div class="text-danger">
@@ -91,12 +92,12 @@
                                 </div>
                             <% } %>
                     </div>
-
+                
                     
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
                         <div class="form-group">
-                        <label class="custom-file-label" for="avatar" >Selecciona una imagen de perfil</label>
-                        <input type="file" class="custom-file-input" id="avatar" name="avatar" value="<%= usuarioEditar.avatar %>">  
+                        <label class="custom-file-label" for="avatar" >Cambiar Img</label>
+                        <input type="file" class="custom-file-input" id="avatar" name="avatar" value="<%= usuarioEditar.imagen %>">  
                             <% if (locals.errors && errors.avatar) { %>
                                 <div class="text-danger">
                                     <%= errors.avatar.msg %>
@@ -104,11 +105,32 @@
                             <% } %>  
                         </div>
                     </div>   
-
-                    <div class="d-grid mb-5 gap-2 col-3 mx-auto text-center btn btn-success">
+                    
+                    <div class="d-grid mb-5 gap-2 col-3 mx-auto text-center btn btn-success d-inline-block">
                         <button id="guardarUsuario"class="btn btn-success" type="submit">GUARDAR USUARIO</button>
                     </div>               
                     
+                    <div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger d-inline-block">
+                        <button id="eliminarUsuario" class="btn btn-danger" type="button">ELIMINAR USUARIO</button>
+                    </div>
+                    
+                    <script>
+                        const eliminarUsuarioBtn = document.getElementById('eliminarUsuario');
+                    
+                        eliminarUsuarioBtn.addEventListener('click', () => {
+                            // Envía una solicitud para eliminar el usuario al hacer clic en el botón
+                            fetch("/users/delete/${userId}", {
+                                method: 'DELETE',
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data);
+                                // Redirige a la página de registro de usuarios o realiza alguna acción adicional
+                                window.location.href = '/users/registro';
+                            })
+                            .catch(error => console.error('Error al eliminar usuario:', error));
+                        });
+                    </script>
                     
                 </article>
         </div>
