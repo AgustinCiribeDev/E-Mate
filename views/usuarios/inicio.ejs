@@ -5,17 +5,15 @@
 <%- include ('./../partials/headerLog.ejs') %>
 
 <div class="container-fluid m-0 d-flex pr-0 align-items-end" style="min-height: 15vh; font-size:22px">
-    <div class="row w-100 justify-content-end" >
-        <p class="text-success col-6 m-0 row justify-content-end px-5">Iniciar Sesión</p>
-            <a class="text-body-tertiary col-6 m-0" href="/users/register" style="text-decoration: none;">Registrarse</a>
-            <p class="text-bg-success p-1 col-6 m-30 h-10"></p>
-            <p class="bg-secondary-subtle p-1 col-6 m-30 h-10" ></p>
+    <div class="row w-100 justify-content-center" >
+        <p class="text-success m-0 row justify-content-center px-5">Iniciar Sesión</p>
+            <p class="text-bg-success p-1  m-30 h-10"></p>
     </div>
 </div>
 
 <div .container>
     <form class ='formulario' method="POST" action="/users/login">
-        <div class="d-flex align-items-center justify-content-center" style="min-height: 55vh;">
+        <div class="d-flex align-items-center justify-content-center" style="min-height: 43vh;">
             <div class="row"></div>
                 <article class="text-center col-8 col-sm-6  col-md-5 col-lg-4 col-xl-3" style="font-size: 18px;">
                     <div class="errores">
@@ -23,7 +21,7 @@
                     </div>
                     <div class="form-floating mb-2 col-12 mx-auto text-center">
                         <input type="text" name="email" id="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="name@example.com" value="<%= locals.oldData ? oldData.email : null%>">
-                            <label for="email">Email</label>
+                            <label for="email"> Email</label>
                                 <% if (locals.errors && errors.email) { %>
                                     <div class="text-danger">
                                         <%= errors.email.msg %>
@@ -40,13 +38,15 @@
                                     </div>
                                 <% } %>
                     </div>
-        
+                    
+                    <!--   COMENTADO POR FUERA DE USO 
                     <div class="form-check m-3" style="font-size: 16px;">
                         <input class="form-check-input" type="checkbox" value="" name= "remember_user" id="remember_user">
                             <label class="form-check-label" for="flexCheckD efault"> Recordar mi usuario </label>
                     </div>
-
-                    <div class="d-grid mb-5 gap-2 col-12 mx-auto btn btn-success">
+                    -->
+                    
+                    <div class="d-grid mb-5 gap-50 col-12 mx-auto btn btn-success">
                         <button id="iniciarsesion"class="btn btn-success" type="submit">INICIAR SESIÓN</button>
                     </div>
                     

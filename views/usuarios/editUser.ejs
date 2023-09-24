@@ -39,25 +39,32 @@
                         <% } %>
                     </div>
 
-                    <div class="form-floating mb-2 col-3 text-center d-inline-block">
-                        <input type="text" name="rol" id="rol" class="form-control <%= locals.errors && errors.rol ? 'is-invalid' : null %>" placeholder="Rol" value="<%= usuarioEditar.rol %>" >
-                        <label for="rol">Rol</label>
+                    <div class="form-floating mb-2 col-4 text-center d-inline-block">
+                        <label for="rol"></label>
+                        <select id="rol" name="rol" class="form-select <%= locals.errors && errors.rol ? 'is-invalid' : null %>">
+                            <option value="" selected disabled>Selecciona un rol</option>
+                            <option value="Administrador" >Administrador</option>
+                            <option value="Empleado" >Empleado</option>
+                        </select>
                         <% if (locals.errors && errors.rol) { %>
-                        <div class="text-danger">
-                            <%= errors.rol.msg %>
-                        </div>
+                            <div class="text-danger">
+                                <%= errors.rol.msg %>
+                            </div>
                         <% } %>
                     </div>
 
-                    
-
                     <div class="form-floating mb-2 col-3 mx-auto text-center d-inline-block">
-                        <input type="text" name="local_id" id="local_id" class="form-control <%= locals.errors && errors.local_id ? 'is-invalid' : null %>" placeholder="Local" value="<%= usuarioEditar.local_id %>" >
-                        <label for="local_id">Local ID</label>
+                        <label for="local_id"></label>
+                        <select id="local_id" name="local_id" class="form-select <%= locals.errors && errors.local_id ? 'is-invalid' : null %>">
+                            <option value="" selected disabled>Selecciona un Local ID</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
                         <% if (locals.errors && errors.local_id) { %>
-                        <div class="text-danger">
-                            <%= errors.local_id.msg %>
-                        </div>
+                            <div class="text-danger">
+                                <%= errors.local_id.msg %>
+                            </div>
                         <% } %>
                     </div>
 
