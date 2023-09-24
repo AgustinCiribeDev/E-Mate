@@ -6,46 +6,41 @@
 
   <div class="container">
     <div class="row text-secondary mt-4 mb-4">
-      <% productos.forEach((productos) => { %>
+      <% productos.forEach((producto) => { %>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card" style="width: 18rem;">
-            <a href="/products/productDetail/<%=productos.id%>">
-            <img class="card-img-top img-fluid" src="<%= productos.imagen %>" alt="Card image cap"> </a>
+            <a href="/products/productDetail/<%= producto.id %>">
+              <div class="d-flex justify-content-center align-items-center">
+                <img class="card-img-top img-fluid" src="<%= producto.imagen %>" alt="Card image cap" style="width: 15vw; height: 15vw;">
+              </div>
+            </a>
             <div class="card-body">
-              <h5 class="card-title"><%= productos.nombre %></h5>
+              <h5 class="card-title"><%= producto.nombre %></h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <div class="block-products-feed__product-price text--primary">
-                  $<%= productos.precio %> 
-                  <% if (productos.descuento === null) { %>
+                  $<%= producto.precio %> 
+                  <% if (producto.descuento === null) { %>
                     <%= "" %>
                   <% } else { %> 
-                    (<%= productos.descuento %>% de descuento)
+                    (<%= producto.descuento %>% de descuento)
                   <% } %>
                 </div> 
               </li>
-              <li class="list-group-item"><%= productos.cuota %></li>
-              <li class="list-group-item"><%= productos.estado %></li>
+              <li class="list-group-item"><%= producto.cuota %></li>
+              <li class="list-group-item"><%= producto.estado %></li>
             </ul>
-            <!--<ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= productos.cuotas %> cuotas</li>
-              <li class="list-group-item">
-                <div class="block-products-feed__product-price text--primary">
-                  "<%= productos.precio%>" <%= productos.descuento %>%
-                </div>
-              </li>
-              <li class="list-group-item"><%= productos.estado %></li>
-            </ul> -->
             <div class="card-body">
-              <a href="/products/cart" class="btn btn-primary"><i class="bi bi-cart4"> Agregar al carrito</i></a>
+              <button type="button" class="btn-cart" onclick="addToCart(1, '<%= producto.id %>', '<%= producto.nombre %>', '', '<%= producto.precio %>'); alert('¡Producto agregado correctamente!')">Agregar al Carrito</button>
             </div>
           </div>
         </div>
       <% }) %>
     </div>
   </div>
-      <%- include ('./../partials/footer.ejs') %>
-      <%- include ('./../partials/bootstrapJs.ejs') %>
+  <%- include ('./../partials/footer.ejs') %>
+  <%- include ('./../partials/bootstrapJs.ejs') %>
+  <script src="/js/cart.js"></script>
 </body>
 </html>
