@@ -36,7 +36,7 @@ const  productsControllers = {
     })
   },
         
-  // Método crear productos
+  // Método GET crear productos
   create: (req, res) => {
     db.Producto.findAll ()
       .then ((producto) => {
@@ -44,7 +44,7 @@ const  productsControllers = {
     })
   },
   
-  // Método crear un producto nuevo
+  // Método POST crear productos
   addProduct: async (req, res) => {
 
     // Express Validator

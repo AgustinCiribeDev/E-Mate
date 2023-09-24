@@ -20,9 +20,11 @@
         <!-- Formulario de carga de productos -->
         <div class="col-md-6">
           <form action="/products/create" method="POST" enctype="multipart/form-data">
+
+          <!-- Nombre de Producto -->
             <div class="mb-3">
               <label for="nombre">Nombre del producto</label>
-              <br />
+              <br>
               <input 
                 type="text" 
                 class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
@@ -37,8 +39,9 @@
                 </div>
               <% } %>
             </div>
+            <br>
 
-            <br />
+          <!-- Categoria -->
             <div class="form-group">
               <label for="categoria">Categoría</label>
               <select 
@@ -59,8 +62,9 @@
                 </div>
               <% } %>
             </div>
+            <br>
 
-            <br/>
+          <!-- Estado -->
             <div class="form-group">
               <label for="estado">Estado</label>
               <select 
@@ -77,9 +81,10 @@
                     <%= errors.estado.msg %>
                 </div>
               <% } %>
-            <br/>
-
             <br>
+            <br>
+
+          <!-- Imagen -->
             <div class="custom-file">
               <label class="form-label" for="imagen">Seleccionar una imagen</label>
               <input 
@@ -94,9 +99,10 @@
                 </div>
               <% } %>
             </div>
-            <br />
-
             <br>
+            <br>
+
+          <!-- Descripción -->
             <div class="form-group">
               <label for="descripcion" class="form-label">Descripción</label>
               <textarea
@@ -112,9 +118,9 @@
                 </div>
               <% } %>   
             </div>
+            <br>
 
           <!--Precio,descuento, cuotas y stock-->
-            <br>
             <div class="form-options-color-amount">
               <div class="form-options-amount" style="padding-left:0px">
                 <label for="precio">Precio de venta</label>
@@ -166,9 +172,10 @@
               </div>
             </div>
             </div>
-            <br />
-            <label for="usuario">Email del usuario</label>
-              <br />
+            <br>
+
+            <!--Usuario-->
+              <label for="usuario">Email del usuario</label>
               <input 
                 type="text" 
                 class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" 
@@ -183,67 +190,13 @@
                 </div>
               <% } %>
             <br>
-            <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
+
+             <!--Botón cargar-->
+              <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
           </form>
         </div>
-        
-        <!-- Vista previa -->
-
-        <!-- <div class="col-md-6"> 
-
-
-
-          <article class="main-product">
-            
-            <h5>Previsualización</h5>
-
-            <section class="product-photo">
-              <div class="product-photo-left">
-                <img src="https://d22fxaf9t8d39k.cloudfront.net/d99cc2d360c4f380d57bff545508030f0b8e5888d7bd9bd8cc7c1cdaae35c0f919762.jpeg" class="product-photo-img img-thumbnail" alt="mate">
-              </div>
-              <div class="product-buy-options">
-                <h2>MATE TÉRMICO</h2>
-                <h3>$12.000</h3>
-                <h4>3 cuotas sin interés de $4.000</h4>
-                <h5>Ver formas de pago</h5>
-                <form action="/carrito" method="post" class="form-options">
-                  <div class="form-options-color-amount">
-                    <div class="form-options-color">
-                      <label for="color">Color</label>
-                      <select name="color" id="color">
-                        <option value="negro">Negro</option>
-                        <option value="marron">Marrón</option>
-                      </select>
-                    </div>
-                    <div class="form-options-amount">
-                      <label for="cantidad">Cantidad</label>
-                      <input type="number" id="cantidad" name="cantidad" min="1" max="10"> 
-                    </div>
-                  </div>
-                  <div class="form-zip-code">
-                    <form action="#" method="get">
-                      <label for="zip-code">Calculá el costo de envío</label>
-                      <div class="form-zip-code-search-submit">
-                        <input type="search" placeholder="Ingresá tu código postal" aria-label="Buscar">
-                        <button type="submit">Calcular</button>
-                      </div>
-                    </form>
-                  </div>
-                  <button type="submit" class="btn-buy">Comprar Ahora</button>
-                  <button type="submit" class="btn-cart">Agregar al Carrito</button>
-                </form>
-              </div>
-            </section>
-            <section class="product-descriptions">
-              <h2>DESCRIPCIÓN DEL PRODUCTO</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ex quis recusandae incidunt labore iusto inventore laudantium cum vero voluptatum repudiandae doloribus, fuga laboriosam voluptatem molestiae impedit ipsum odit deleniti.
-              </p>
-            </section>
-          </article>
-        </div>
       </div>
-    </div>-->
+    </div>
   </main>
 
   <!-- aqui comienza el footer-->
