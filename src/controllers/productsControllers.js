@@ -30,17 +30,11 @@ const  productsControllers = {
   },
   
   productDetail: (req, res) => {
-    db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"},]})
+    db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"}]})
       .then ((producto) => {
       res.render('products/productDetail', {producto: producto});
     })
   },
-        
-        
-        //Editar Productos
-        edit: (req, res) => {
-          res.render('products/productEdit');
-        },
         
   // Método crear productos
   create: (req, res) => {
@@ -98,38 +92,6 @@ const  productsControllers = {
         
   streamifier.createReadStream(imageBuffer).pipe(stream);
  
-    /*try {
-      const imageBuffer = req.file.buffer;
-      const nombreImagen = Date.now() + req.file.originalname;
-      const result = await cloudinary.uploader.upload(imageBuffer, {
-        resource_type: 'image',
-        public_id: nombreImagen,
-      });
-    
-      if (result) {
-        console.log('Imagen cargada correctamente:', result);
-        const newProduct = await db.Producto.create({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        precio: req.body.precioActual,
-        imagen: result.secure_url,
-        stock: req.body.stock,
-        estado: req.body.estado,
-        descuento: req.body.descuento,
-        cuota: req.body.cuota,
-        categoria_id: req.body.categoria,
-        });
-        res.redirect('/');
-      } 
-      else {
-          console.log('Error al cargar la imagen:', error);
-          res.status(500).send('Error al cargar la imagen');
-      }
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error al crear el producto' });
-      }
-      streamifier.createReadStream(imageBuffer).pipe(stream);*/
   },
 
     /* const imageBuffer = req.file.buffer;
@@ -164,20 +126,28 @@ const  productsControllers = {
             }
           }); */
 
-        // Buscar producto a editar
-        edit: (req,res) => {
-          let idProducto= req.params.id;
-		      let productoBuscado;
+  //Editar Productos
+  /*edit: (req, res) => {
+    res.render('products/productEdit');
+  },*/
+  edit: (req,res) => {
+    db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"}]})
+    .then ((producto) => {
+    res.render('products/productEdit', {producto: producto});
+    })
+  },
 
-		      for(let i=0; i< productos.length; i++){
-			    if (productos[i].id == idProducto) {
-				      productoBuscado = productos[i];
-				      break;
-            }
-          }
-          res.render('products/productEdit', {productoAEditar: productoBuscado});
-        },
+    /*res.redirect('/');
+    let idProducto = req.params.id;
+		let productoBuscado;
 
+	  for(let i=0; i< productos.length; i++){
+		  if (productos[i].id == idProducto) {
+			productoBuscado = productos[i];
+			break;
+      }
+    }*/
+  
         update: (req,res) => {
           let idProducto= req.params.id;
           
@@ -207,8 +177,8 @@ const  productsControllers = {
       }
     })
     res.redirect('/');
-  }       
-,
+  },
+
   local: (req,res) => {
     db.Producto.findAll ()
       .then ((producto) => {

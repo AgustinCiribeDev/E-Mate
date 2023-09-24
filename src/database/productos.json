@@ -1,13 +1,13 @@
 [
  {
   "id": 1,
-  "nombre": "Bombilla de Alpaca",
-  "precioActual": 3000,
-  "categoria": "Bombillas",
-  "descripcion": "Bombilla larga de alpaca",
-  "cuotas": 3,
+  "nombre": "Mate Uruguayo",
+  "precioActual": null,
+  "categoria": "Seleccione una categoría",
+  "descripcion": "Mate grande de calabaza forrado en cuero",
+  "cuotas": null,
   "estado": "En Oferta",
-  "descuento": 20,
+  "descuento": null,
   "imagen": "http://res.cloudinary.com/dirx4wkl1/image/upload/1689821343325mate-stanley-blanco.jpg.jpg"
  },
  {

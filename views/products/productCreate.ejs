@@ -23,7 +23,14 @@
             <div class="mb-3">
               <label for="nombre">Nombre del producto</label>
               <br />
-              <input type="text" class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" name="nombre" id="nombre" placeholder="Ingresar nombre">
+              <input 
+                type="text" 
+                class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.nombre : null %>" 
+                name="nombre" 
+                id="nombre" 
+                placeholder="Ingresar nombre"
+              >
               <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
                     <%= errors.nombre.msg %>
@@ -34,13 +41,17 @@
             <br />
             <div class="form-group">
               <label for="categoria">Categoría</label>
-              <select class="custom-select <%= locals.errors && errors.categoria ? 'is-invalid' : null %>" name="categoria" id="categoria">
-                <option><%= "" %></option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <select 
+                class="custom-select <%= locals.errors && errors.categoria ? 'is-invalid' : null %>" 
+                name="categoria" 
+                id="categoria"
+              >
+                <option value=""><%= "" %></option>
+                <option value="1" <%= locals.oldData && locals.oldData.categoria === '1' ? 'selected' : null %>>Yerbas</option>
+                <option value="2" <%= locals.oldData && locals.oldData.categoria === '2' ? 'selected' : null %>>Mates</option>
+                <option value="3" <%= locals.oldData && locals.oldData.categoria === '3' ? 'selected' : null %>>Bombillas</option>
+                <option value="4" <%= locals.oldData && locals.oldData.categoria === '4' ? 'selected' : null %>>Termos</option>
+                <option value="5" <%= locals.oldData && locals.oldData.categoria === '5' ? 'selected' : null %>>Sets</option>
               </select>
               <% if (locals.errors && errors.categoria) { %>
                 <div class="text-danger">
@@ -52,10 +63,14 @@
             <br/>
             <div class="form-group">
               <label for="estado">Estado</label>
-              <select class="custom-select <%= locals.errors && errors.estado ? 'is-invalid' : null %>" name="estado" id="estado">
+              <select 
+                class="custom-select <%= locals.errors && errors.estado ? 'is-invalid' : null %>" 
+                name="estado" 
+                id="estado"
+              >
                 <option><%= "" %></option>
-                <option>En Oferta</option>
-                <option>Ultimos Agregados</option>
+                <option value="En Oferta" <%= locals.oldData && locals.oldData.estado === 'En Oferta' ? 'selected' : null %>>En Oferta</option>
+                <option value="Ultimos Agregados" <%= locals.oldData && locals.oldData.estado === 'Ultimos Agregados' ? 'selected' : null %>>Últimos Agregados</option>
               </select>
               <% if (locals.errors && errors.estado) { %>
                 <div class="text-danger">
@@ -67,7 +82,12 @@
             <br>
             <div class="custom-file">
               <label class="form-label" for="imagen">Seleccionar una imagen</label>
-              <input type="file" class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>" id="imagen" name="imagen">
+              <input 
+                type="file" 
+                class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>"  
+                id="imagen" 
+                name="imagen"
+              >
               <% if (locals.errors && errors.imagen) { %>
                 <div class="text-danger">
                     <%= errors.imagen.msg %>
@@ -78,8 +98,15 @@
 
             <br>
             <div class="form-group">
-              <label for="descripcion">Descripción</label>
-              <textarea class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" id="descripcion" name="descripcion" rows="3" name="" id="" cols="30" rows="10"></textarea>
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea 
+                class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" 
+                value="<%= locals.oldData ? oldData.descripcion : null %>"
+                id="descripcion" 
+                name="descripcion"  
+                rows="3"
+              >
+              </textarea>
               <% if (locals.errors && errors.descripcion) { %>
                 <div class="text-danger">
                     <%= errors.descripcion.msg %>
@@ -91,7 +118,13 @@
             <div class="form-options-color-amount">
               <div class="form-options-amount">
                 <label for="precio">Precio de venta</label>
-                <input type="number" class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>" id="precio" name="precio">
+                <input 
+                  type="number" 
+                  class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData ? oldData.precio : null %>" 
+                  id="precio" 
+                  name="precio"
+                >
                 <% if (locals.errors && errors.precio) { %>
                   <div class="text-danger">
                       <%= errors.precio.msg %>
@@ -100,7 +133,12 @@
               </div>
               <div class="form-options-amount">
                 <label for="descuento">Descuento</label>
-                <input type="number" id="descuento" name="descuento">
+                <input 
+                  type="number" 
+                  id="descuento" 
+                  name="descuento"
+                  value="<%= locals.oldData ? oldData.descuento : null %>" 
+                >
               </div>
               <div class="form-group">
                 <label for="cuota" class = "form-label">Cuotas</label>
@@ -113,7 +151,13 @@
               </div>
               <div class="form-options-amount">
                 <label for="stock">Cantidad en Stock</label>
-                <input type="number" class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>" id="stock" name="stock">
+                <input 
+                  type="number" 
+                  class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData ? oldData.stock : null %>"  
+                  id="stock" 
+                  name="stock"
+                >
                 <% if (locals.errors && errors.stock) { %>
                   <div class="text-danger">
                       <%= errors.stock.msg %>
@@ -125,7 +169,14 @@
             <br />
             <label for="usuario">Email del usuario</label>
               <br />
-              <input type="text" class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" name="usuario" id="usuario" placeholder="34">
+              <input 
+                type="text" 
+                class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" 
+                value="<%= locals.oldData ? oldData.usuario : null %>" 
+                name="usuario" 
+                id="usuario" 
+                placeholder="34"
+              >
               <% if (locals.errors && errors.usuario) { %>
                 <div class="text-danger">
                     <%= errors.usuario.msg %>
