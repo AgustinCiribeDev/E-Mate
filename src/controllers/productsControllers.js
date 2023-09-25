@@ -68,30 +68,28 @@ const  productsControllers = {
     } else {
       console.log('Imagen cargada correctamente:', result);
       
-      // Creando el objeto nuevo de producto en la BD
-      db.Producto.create({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        precio: req.body.precio,
-        imagen: result ? result.secure_url : null,
-        stock: req.body.stock,
-        estado: req.body.estado,
-        descuento: req.body.descuento,
-        cuota: req.body.cuota,
-        usuario_id: req.body.usuario,
-        categoria_id: req.body.categoria,
-        })
-        .then((resultados)  => { 
-        res.redirect('/');
-        })
-        .catch((error) => {
-        console.error(error)
-        });   
-      }
-    });
-        
+    // Creando el objeto nuevo de producto en la BD
+    db.Producto.create({
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+      precio: req.body.precio,
+      imagen: result ? result.secure_url : null,
+      stock: req.body.stock,
+      estado: req.body.estado,
+      descuento: req.body.descuento,
+      cuota: req.body.cuota,
+      usuario_id: req.body.usuario,
+      categoria_id: req.body.categoria,
+      })
+      .then((resultados)  => { 
+      res.redirect('/');
+      })
+      .catch((error) => {
+      console.error(error)
+      });   
+    }
+  });   
   streamifier.createReadStream(imageBuffer).pipe(stream);
- 
   },
 
     /* const imageBuffer = req.file.buffer;
@@ -148,8 +146,8 @@ const  productsControllers = {
       }
     }*/
   
-  // Método POST para Editar Productos
-  update: (req,res) => {
+  // Método PUT para Editar Productos
+  update: async (req,res) => {
 
     // Express Validator
     const resultValidation = validationResult(req);

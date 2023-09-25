@@ -31,7 +31,7 @@
                 value="<%=producto.nombre%>"
                 name="nombre" 
                 id="nombre" 
-                placeholder="Ingresar nombre"
+                placeholder="Ingresa un nombre de producto"
               >
               <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
@@ -92,6 +92,7 @@
                 class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>"  
                 id="imagen" 
                 name="imagen"
+                value="<%=producto.imagen%>"
               >
               <% if (locals.errors && errors.imagen) { %>
                 <div class="text-danger">
@@ -175,25 +176,29 @@
             </div>
             <br>
 
-            <!--Usuario-->
-              <label for="usuario">Email del usuario</label>
-              <input 
+          <!--Usuario-->
+            <label for="usuario">Email del usuario</label>
+            <input 
                 type="text" 
                 class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" 
                 value="<%= locals.oldData ? oldData.usuario : null %>" 
                 name="usuario" 
                 id="usuario" 
                 placeholder="34"
-              >
-              <% if (locals.errors && errors.usuario) { %>
-                <div class="text-danger">
-                    <%= errors.usuario.msg %>
-                </div>
-              <% } %>
+            >
+            <% if (locals.errors && errors.usuario) { %>
+              <div class="text-danger">
+                <%= errors.usuario.msg %>
+              </div>
+            <% } %>
             <br>
 
-             <!--Botón cargar-->
-              <button type="submit" class="btn btn-primary my-1">Guardar Producto</button>
+          <!--Botón cargar-->
+            <button type="submit" class="btn btn-primary my-1">Guardar Cambios</button>
+          </form>
+          </div>
+        </div>
+      </div>
   </main>
 
   <!-- aqui comienza el footer-->
