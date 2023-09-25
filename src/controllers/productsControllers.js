@@ -126,7 +126,7 @@ const  productsControllers = {
             }
           }); */
 
-  //Editar Productos
+  //Método GET para Editar Productos
   /*edit: (req, res) => {
     res.render('products/productEdit');
   },*/
@@ -148,8 +148,57 @@ const  productsControllers = {
       }
     }*/
   
-        update: (req,res) => {
-          let idProducto= req.params.id;
+  // Método POST para Editar Productos
+  update: (req,res) => {
+
+    // Express Validator
+    const resultValidation = validationResult(req);
+       
+    if(resultValidation.errors.length > 0) {
+      return res.render('products/productEdit', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
+    } 
+    
+    const imageBuffer = req.file.buffer;
+    const nombreImagen = Date.now() + req.file.originalname;
+    
+    // Se genero url de imagen
+    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
+    if (error) {
+      console.log('Error al cargar la imagen:', error);
+      res.status(500).send('Error al cargar la imagen');
+    } else {
+      console.log('Imagen cargada correctamente:', result);
+      
+    // Editando el producto en la BD
+    db.Producto.update({
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+      precio: req.body.precio,
+      imagen: result ? result.secure_url : null,
+      stock: req.body.stock,
+      estado: req.body.estado,
+      descuento: req.body.descuento,
+      cuota: req.body.cuota,
+      usuario_id: req.body.usuario,
+      categoria_id: req.body.categoria,
+      }, {where: {
+        id: req.params.id
+      }})
+      .then((resultados) => { 
+      res.redirect('/');
+      })
+      .catch((error) => {
+      console.error(error)
+      });
+    }
+    });
+    streamifier.createReadStream(imageBuffer).pipe(stream);
+  },
+
+          /*let idProducto= req.params.id;
           
           for(let i=0; i< productos.length; i++){
             if (productos[i].id== idProducto) {
@@ -166,10 +215,8 @@ const  productsControllers = {
           }
           fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
           
-          res.redirect('/');
+          res.redirect('/');*/
         
-        },
-
   destroy: (req,res) => {
     db.Producto.destroy ({
       where: {
