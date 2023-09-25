@@ -3,37 +3,37 @@ window.addEventListener('load', function(){
     let formRegister = document.querySelector('form');
 
     formRegister.addEventListener('submit', function (evento){
-        evento.preventDefault();
+        evento.preventDefault(); 
         let errores = [];
         let ulErrores = document.querySelector('div.errores ul');
         ulErrores.innerHTML = '';
 
-        let validationName = document.querySelector('#name');
-        let validationRol = document.querySelector('#rol');
-        let validationLocal = document.querySelector('#local_id');
-        let validationEmail = document.querySelector('#email');
-        let validationPassword = document.querySelector('#password');
-        let validationAvatar = document.querySelector('#avatar');
+        let validationName = evento.target['name'].value;
+        let validationRol = evento.target['rol'].value;
+        let validationLocal = evento.target['local_id'].value;
+        let validationEmail = evento.target['email'].value;
+        let validationPassword = evento.target['password'].value;
+        let validationAvatar = evento.target['avatar'].value;
    
-        if (validationName.value == ""){
+        if (validationName == ""){
             errores.push('Escribe tu nombre y apellido')
         }
-        if (validationName.value.length <= 5){
-            errores.push('Tu nombre y apellido no puede tener menos de 4 caracteres')
+        if (validationName.length <= 2){
+            errores.push('Tu nombre y apellido no puede tener menos de 2 caractéres')
         }
-        if (validationRol.value == ""){
+        if (validationRol == ""){
             errores.push('Selecciona el Rol de tu empleado')
         }
-        if (validationLocal.value == ""){
+        if (validationLocal == ""){
             errores.push('Escribe el local al cual pertenece tu empleado')
         }
-        if (validationEmail.value == ""){
+        if (validationEmail == ""){
             errores.push('Escribe el email de tu empleado')
         }
-        if (validationPassword.value == ""){
-            errores.push('Este campo no puede estar vacío')
+        if (validationPassword == ""){
+            errores.push('Agrega una contraseña valida')
         }
-        if (validationAvatar.value == ""){
+        if (validationAvatar == ""){
             errores.push('Agrega una foto de perfil de tu empleado')
         }
 
