@@ -18,10 +18,10 @@ router.post('/register', upload.single('avatar'), validationsUsers, usersControl
 
 //Editar Usuario
 router.get('/editUser/:id', usersControllers.editUser);  
-router.post('/editUser/:id', usersControllers.processEditUser);  
+router.post('/editUser/:id', validationsUsers, usersControllers.processEditUser);  
 
 //Borrar Usuario
-router.post('/delete/:id', usersControllers.delete); 
+router.delete('/delete/:id', usersControllers.delete); 
 
 router.get('/login', guestMiddleware, usersControllers.login);
 

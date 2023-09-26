@@ -31,8 +31,8 @@ const usersControllers = {                                                      
 
   processRegister: async (req, res) => {     //si cargo la foto anda, sino tira error
     
-    const resultValidation = validationResult(req);
-    const usuarios = await db.Usuario.findAll();
+    let resultValidation = validationResult(req);
+    let usuarios = await db.Usuario.findAll();
 
     if(resultValidation.errors.length > 0) {
       return res.render('usuarios/registro', {
@@ -115,6 +115,17 @@ const usersControllers = {                                                      
   }
   ,
   processEditUser: async function (req, res) {
+    
+    let resultValidation = validationResult(req);
+    let usuarios = await db.Usuario.findAll();
+
+    if(resultValidation.errors.length > 0) {
+      return res.render('usuarios/editUser', {
+        usuario: usuarios,
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
     console.log(req.body.password)
     try {
   

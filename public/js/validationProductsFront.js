@@ -4,43 +4,45 @@ window.addEventListener('load', function(){
 
     formCreateProducts.addEventListener('submit', function (evento){
         let errores = [];
+        let ulErrores = document.querySelector('div.errores ul');
+        ulErrores.innerHTML = '';
 
-        let validationNombre = document.querySelector('#nombre');
-        let validationCategoria = document.querySelector('#categoria');
-        let validationEstado = document.querySelector('#estado');
-        let validationDescripcion = document.querySelector('#descripcion');
-        let validationPrecio = document.querySelector('#precio');
-        let validationStock = document.querySelector('#stock');
-        let validationImagen = document.querySelector('#imagen');
+        let validationNombre = evento.target['nombre'].value;
+        let validationCategoria = evento.target['categoria'].value;
+        let validationEstado = evento.target['estado'].value;
+        let validationDescripcion = evento.target['descripcion'].value;
+        let validationPrecio = evento.target['precio'].value;
+        let validationStock = evento.target['stock'].value;
+        let validationImagen = evento.target['imagen'].value;
    
-        if (validationNombre.value == ""){
+        if (validationNombre == ""){
             errores.push('Escribe nombre del producto')
         }
-        if (validationCategoria.value == ""){
+        if (validationCategoria == ""){
             errores.push('Selecciona la categoría del producto')
         }
-        if (validationEstado.value == ""){
+        if (validationEstado == ""){
             errores.push('Selecciona si el producto esta en oferta')
         }
-        if (validationDescripcion.value == ""){
+        if (validationDescripcion == ""){
             errores.push('Escribe la descripción del producto')
         }
-        if (validationDescripcion.value.length <= 10){
+        if (validationDescripcion.length <= 10){
             errores.push('La descripción del producto no puede tener menos de 10 caracteres')
         }
-        if (validationPrecio.value == ""){
+        if (validationPrecio == ""){
             errores.push('Escribe el precio del producto')
         }
-        if (validationStock.value == ""){
+        if (validationStock == ""){
             errores.push('Escribe el stock del producto')
         }
-        if (validationImagen.value == ""){
+        if (validationImagen == ""){
             errores.push('Agrega una foto del producto')
         }
 
         if (errores.length > 0){
             evento.preventDefault();
-            let ulErrores = document.querySelector('div.errores ul');
+            
 
             for(let i =0; i< errores.length; i++){
                 ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
