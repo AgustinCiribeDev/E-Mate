@@ -18,7 +18,7 @@ router.post('/register', upload.single('avatar'), validationsUsers, usersControl
 
 //Editar Usuario
 router.get('/editUser/:id', usersControllers.editUser);  
-router.post('/editUser/:id', validationsUsers, usersControllers.processEditUser);  
+router.put('/editUser/:id', validationsUsers, usersControllers.processEditUser);  
 
 //Borrar Usuario
 router.delete('/delete/:id', usersControllers.delete); 

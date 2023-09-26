@@ -153,9 +153,10 @@ const  productsControllers = {
     const resultValidation = validationResult(req);
        
     if(resultValidation.errors.length > 0) {
-      return res.render('products/productEdit', {
+      return res.render('products/productEdit',  {
         errors: resultValidation.mapped(),
-        oldData: req.body
+        oldData: req.body,
+        producto: req.params.id
       });
     } 
     

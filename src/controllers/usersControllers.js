@@ -83,7 +83,6 @@ const usersControllers = {                                                      
         rol: req.body.rol,
         local_id: req.body.local_id,
         imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
-        oferta: req.body.oferta,
       })
       .then((resultados)  => { 
         res.redirect('/users/register');
@@ -106,22 +105,90 @@ const usersControllers = {                                                      
 
     Promise.all([pedidoUsuario, pedidoListado])
       .then (function ([usuarioEditar, usuario]){
-        res.render('usuarios/editUser', { usuarioEditar:usuarioEditar , usuario:usuario, id});      //Comparto los datos del modelo que quiero moestrar en la vista
+        res.render('usuarios/editUser', {usuarioEditar:usuarioEditar, usuario:usuario, id});      //Comparto los datos del modelo que quiero moestrar en la vista
       })
       .catch(err => {
         console.error('Error:', err);
         res.status(500).send('Error interno del servidor');
       });
-  }
-  ,
+  },
+  
   processEditUser: async function (req, res) {
-    
+
     let resultValidation = validationResult(req);
-    let usuarios = await db.Usuario.findAll();
+    let usuario = await db.Usuario.findAll();
+    let usuarioEditar = db.Usuario.findByPk(req.params.id)
 
     if(resultValidation.errors.length > 0) {
       return res.render('usuarios/editUser', {
-        usuario: usuarios,
+        usuario: usuario,
+        usuarioEditar: usuarioEditar,
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
+    
+    // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
+
+    let userInDb = req.body.email
+    let c = await db.Usuario.findOne ({
+       where : {email: userInDb}
+    }) 
+    if (c) {
+      return res.render('usuarios/editUser', {
+        errors: {
+          email: {
+            msg: 'Este email ya está registrado'
+          }
+        },
+        oldData: req.body,
+        usuario: usuarios
+      });
+    }
+    
+    // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
+        
+    const imageBuffer = req.file.buffer;
+    const nombreImagen = Date.now() + req.file.originalname;
+        
+    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
+    if (error) {
+      console.log('Error al cargar la imagen:', error);
+      res.status(500).send('Error al cargar la imagen');
+    } else {
+      console.log('Imagen cargada correctamente:', result);
+        // Aquí, en lugar de almacenar solo el nombre de la imagen,
+        // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
+      
+        // creando el objeto nuevo usuario
+      db.Usuario.update({
+        nombre: req.body.name,
+        email: req.body.email,
+        password: bcryptjs.hashSync(req.body.password,10 ), // hasheando el password
+        rol: req.body.rol,
+        local_id: req.body.local_id,
+        imagen: result ? result.secure_url : null, // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null // 
+      }, {where: {
+        id: req.params.id
+      }})
+      .then((resultados)  => { 
+        res.redirect('/users/register');
+      })
+      .catch((error) => {
+        console.error(error)
+      });
+          
+      }
+    });
+        
+    streamifier.createReadStream(imageBuffer).pipe(stream);
+    
+    /*let resultValidation = validationResult(req);
+    let usuarioEditar = await db.Usuario.findAll();
+
+    if(resultValidation.errors.length > 0) {
+      return res.render('usuarios/editUser', {
+        usuarioEditar: usuarioEditar,
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
@@ -151,7 +218,7 @@ const usersControllers = {                                                      
       console.error("Error en processEditUser:", error);
       // Envía una respuesta de error adecuada al cliente, por ejemplo:
       res.status(500).send("Ocurrió un error al procesar la solicitud.");
-    }
+    }*/
   },
 
 

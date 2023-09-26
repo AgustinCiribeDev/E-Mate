@@ -12,8 +12,7 @@ module.exports = function(sequelize, dataTypes){
         password:{	type:dataTypes.STRING },
         rol:{ type:dataTypes.STRING },
         local_id:{ type: dataTypes.INTEGER },
-		imagen:{ type:dataTypes.STRING },
-		oferta:{ type:dataTypes.BOOLEAN }
+		imagen:{ type:dataTypes.STRING }
 	}
 
     let config = {
