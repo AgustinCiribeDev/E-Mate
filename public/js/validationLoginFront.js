@@ -8,7 +8,7 @@ formLogin.addEventListener('submit', function (evento){
     ulErrores.innerHTML = '';
     
     let campoEmail  = evento.target['email'].value;
-    let campoPassword = document.querySelector('#password');
+    let campoPassword = evento.target['password'].value;
 
     if(campoEmail == ""){
         errores.push('El campo Email está vacío');
@@ -16,7 +16,7 @@ formLogin.addEventListener('submit', function (evento){
     if(!validarEmail(campoEmail)){
         errores.push('Escribe un formato valido de email "ejemplo@gmail.com"')
     }
-    if(campoPassword.value == ""){
+    if(campoPassword == ""){
         errores.push('No escribiste tu contraseña');
     }
     function validarEmail(campoEmail) {
