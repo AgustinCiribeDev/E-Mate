@@ -151,12 +151,13 @@ const  productsControllers = {
 
     // Express Validator
     const resultValidation = validationResult(req);
+    const producto = await db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"}]})
        
     if(resultValidation.errors.length > 0) {
       return res.render('products/productEdit',  {
         errors: resultValidation.mapped(),
         oldData: req.body,
-        producto: req.params.id
+        producto: producto
       });
     } 
     

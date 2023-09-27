@@ -17,12 +17,15 @@
     <!-- comienza el contenedor de productos-->
     <div class="container">
       <div class="row text-secondary mt-4 mb-4">
+        
         <!-- Formulario de carga de productos -->
         <div class="col-md-6">
           <form action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="errores">
               <ul></ul>
             </div>
+
+            <!-- Nombre de Producto -->
             <div class="mb-3">
               <label for="nombre">Nombre del producto</label>
               <br>
