@@ -116,21 +116,22 @@ const usersControllers = {                                                      
   processEditUser: async function (req, res) {
 
     let resultValidation = validationResult(req);
-    let usuario = await db.Usuario.findAll();
-    let usuarioEditar = db.Usuario.findByPk(req.params.id)
+    
 
     if(resultValidation.errors.length > 0) {
+      let usuario = await db.Usuario.findAll();
+      let usuarioEditar = await db.Usuario.findByPk(req.params.id)
       return res.render('usuarios/editUser', {
         usuario: usuario,
         usuarioEditar: usuarioEditar,
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
-    }
+    }else{
     
     // Antes de crear el usuario validamos que el usuario no este registrado con el mismo email.
 
-    let userInDb = req.body.email
+    /*let userInDb = req.body.email
     let c = await db.Usuario.findOne ({
        where : {email: userInDb}
     }) 
@@ -144,7 +145,7 @@ const usersControllers = {                                                      
         oldData: req.body,
         usuario: usuarios
       });
-    }
+    }*/
     
     // Aca comienza la creacion del usuario y el guardado de la imagen en cloudinary
         
@@ -182,7 +183,7 @@ const usersControllers = {                                                      
     });
         
     streamifier.createReadStream(imageBuffer).pipe(stream);
-    
+  }
     /*let resultValidation = validationResult(req);
     let usuarioEditar = await db.Usuario.findAll();
 
