@@ -24,7 +24,7 @@
 
 
     <div .container>
-        <form method="POST" action="/users/editUser/<%=usuarioEditar.id%>?_method=PUT" enctype="multipart/form-data"> 
+        <form class="editar" method="POST" action="/users/editUser/<%=usuarioEditar.id%>?_method=PUT" enctype="multipart/form-data"> 
         <div class="col-12 d-flex align-items-center justify-content-center" style="min-height: 25vh;">
             <div class="row"></div>
                 
@@ -112,10 +112,13 @@
                     <div class="d-grid mb-5 gap-2 col-3 mx-auto text-center btn btn-success d-inline-block">
                         <button id="guardarUsuario"class="btn btn-success" type="submit">GUARDAR USUARIO</button>
                     </div>               
-                    
+                          
                     <div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger d-inline-block">
-                        <button id="eliminarUsuario" class="btn btn-danger" type="button">ELIMINAR USUARIO</button>
+                        <form action="/users/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">ELIMINAR USUARIO</button>
+                        </form>
                     </div>
+
                     
                     <script>
                         const eliminarUsuarioBtn = document.getElementById('eliminarUsuario');

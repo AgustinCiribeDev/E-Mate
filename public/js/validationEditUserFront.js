@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
 
-    let formRegister = document.querySelector('form');
+    let formRegister = document.querySelector('.editar');
 
     formRegister.addEventListener('submit', function (evento){
          

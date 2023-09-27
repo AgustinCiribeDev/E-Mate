@@ -223,7 +223,7 @@ const usersControllers = {                                                      
   },
 
 
-  delete: async (req, res) => {
+  /*delete: async (req, res) => {
     try {
       await db.Usuario.destroy({
         where: {
@@ -236,7 +236,7 @@ const usersControllers = {                                                      
       console.error('Error en el método delete:', error);
       res.status(500).send('Ocurrió un error al eliminar el usuario.');
     }
-  },
+  },*/
   
   
 
@@ -357,7 +357,16 @@ const usersControllers = {                                                      
     res.clearCookie('userEmail');
     req.session.destroy();
     res.redirect('/');
-  }
+  },
+
+  delete: (req,res) => {
+    db.Usuario.destroy ({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect('/users/register');
+  },
 }
 
 module.exports = usersControllers;                                           //0 
