@@ -49,8 +49,4 @@ window.addEventListener('load', function(){
             }
         }
     })
-
-
-
-
 })

@@ -1,4 +1,4 @@
-/*window.addEventListener('load', function(){
+window.addEventListener('load', function(){
 
     let formRegister = document.querySelector('.editar');
 
@@ -44,4 +44,4 @@
             }
         }
     })
-});*/
+});

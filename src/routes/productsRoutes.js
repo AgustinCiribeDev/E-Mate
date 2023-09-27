@@ -14,7 +14,6 @@ router.get('/productCatalogue', productsControllers.productCatalogue);
 router.get('/productDetail/:id', productsControllers.productDetail);
 
 // Ruta carrito de compras
-
 router.get('/cart', productsControllers.cart);
 
 // Rutas de crear productos

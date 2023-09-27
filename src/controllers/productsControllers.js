@@ -16,19 +16,16 @@ cloudinary.config({
   let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const  productsControllers = {
-    /*productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    let productosOferta = productos.filter(ofertas => ofertas.estado == "En Oferta");      
-    res.render('index', {productosOferta});*/
   
+  // Método GET Productos
   productCatalogue: (req,res)=>{
-    /*productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));*/
     db.Producto.findAll ()
     .then ((productos) => {
       return res.render('products/productCatalogue',{productos:productos});
     })
-    /*res.render('products/productCatalogue', {productos});*/
   },
   
+  // Método GET Detalle de Productos
   productDetail: (req, res) => {
     db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"}]})
       .then ((producto) => {
@@ -92,42 +89,7 @@ const  productsControllers = {
   streamifier.createReadStream(imageBuffer).pipe(stream);
   },
 
-    /* const imageBuffer = req.file.buffer;
-    const nombreImagen = Date.now() + req.file.originalname;   
-    const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: nombreImagen }, (error, result) => {
-      if (error) {
-        console.log('Error al cargar la imagen:', error);
-          res.status(500).send('Error al cargar la imagen');
-      } 
-      else {
-        console.log('Imagen cargada correctamente:', result);
-          //Aquí, en lugar de almacenar solo el nombre de la imagen,
-          // almacenamos la URL completa de Cloudinary en el objeto del nuevo producto
-         
-          let idNuevoProducto = (productos[productos.length - 1].id) + 1;
-          let objNuevoProducto = {
-          id: idNuevoProducto,
-          nombre: req.body.nombre,
-          precioActual: parseInt(req.body.precioActual),
-          categoria: req.body.categoria,
-          descripcion: req.body.descripcion,
-          cuotas: parseInt(req.body.cuotas),
-          estado: req.body.estado,
-          descuento: parseInt(req.body.descuento),
-          imagen: result ? result.secure_url : null // Almacenamos la URL completa de Cloudinary si result está definido, de lo contrario, usamos null
-          };
-        
-          productos.push(objNuevoProducto);
-          fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
-        
-              res.redirect('/');
-            }
-          }); */
-
-  //Método GET para Editar Productos
-  /*edit: (req, res) => {
-    res.render('products/productEdit');
-  },*/
+  // Método GET Editar Productos
   edit: (req,res) => {
     db.Producto.findByPk (req.params.id, {include: [{association: "ventas"},{association: "usuario"}, {association: "categoria"}]})
     .then ((producto) => {
@@ -135,17 +97,6 @@ const  productsControllers = {
     })
   },
 
-    /*res.redirect('/');
-    let idProducto = req.params.id;
-		let productoBuscado;
-
-	  for(let i=0; i< productos.length; i++){
-		  if (productos[i].id == idProducto) {
-			productoBuscado = productos[i];
-			break;
-      }
-    }*/
-  
   // Método PUT para Editar Productos
   update: async (req,res) => {
 
@@ -197,26 +148,8 @@ const  productsControllers = {
     });
     streamifier.createReadStream(imageBuffer).pipe(stream);
   },
-
-          /*let idProducto= req.params.id;
-          
-          for(let i=0; i< productos.length; i++){
-            if (productos[i].id== idProducto) {
-              
-              productos[i].nombre= req.body.nombre;
-              productos[i].precioActual= parseInt(req.body.precioActual);
-              productos[i].descuento= parseInt(req.body.descuento);
-              productos[i].categoria= req.body.categoria;
-              productos[i].descripcion= req.body.descripcion;
-              productos[i].estado= req.body.estado;
-              productos[i].cuotas= parseInt(req.body.cuotas);
-              break;
-            }
-          }
-          fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, ' '));
-          
-          res.redirect('/');*/
-        
+   
+  // Método PUT para Editar Productos     
   destroy: (req,res) => {
     db.Producto.destroy ({
       where: {
@@ -226,6 +159,7 @@ const  productsControllers = {
     res.redirect('/');
   },
 
+  // ¿Para qué es este método?  
   local: (req,res) => {
     db.Producto.findAll ()
       .then ((producto) => {
@@ -233,13 +167,11 @@ const  productsControllers = {
       })
   },
 
-   cart: (req,res) => {
+  // Método GET Carrito  
+  cart: (req,res) => {
     res.render('products/productCart');
   }
 
-
 };
-
-
 
 module.exports = productsControllers;
