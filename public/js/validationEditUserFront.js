@@ -13,7 +13,6 @@ window.addEventListener('load', function(){
         let validationLocal = evento.target['local_id'].value;
         let validationEmail = evento.target['email'].value;
         let validationPassword = evento.target['password'].value;
-        let validationAvatar = evento.target['avatar'].value;
    
         if (validationName == ""){
             errores.push('Escribe tu nombre y apellido')
@@ -32,9 +31,6 @@ window.addEventListener('load', function(){
         }
         if (validationPassword == ""){
             errores.push('Agrega una contraseña valida')
-        }
-        if (validationAvatar == ""){
-            errores.push('Agrega una foto de perfil de tu empleado')
         }
 
         if (errores.length > 0){

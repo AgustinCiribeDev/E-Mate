@@ -3,10 +3,11 @@ const router = express.Router();                                            //0
 const path = require('path');
 const usersControllers = require('./../controllers/usersControllers');        
 
-const validationsUsers = require ('./../middlewares/validationsUsers')
-const validationsLogin = require ('./../middlewares/validationsLogin')
-const guestMiddleware = require ('./../middlewares/guestMiddleware')
-const authMiddleware = require ('./../middlewares/authMiddleware')
+const validationsUsers = require ('./../middlewares/validationsUsers');
+const validationsEditUsers = require ('./../middlewares/validationsEditUsers');
+const validationsLogin = require ('./../middlewares/validationsLogin');
+const guestMiddleware = require ('./../middlewares/guestMiddleware');
+const authMiddleware = require ('./../middlewares/authMiddleware');
 
 //Configurando Multer
 const multer = require('multer');
@@ -18,7 +19,7 @@ router.post('/register', upload.single('avatar'), validationsUsers, usersControl
 
 //Editar Usuario
 router.get('/editUser/:id', usersControllers.editUser);  
-router.put('/editUser/:id', validationsUsers, usersControllers.processEditUser);  
+router.put('/editUser/:id', upload.single('avatar'), validationsEditUsers, usersControllers.processEditUser);  
 
 //Borrar Usuario
 router.delete('/delete/:id', usersControllers.delete); 

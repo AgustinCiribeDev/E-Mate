@@ -113,31 +113,6 @@
                         <button id="guardarUsuario"class="btn btn-success" type="submit">GUARDAR USUARIO</button>
                     </div>               
                           
-                    <div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger d-inline-block">
-                        <form action="/users/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn btn-danger">ELIMINAR USUARIO</button>
-                        </form>
-                    </div>
-
-                    
-                    <script>
-                        const eliminarUsuarioBtn = document.getElementById('eliminarUsuario');
-                    
-                        eliminarUsuarioBtn.addEventListener('click', () => {
-                            // Envía una solicitud para eliminar el usuario al hacer clic en el botón
-                            fetch("/users/delete/${userId}", {
-                                method: 'DELETE',
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log(data);
-                                // Redirige a la página de registro de usuarios o realiza alguna acción adicional
-                                window.location.href = '/users/registro';
-                            })
-                            .catch(error => console.error('Error al eliminar usuario:', error));
-                        });
-                    </script>
-                    
                 </article>
         </div>
         
