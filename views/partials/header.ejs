@@ -1,7 +1,7 @@
 <!-- ./partials/head.ejs -->
 <header>
           <!-- Barra verde-->
-        <div class="container-fluid small mr-0 p-1 mx-auto bg-success row justify-content-center text-white">
+        <!--<div class="container-fluid small mr-0 p-1 mx-auto bg-success row justify-content-center text-white">
   3 CUOTAS SIN INTERÉS - ENVÍOS A TODO EL PAÍS
         </div>
 
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-  <!-- Barra buscar productos-->
+  Barra buscar productos
 
   <div class="row">
     <div class="col-12 p-0 m-0 row align-items-center justify-content-center">
@@ -48,7 +48,61 @@
       </a>
       
     </div>
-  </div>
+  </div> -->
  
+  <div class="container-fluid bg-dark d-md-block fixed-top">
+
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/"> <img src="https://santiagom.alwaysdata.net/logo.svg" alt="..." style="width: 300px; margin: 0 50px 0 0;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="margin: 0 50px 0 0;">
+            <a class="nav-link active" href="/products/productCatalogue">Productos
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li>
+            <% if(locals.isLogged) {%>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="<%= locals.userLogged.imagen %>" width="40" style="border-radius: 100%">
+                  Hola <%= locals.userLogged.nombre %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/users/profile">Perfil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+              <% } else {%>
+                <a class="nav-item mx-3" href="/users/login"><i class="fa-solid fa-right-to-bracket"></i>Empleados</a>
+                <a class="nav-item mx-3" href="/users/register"><i class="fa-solid fa-user"></i>Registrarse</a>
+            <% }%>
+          </li>
+  
+         <!-- <li class="nav-item">
+          <% if(locals.isLogged) {%>
+            <a class="nav-link" href="#"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Registrarse</a>
+          </li>  -->
+  
+  
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="search" placeholder="Buscar productos">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+    <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i></button>
+  </nav>
+  
+  </div>
 
 </header>
