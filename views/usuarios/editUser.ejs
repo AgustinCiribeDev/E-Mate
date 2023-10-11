@@ -111,7 +111,14 @@
                     
                     <div class="d-grid mb-5 gap-2 col-3 mx-auto text-center btn btn-success d-inline-block">
                         <button id="guardarUsuario"class="btn btn-success" type="submit">GUARDAR USUARIO</button>
-                    </div>               
+                    </div>
+                    </form>     
+                    
+                    <div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger">
+                        <form action="/users/delete/<%=usuarioEditar.id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit">ELIMINAR USUARIO</button>
+                        </form>
+                    </div>
                           
                 </article>
         </div>
@@ -126,8 +133,4 @@
 </html>
 
 
-<!--
-<div class="d-grid mb-5 gap-2 col-3 d-inline-block btn btn-danger">
-    <button id="eliminarUsuario"class="btn btn-danger" type="submit">ELIMINAR USUARIO</button>
-</div>
--->
+

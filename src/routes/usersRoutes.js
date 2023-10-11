@@ -22,7 +22,7 @@ router.get('/editUser/:id', usersControllers.editUser);
 router.put('/editUser/:id', upload.single('avatar'), validationsEditUsers, usersControllers.processEditUser);  
 
 //Borrar Usuario
-router.delete('/delete/:id', usersControllers.delete); 
+router.delete('/delete/:id', usersControllers.destroy); 
 
 router.get('/login', guestMiddleware, usersControllers.login);
 

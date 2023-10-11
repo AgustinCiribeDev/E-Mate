@@ -210,11 +210,12 @@ const usersControllers = {                                                      
 }
 },
   
-  delete: async (req,res) => {
-    
+destroy: async (req,res) => {
+    console.log("Hola")
+    let usuarioBorrar = req.params.id
     await db.Usuario.destroy ({
       where: {
-        id: req.params.id
+        id: usuarioBorrar
       }
     })
     res.redirect('/users/register');
