@@ -11,14 +11,40 @@
             <!-- Aquí puedes mostrar la foto de perfil del usuario -->
             <img src="<%= user.imagen %>" alt="Foto de Perfil" class="img-fluid rounded-circle">
           </div>
+          <% if(locals.userLogged.rol == 'Administrador') {%>
           <div class="col-md-8">
             <!-- Aquí puedes mostrar los detalles del usuario -->
             <h2>Hola <%= user.nombre %></h2>
             <p>Email: <%= user.email %></p>
+            <p>Rol: <%= user.rol %></p>
+            <p>Local: <%= user.local_id %></p>
+
             <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
               <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
             </div>
+            <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+              <a class="btn btn-success" href="/products/edit">EDITAR PRODUCTO</a>
+            </div>
+            <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+              <a class="btn btn-success" href="/users/register">CREAR/EDITAR EMPLEADO</a>
+            </div>
           </div>
+          <% } else {%>
+            <div class="col-md-8">
+              <!-- Aquí puedes mostrar los detalles del usuario -->
+              <h2>Hola <%= user.nombre %></h2>
+              <p>Email: <%= user.email %></p>
+              <p>Rol: <%= user.rol %></p>
+              <p>Local: <%= user.local %></p>
+  
+              <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+                <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
+              </div>
+              <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+                <a class="btn btn-success" href="/products/edit">EDITAR PRODUCTO</a>
+              </div>
+            </div>
+            <% }%>
         </div>
       </div>
 

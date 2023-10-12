@@ -22,8 +22,82 @@ cloudinary.config({
 const db = require('../database/models');                                        //0
 
 const usersControllers = {                                                       //0
+  //METODOS DEL LOGIN:
+  login: async (req, res) => {
+    try {
+      return res.render('usuarios/inicio')
+    } catch (error) {
+          console.log (error.message);
+      }
+  },
+        
+  loginProcess: async (req, res) => {
+      
+     const resultValidation = validationResult(req);
+       
+      if(resultValidation.errors.length > 0) {
+          return res.render('usuarios/inicio', {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
+      }
+
+      let userFound = await db.Usuario.findOne ({
+        where : {email: req.body.email}
+      });
+      if (!userFound) {
+        return res.render('usuarios/inicio', {
+          errors: {
+            email: {
+            msg: 'Este email no está registrado'
+            }
+          }
+        })
+      };
+     
+      let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
+
+      console.log (passwordOk);
+
+      if (passwordOk) {
+        req.session.userLogged = userFound;
+          if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
+          }
+        res.redirect('/users/profile');
+      } else {
+          return res.render('usuarios/inicio', {
+            errors: {
+              password: {
+                msg: 'Contraseña incorrecta'
+              }
+            }
+          })
+        }console.log('este usuario esta logueado ' + res.locals.isLogged);
+  },
+  
+  profile: (req, res) => {
+    console.log(req.cookies.userEmail);
+      res.render('usuarios/perfil', {
+        user: req.session.userLogged
+      });
+  },
+
+  logout: (req, res) => {
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    res.redirect('/');
+  },
+
   register: (req, res) => {          // METODO OK
-    db.Usuario.findAll()
+    
+    const localAdministrador = res.locals.userLogged.local_id
+    
+    db.Usuario.findAll({
+      where: {
+        local_id: localAdministrador
+      }
+    })
       .then (function (usuario){
         res.render('usuarios/registro', { usuario: usuario });      //Comparto los datos del modelo que quiero moestrar en la vista
       })
@@ -98,7 +172,15 @@ const usersControllers = {                                                      
 
   editUser: (req, res) => {          // EN PROCESO
     let pedidoUsuario = db.Usuario.findByPk(req.params.id)
-    let pedidoListado = db.Usuario.findAll()
+
+    const localAdministrador = res.locals.userLogged.local_id
+    
+    
+    let pedidoListado = db.Usuario.findAll({
+      where: {
+        local_id: localAdministrador
+      }
+    })
     let id = req.params.id;
 
     Promise.all([pedidoUsuario, pedidoListado])
@@ -221,74 +303,6 @@ destroy: async (req,res) => {
     res.redirect('/users/register');
   },
 
-  //METODOS DEL LOGIN:
-  login: async (req, res) => {
-    try {
-      return res.render('usuarios/inicio')
-    } catch (error) {
-          console.log (error.message);
-      }
-  },
-        
-  loginProcess: async (req, res) => {
-      
-     const resultValidation = validationResult(req);
-       
-      if(resultValidation.errors.length > 0) {
-          return res.render('usuarios/inicio', {
-            errors: resultValidation.mapped(),
-            oldData: req.body
-        });
-      }
-
-      let userFound = await db.Usuario.findOne ({
-        where : {email: req.body.email}
-      });
-      if (!userFound) {
-        return res.render('usuarios/inicio', {
-          errors: {
-            email: {
-            msg: 'Este email no está registrado'
-            }
-          }
-        })
-      };
-     
-      let passwordOk = bcryptjs.compareSync(req.body.password, userFound.password);
-
-      console.log (passwordOk);
-
-      if (passwordOk) {
-        req.session.userLogged = userFound;
-          if(req.body.remember_user) {
-              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*2 })
-          }
-        res.redirect('/users/profile');
-      } else {
-          return res.render('usuarios/inicio', {
-            errors: {
-              password: {
-                msg: 'Contraseña incorrecta'
-              }
-            }
-          })
-        }
-  },
-  
-  profile: (req, res) => {
-    console.log(req.cookies.userEmail);
-      res.render('usuarios/perfil', {
-        user: req.session.userLogged
-      });
-  },
-
-  logout: (req, res) => {
-    res.clearCookie('userEmail');
-    req.session.destroy();
-    res.redirect('/');
-  },
-
- 
 }
 
 module.exports = usersControllers;                                           //0 

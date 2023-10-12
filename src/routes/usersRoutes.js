@@ -14,7 +14,7 @@ const multer = require('multer');
 const upload = multer();
 
 //Registro de usuario agregando una imagen como avatar
-router.get('/register', guestMiddleware, usersControllers.register);                   //0
+router.get('/register', usersControllers.register);                   //0
 router.post('/register', upload.single('avatar'), validationsUsers, usersControllers.processRegister);
 
 //Editar Usuario
