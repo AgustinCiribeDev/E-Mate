@@ -293,7 +293,6 @@ const usersControllers = {                                                      
   },
   
   destroy: async (req,res) => {
-      console.log("Hola")
       let usuarioBorrar = req.params.id
       await db.Usuario.destroy ({
         where: {
@@ -303,15 +302,26 @@ const usersControllers = {                                                      
       res.redirect('/users/register');
     },
 
-  //Metodo para ENDPONIT SPRINT 8
-  const { getUsers } = require('./userService');
-  const index = async (req, res) => {
-    const listaUsuarios = await getUsers();
-    res.render("users", { Allusuarios: listaUsuarios });
-  };
+  //ENDPONIT LISTADO
 
+  index: async (req, res) => {
+    try {
+      let listaUsuarios = await db.Usuario.findAll({
+        attributes: ['id', 'nombre', 'email', 'rol', 'local_id', 'imagen'] 
+      });
 
+      const count = listaUsuarios.length;
 
+      res.json({
+        datosPedidos: 'Lista de Usuarios',
+        codigo: 200,
+        count: count,
+        users: listaUsuarios,
+      });
+    } catch (error) {
+      res.status(500).json({ error: 'Error al obtener los usuarios' });
+    }
+  },
 
 }
 
