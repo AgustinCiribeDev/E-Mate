@@ -289,19 +289,29 @@ const usersControllers = {                                                      
       console.error(error)
     });
   }
-}
-},
-  
-destroy: async (req,res) => {
-    console.log("Hola")
-    let usuarioBorrar = req.params.id
-    await db.Usuario.destroy ({
-      where: {
-        id: usuarioBorrar
-      }
-    })
-    res.redirect('/users/register');
+  }
   },
+  
+  destroy: async (req,res) => {
+      console.log("Hola")
+      let usuarioBorrar = req.params.id
+      await db.Usuario.destroy ({
+        where: {
+          id: usuarioBorrar
+        }
+      })
+      res.redirect('/users/register');
+    },
+
+  //Metodo para ENDPONIT SPRINT 8
+  const { getUsers } = require('./userService');
+  const index = async (req, res) => {
+    const listaUsuarios = await getUsers();
+    res.render("users", { Allusuarios: listaUsuarios });
+  };
+
+
+
 
 }
 
