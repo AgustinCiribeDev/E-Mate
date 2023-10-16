@@ -302,26 +302,7 @@ const usersControllers = {                                                      
       res.redirect('/users/register');
     },
 
-  //ENDPONIT LISTADO
-
-  index: async (req, res) => {
-    try {
-      let listaUsuarios = await db.Usuario.findAll({
-        attributes: ['id', 'nombre', 'email', 'rol', 'local_id', 'imagen'] 
-      });
-
-      const count = listaUsuarios.length;
-
-      res.json({
-        datosPedidos: 'Lista de Usuarios',
-        codigo: 200,
-        count: count,
-        users: listaUsuarios,
-      });
-    } catch (error) {
-      res.status(500).json({ error: 'Error al obtener los usuarios' });
-    }
-  },
+ 
 
 }
 

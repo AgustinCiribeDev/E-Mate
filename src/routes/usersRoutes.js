@@ -33,8 +33,7 @@ router.get('/profile', authMiddleware, usersControllers.profile);
 router.get('/logout', usersControllers.logout);
 
 
-//Endpoints  API
-router.get('/usuarios', usersControllers.index);     
+  
 
 module.exports = router;
 
