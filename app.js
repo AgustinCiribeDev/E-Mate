@@ -6,6 +6,9 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const cors = require('cors');
 
+// utilizando cors
+app.use(cors());
+
 /* Bootstrap */ 
 app.use('/css', express.static(path.resolve (__dirname, "node_modules/bootstrap/dist/css"))); 
 
@@ -50,8 +53,7 @@ app.use('/services', servicesRoutes);                                           
 app.use('*', function(req, res) {
     res.send("Error de acceso, esta ruta no existe en el sitio")
 });
-// utilizando cors
-app.use(cors());
+
 
 /* Puerto Servidor */
 const port = process.env.PORT || 3002;
