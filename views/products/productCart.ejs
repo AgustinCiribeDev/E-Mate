@@ -3,13 +3,26 @@
 <%- include ('./../partials/head.ejs') %>
 <body>
   <%- include ('./../partials/header.ejs') %>
+
+
+
     <div class="carrito">
     <br>
-    <table class="table  table-hover">
+
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-8 col-xl-6">
+          <div class="text-center">
+              <h2 class="fw-bolder">Carrito de compras</h2>
+          </div>
+      </div>
+  </div>
+
+
+    <table class="table">
         <thead>
           <tr class="text primary">
             <th scope="col">Productos</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Precio por unidad</th>
             <th scope="col">Cantidad</th>
           </tr>
         </thead>
@@ -17,6 +30,14 @@
           <!-- Aquí se generará dinámicamente el contenido del carrito -->
       </tbody>
     </table>
+
+
+
+
+
+
+
+    
       <div class="row mx-4">
           <div class="col">
             <h3 class="ItemCartTotal text-black">Total: $0.00</h3>

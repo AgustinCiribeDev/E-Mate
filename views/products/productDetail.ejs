@@ -3,13 +3,27 @@
 <%- include ('./../partials/head.ejs') %>
 <body>
     <%- include ('./../partials/header.ejs') %>
-    <article class="main-product">
+
+
+    <div class="container mt-5">
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-8 col-xl-6">
+              <div class="text-center">
+                  <h2 class="fw-bolder"><%=producto.nombre%></h2>
+              </div>
+          </div>
+      </div>
+
+
+
         <section class="product-photo">
             <div class="product-photo-left">
                 <img src="<%=producto.imagen%>" class="product-photo-img" alt="mate" name="imagen" id="imagen">
             </div>
+
+
+
             <div class="product-buy-options">
-                <h2><%=producto.nombre%></h2>
                 <h3>$ <%=producto.precio%></h3>
                 <h4><%=producto.cuota%> cuotas sin interés</h4>
                 <h5>Ver formas de pago</h4>
@@ -59,7 +73,6 @@
                 <%=producto.descripcion%>
             </p>
         </section>
-    </article>
     
     <%- include ('./../partials/footer.ejs') %>
     <%- include ('./../partials/bootstrapJs.ejs') %>

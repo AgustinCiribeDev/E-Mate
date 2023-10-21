@@ -62,12 +62,12 @@ function renderCart(){
     carrito.forEach((item, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class="table__Productos">
+            <td>
                 <h6 class="title">${item.nombre}</h6>
             </td>
-            <td class="table__Precio"><p>$ ${item.precio.toFixed(2)}</p></td>
-            <td class="table__Cantidad">
-                <input type="number" min="1" value="${item.cantidad}" oninput="updateQuantity(this.value, '${item.id}')">
+            <td><p>$ ${item.precio.toFixed(2)}</p></td>
+            <td>
+                <input type="number" class="btn btn-secondary" style="background-color: #ccc; width: 120px;" min="1" value="${item.cantidad}" oninput="updateQuantity(this.value, '${item.id}')">
                 <button class="delete btn btn-danger" onclick="removeFromCart('${item.id}')">x</button>
             </td>
         `;
