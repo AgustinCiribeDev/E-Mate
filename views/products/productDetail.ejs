@@ -58,12 +58,14 @@
                             <span style="padding: 5px;" class="text-success">Agregado al carrito</s>
                         </div>
                     </div>
+                    <% if(locals.isLogged == true) {%>
                     <div>
                         <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
                         <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST">
                         <button type="submit" class="btn-cart">Borrar Producto</button>
                         </form>
                     </div>
+                    <% } %>
                 </form>
             </div>
         </section>

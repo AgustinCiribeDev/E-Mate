@@ -73,7 +73,7 @@ const usersControllers = {                                                      
               }
             }
           })
-        }console.log('este usuario esta logueado ' + res.locals.isLogged);
+        }console.log('este usuario esta logueado ' + res.locals.userLogged);
   },
   
   profile: (req, res) => {
