@@ -13181,3 +13181,20 @@ select.form-control[multiple] {
 .carousel-caption .h6 {
   color: inherit;
 }
+
+.img-profile{
+  width: 50px;
+  border-radius: 50%;
+  aspect-ratio: 1 /1;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.img-profile-big{
+  width: 200px;
+  border-radius: 50%;
+  aspect-ratio: 1 /1;
+  object-fit: cover;
+  margin-right: 10px;
+}

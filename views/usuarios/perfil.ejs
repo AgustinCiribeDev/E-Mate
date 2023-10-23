@@ -5,11 +5,11 @@
     
   <%- include ('./../partials/headerLog.ejs') %>
 
-    <div class="container mt-5">
-        <div class="row">
+    <div class="container mt-5" style="padding-top: 50px;">
+        <div class="row mt-5">
           <div class="col-md-4">
             <!-- Aquí puedes mostrar la foto de perfil del usuario -->
-            <img src="<%= user.imagen %>" alt="Foto de Perfil" class="img-fluid rounded-circle">
+            <img src="<%= user.imagen %>" class="img-profile-big" alt="Foto de Perfil">
           </div>
           <% if(locals.userLogged.rol == 'Administrador') {%>
           <div class="col-md-8">
@@ -34,12 +34,12 @@
               <p>Rol: <%= user.rol %></p>
               <p>Local: <%= user.local %></p>
   
-              <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+              <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
                 <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
               </div>
-              <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+              <!--<div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
                 <a class="btn btn-success" href="/products/edit">EDITAR PRODUCTO</a>
-              </div>
+              </div>-->
             </div>
             <% }%>
         </div>

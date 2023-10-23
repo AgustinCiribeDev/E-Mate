@@ -1,17 +1,17 @@
 
 <header>
-        <div class="container-fluid bg-dark d-md-block fixed-top">
+        <div class="container-fluid bg-dark d-md-block fixed-top" style="padding-top: 30px; padding-bottom: 30px;">
           <div class="row">
             <div class="col-6">       
               <div class="logo col-8">
-                <a class="nav-link" href="/"><img src="https://santiagom.alwaysdata.net/logo.svg" alt=""></img></a>
+                <a class="nav-link" href="/"><img src="https://santiagom.alwaysdata.net/logo.svg" alt="logo" style="width: 300px; margin: 0 50px 0 0;"></img></a>
             </div>
             </div>        
             <div class="col-6 d-flex justify-content-end align-items-center">
               <% if(locals.isLogged) {%>
               <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="<%= locals.userLogged.imagen %>" width="40" style="border-radius: 100%">
+                  <img src="<%= locals.userLogged.imagen %>" class="img-profile">
                   Hola <%= locals.userLogged.nombre %>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
