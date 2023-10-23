@@ -17,7 +17,7 @@ const validationsEditUsers = [
     body ('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
     body ('avatar').custom((value, {req}) => {
         let file = req.file;
-        let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp'];
+        let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp', '.avif'];
 
         if (file) {
             let fileExtension = path.extname(file.originalname);

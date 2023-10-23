@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
 
-    let formCreateProducts = document.querySelector('form');
+    let formCreateProducts = document.querySelector('.editar');
 
     formCreateProducts.addEventListener('submit', function (evento){
         let errores = [];

@@ -17,7 +17,7 @@ const validationsUsers = [
     body ('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
     body ('avatar').custom((value, {req}) => {
         let file = req.file;
-        let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp'];
+        let extensionsAccepted = ['.jpg', '.png', '.gif', '.jpeg', '.webp' , '.avif'];
 
         if (!file) {
             throw new Error('Tienes que subir una imagen');

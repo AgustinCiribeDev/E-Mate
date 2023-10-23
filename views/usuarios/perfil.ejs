@@ -3,9 +3,9 @@
 <%- include ('./../partials/head.ejs') %>
 <body>
     
-  <%- include ('./../partials/headerLog.ejs') %>
+  <%- include ('./../partials/header.ejs') %>
 
-    <div class="container mt-5" style="padding-top: 50px;">
+    <div class="container" style="padding-top: 30px;">
         <div class="row mt-5">
           <div class="col-md-4">
             <!-- Aquí puedes mostrar la foto de perfil del usuario -->
@@ -19,11 +19,14 @@
             <p>Rol: <%= user.rol %></p>
             <p>Local: <%= user.local_id %></p>
 
-            <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
+            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
               <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
             </div>
-            <div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">
-              <a class="btn btn-success" href="/users/register">CREAR/EDITAR EMPLEADO</a>
+            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
+              <a class="btn btn-success" href="/users/register">EDITAR EMPLEADO</a>
+            </div>
+            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
+              <a class="btn btn-success" href="/users/register">CREAR EMPLEADO</a>
             </div>
           </div>
           <% } else {%>
