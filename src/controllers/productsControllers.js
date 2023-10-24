@@ -75,7 +75,7 @@ const  productsControllers = {
       estado: req.body.estado,
       descuento: req.body.descuento,
       cuota: req.body.cuota,
-      usuario_id: req.body.usuario,
+      usuario_id: req.body.usuario, /* como tomas el ID numero del usuario logueado. Para ver con Agus*/
       categoria_id: req.body.categoria,
       })
       .then((resultados)  => { 
