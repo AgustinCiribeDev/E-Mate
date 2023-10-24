@@ -63,17 +63,17 @@
                     <br>
                     <% if(locals.isLogged == false) {%>
                     <div>
-                        <button type="submit" class="btn-buy"onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); window.location.href='/products/cart';">Comprar Ahora</button>
-                        <button  type="button" class="btn-cart" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); showAddedToCartMessage();">Agregar al Carrito</button>
+                        <button type="submit" class="btn btn-success" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); window.location.href='/products/cart';">Comprar Ahora</button>
+                        <button  type="button" class="btn btn-outline-success" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); showAddedToCartMessage();">Agregar al Carrito</button>
                         <div id="addedToCartMessage" style="display: none; text-align: center;margin-bottom: 10px;">
                             <span style="padding: 5px;" class="text-success">Agregado al carrito</s>
                         </div>
                     </div>
                     <% } else {%>
                     <div>
-                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
+                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn btn-success">Editar</button></a>
                         <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn-cart">Borrar Producto</button>
+                        <button type="submit" class="btn btn-outline-success">Borrar Producto</button>
                         </form>
                     </div>
                     <% } %>
