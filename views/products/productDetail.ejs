@@ -19,7 +19,7 @@
 
         <section class="product-photo">
             <div class="product-photo-left">
-                <img src="<%=producto.imagen%>" class="product-photo-img" alt="mate" name="imagen" id="imagen">
+                <img src="<%=producto.imagen%>" class="product-photo-img" style="margin-bottom: 50px;" alt="mate" name="imagen" id="imagen">
             </div>
 
 
@@ -63,17 +63,17 @@
                     <br>
                     <% if(locals.isLogged == false) {%>
                     <div>
-                        <button type="submit" class="btn btn-success" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); window.location.href='/products/cart';">Comprar Ahora</button>
-                        <button  type="button" class="btn btn-outline-success" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); showAddedToCartMessage();">Agregar al Carrito</button>
+                        <button type="submit" class="btn btn-success col-12" style="margin-bottom: 15px;" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); window.location.href='/products/cart';">Comprar Ahora</button><br>
+                        <button  type="button" class="btn btn-outline-success col-12" style="margin-bottom: 50px;" onclick="addToCart(document.getElementById('cantidad').value, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); showAddedToCartMessage();">Agregar al Carrito</button>
                         <div id="addedToCartMessage" style="display: none; text-align: center;margin-bottom: 10px;">
                             <span style="padding: 5px;" class="text-success">Agregado al carrito</s>
                         </div>
                     </div>
                     <% } else {%>
                     <div>
-                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn-buy">Editar</button></a>
+                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn btn-success col-12" style="margin-bottom: 15px;">Editar</button></a>
                         <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn-cart">Borrar Producto</button>
+                        <button type="submit" class="btn btn-danger col-12">Borrar Producto</button>
                         </form>
                     </div>
                     <% } %>
