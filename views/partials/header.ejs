@@ -62,36 +62,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
+              
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item" style="margin-right: 50px;">
                         <a class="nav-link active" href="/products/productCatalogue">Productos
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
-                    <!--<li class="nav-item">
-                        <% if(locals.isLogged) {%>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle mx-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="<%= locals.userLogged.imagen %>" class="img-profile">
-                                    Hola <%= locals.userLogged.nombre %>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/users/profile">Perfil</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
-                        
-                        <% }%>
-                    </li>-->
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="search" placeholder="Buscar productos">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
+
+                <a href="/products/cart"><button type="button" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i></button></a>
+                
             </div>
         </div>
-        <a href="/products/cart"><button type="button" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i></button></a>
         <div>
           <% if(locals.isLogged) {%>
             <div class="nav-item dropdown">
