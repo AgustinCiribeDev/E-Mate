@@ -13212,3 +13212,14 @@ select.form-control[multiple] {
   height: 40px;
   width: 100%;
 }
+
+.logo2 {
+  width: 300px; 
+  margin: 0 50px 0 0;
+}
+
+@media (max-width: 360px) {
+  .logo2 {
+    width: 200px;
+  }
+}
