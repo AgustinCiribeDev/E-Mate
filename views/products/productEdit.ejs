@@ -181,15 +181,9 @@
             <br>
 
           <!--Usuario-->
-            <label for="usuario">Email del usuario</label>
-            <input 
-                type="text" 
-                class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" 
-                value="<%= locals.oldData ? oldData.usuario : null %>" 
-                name="usuario" 
-                id="usuario" 
-                placeholder="34"
-            >
+          
+
+          <input type="hidden" name="usuario" value="<%= locals.userLogged.id %>"/>
             <% if (locals.errors && errors.usuario) { %>
               <div class="text-danger">
                 <%= errors.usuario.msg %>
