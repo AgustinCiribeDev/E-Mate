@@ -71,7 +71,7 @@
                     </div>
                     <% } else {%>
                     <div>
-                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn btn-success">Editar</button></a>
+                        <a href="/products/edit/<%=producto.id%>"><button type="submit" class="btn btn-success" style="margin-bottom: 15px;">Editar</button></a>
                         <form action="/products/delete/<%=producto.id%>?_method=DELETE" method="POST">
                         <button type="submit" class="btn btn-outline-success">Borrar Producto</button>
                         </form>
