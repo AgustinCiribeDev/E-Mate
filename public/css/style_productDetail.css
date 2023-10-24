@@ -490,3 +490,10 @@ textarea:focus, input:focus, input[type]:focus {
         }
     }
 }
+
+.title-detail {
+    display: inline;
+    margin-bottom: 20px;
+    font-size: 150px;
+    font-weight: 400;
+}

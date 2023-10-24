@@ -21,13 +21,13 @@
         <!-- Formulario de carga de productos -->
         <div class="col-md-6">
           <form class="editar" action="/products/create" method="POST" enctype="multipart/form-data">
-            <div class="errores">
-              <ul></ul>
+            <div class="errores" style="color:red;">
+              <ul style="list-style: none;"></ul>
             </div>
 
             <!-- Nombre de Producto -->
             <div class="mb-3">
-              <label for="nombre">Nombre del producto</label>
+              <label for="nombre" class="title-pcreate">Nombre del producto</label>
               <br>
               <input 
                 type="text" 
@@ -47,7 +47,7 @@
 
           <!-- Categoria -->
             <div class="form-group">
-              <label for="categoria">Categoría</label>
+              <label class="title-pcreate" for="categoria">Categoría</label>
               <select 
                 class="custom-select <%= locals.errors && errors.categoria ? 'is-invalid' : null %>" 
                 name="categoria" 
@@ -70,7 +70,7 @@
 
           <!-- Estado -->
             <div class="form-group">
-              <label for="estado">Estado</label>
+              <label class="title-pcreate" for="estado">Estado</label>
               <select 
                 class="custom-select <%= locals.errors && errors.estado ? 'is-invalid' : null %>" 
                 name="estado" 
@@ -90,7 +90,7 @@
 
           <!-- Imagen -->
             <div class="custom-file">
-              <label class="form-label" for="imagen">Seleccionar una imagen</label>
+              <label class="title-pcreate" class="form-label" for="imagen">Seleccionar una imagen</label>
               <input 
                 type="file" 
                 class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>"  
@@ -108,7 +108,7 @@
 
           <!-- Descripción -->
             <div class="form-group">
-              <label for="descripcion" class="form-label">Descripción</label>
+              <label class="title-pcreate" for="descripcion" class="form-label">Descripción</label>
               <textarea
                 class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>" 
                 id="descripcion" 
@@ -127,7 +127,7 @@
           <!--Precio,descuento, cuotas y stock-->
             <div class="form-options-color-amount">
               <div class="form-options-amount" style="padding-left:0px">
-                <label for="precio">Precio de venta</label>
+                <label class="title-pcreate" for="precio">Precio de venta</label>
                 <input 
                   type="number" 
                   class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
@@ -142,7 +142,7 @@
                 <% } %>
               </div>
               <div class="form-options-amount">
-                <label for="descuento">Descuento</label>
+                <label class="title-pcreate" for="descuento">Descuento</label>
                 <input 
                   type="number" 
                   id="descuento" 
@@ -151,7 +151,7 @@
                 >
               </div>
               <div class="form-options-amount">
-                <label for="cuota">Cuotas</label>
+                <label class="title-pcreate" for="cuota">Cuotas</label>
                   <select class="form-select rounded-2" style="height: 40px" name="cuota" id="cuota">
                     <option>1 cuota</option>
                     <option>3 cuotas</option>
@@ -160,7 +160,7 @@
                   </select>
               </div>
               <div class="form-options-amount">
-                <label for="stock">Stock</label>
+                <label class="title-pcreate" for="stock">Stock</label>
                 <input 
                   type="number" 
                   class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
@@ -179,7 +179,7 @@
             <br>
 
             <!--Usuario-->
-              <label for="usuario">Email del usuario</label>
+              <label class="title-pcreate" for="usuario">Email del usuario</label>
               <input 
                 type="text" 
                 class="form-control <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" 

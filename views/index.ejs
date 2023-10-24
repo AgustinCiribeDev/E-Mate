@@ -117,10 +117,11 @@
     <div class="col-lg-8 col-xl-6">
         <div class="text-center">
             <h2 class="fw-bolder">Ofertas</h2>
-            <p class="lead fw-normal text-muted mb-5">Ver todas</p>
+            <!--<p class="lead fw-normal text-muted mb-5">Ver todas</p>-->
         </div>
     </div>
 </div>
+<br>
       
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% for (let i = 0; i < producto.length; i++ ) { %>
@@ -142,10 +143,10 @@
             </p>-->
           <p class="card-text">
             $<%= producto[i].precio %> 
-            <% if (producto[i].descuento === null) { %>
+            <% if (producto[i].descuento === null || producto[i].descuento === 0 ) { %>
               <%= "" %>
             <% } else { %> 
-              (<%= producto[i].descuento %>% de descuento)
+              (<%= producto[i].descuento %> % de descuento)
             <% } %><br />
             <%= producto[i].cuota %>
           </p>
@@ -155,9 +156,8 @@
             Agregar al carrito <i class="fa-solid fa-cart-plus"></i>
           </button>
         </div>
-
-
         </div>
+        
         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
           <div class="d-flex align-items-end justify-content-between">
             <!--<div class="d-flex align-items-center">

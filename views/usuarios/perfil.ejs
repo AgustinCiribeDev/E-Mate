@@ -19,17 +19,22 @@
             <p>Email: <%= user.email %></p>
             <p>Rol: <%= user.rol %></p>
             <p>Local: <%= user.local_id %></p>
+            <br>
 
-            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
+          
+            <div class="d-grid mb-3 gap-2 col-3">
               <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
             </div>
-            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
-              <a class="btn btn-success" href="/users/register">EDITAR EMPLEADO</a>
+            <div class="d-grid mb-3 gap-2 col-3">
+              <a class="btn btn-success" href="/users/registerEdit">EDITAR EMPLEADO</a>
             </div>
-            <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
+            <div class="d-grid mb-5 gap-2 col-3">
               <a class="btn btn-success" href="/users/register">CREAR EMPLEADO</a>
             </div>
+          
+
           </div>
+          
           <% } else {%>
             <div class="col-md-8">
               <!-- Aquí puedes mostrar los detalles del usuario -->
@@ -38,7 +43,7 @@
               <p>Rol: <%= user.rol %></p>
               <p>Local: <%= user.local %></p>
   
-              <div class="d-grid mb-5 gap-2 col-3 btn btn-success">
+              <div class="d-grid mb-5 gap-2 col-3">
                 <a class="btn btn-success" href="/products/create">CREAR PRODUCTO</a>
               </div>
               <!--<div class="d-grid mb-5 gap-2 col-3 mx-auto btn btn-success">

@@ -89,6 +89,20 @@ const usersControllers = {                                                      
     res.redirect('/');
   },
 
+  registerEdit: (req, res) => {          // METODO OK
+    
+    const localAdministrador = res.locals.userLogged.local_id;
+    
+    db.Usuario.findAll({
+      where: {
+        local_id: localAdministrador
+      }
+    })
+      .then (function (usuario){
+        res.render('usuarios/registroEdit', { usuario: usuario });      //Comparto los datos del modelo que quiero moestrar en la vista
+      })
+  },
+  
   register: (req, res) => {          // METODO OK
     
     const localAdministrador = res.locals.userLogged.local_id

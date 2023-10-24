@@ -4,9 +4,6 @@
 <body>
   <%- include ('./../partials/header.ejs') %>
   
-  
-  
-  
   <div class="container mt-5">
 
     <div class="row gx-5 justify-content-center">
@@ -16,28 +13,43 @@
             </div>
       </div>
   </div>
-
-
-
-
+  <br>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% productos.forEach((producto) => { %>
         <div class="col-lg-4 mb-5">
-          <div class="card h-100 shadow border-0" >
+          <div class="card h-100 shadow border-0">
+
             <a href="/products/productDetail/<%= producto.id %>">
-              <div class="d-flex justify-content-center align-items-center">
-                <img class="card-img-top img-fluid" src="<%= producto.imagen %>" alt="Card image cap" style="max-height: 250px; width: auto; display: block; margin: 0 auto; object-fit: contain; ">
-              </div>
+              <img class="card-img-top" style="max-height: 250px; width: auto; display: block; margin: 0 auto; object-fit: contain; " src="<%= producto.imagen %>" alt="..." />
             </a>
+
             <div class="card-body p-4">
-              <h5 class="card-title"><%= producto.nombre %></h5>
-            </div>
-            <ul class="list-group list-group-flush">
+              <h5 class="card-title mb-3"><%= producto.nombre %></h5>
+            
+
+            <p class="card-text">
+              $<%= producto.precio %> 
+              <% if (producto.descuento === null || producto.descuento === 0 ) { %>
+                <%= "" %>
+              <% } else { %> 
+                (<%= producto.descuento %> % de descuento)
+              <% } %><br />
+              <%= producto.cuota %>
+            </p>
+  
+          <div class="boton">
+            <button  type="button" class="btn btn-outline-success" onclick="addToCart(1, '<%=producto.id%>', '<%=producto.nombre%>', '', '<%=producto.precio%>'); alert('¡Producto agregado correctamente!')">
+              Agregar al carrito <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+
+           <!--<ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <div class="block-products-feed__product-price text--primary">
                   $<%= producto.precio %> 
-                  <% if (producto.descuento === null) { %>
+                  <% if (producto.descuento === null || producto.descuento === 0) { %>
                     <%= "" %>
                   <% } else { %> 
                     (<%= producto.descuento %>% de descuento)
@@ -49,16 +61,12 @@
             </ul>
             <div class="boton" style="text-align: center; padding-bottom: 20px;">
               <button type="button" class="btn btn-outline-success" onclick="addToCart(1, '<%= producto.id %>', '<%= producto.nombre %>', '', '<%= producto.precio %>'); alert('¡Producto agregado correctamente!')">Agregar al Carrito</button>
-            </div>
+            </div>-->
           </div>
         </div>
       <% }) %>
     </div>
   </div>
-
-
-
-  
   <%- include ('./../partials/footer.ejs') %>
   <%- include ('./../partials/bootstrapJs.ejs') %>
   <script src="/js/cart.js"></script>
