@@ -12,7 +12,7 @@ window.addEventListener('load', function(){
         let validationRol = evento.target['rol'].value;
         let validationLocal = evento.target['local_id'].value;
         let validationEmail = evento.target['email'].value;
-        let validationPassword = evento.target['password'].value;
+        /*let validationPassword = evento.target['password'].value;*/
    
         if (validationName == ""){
             errores.push('Escribe tu nombre y apellido')

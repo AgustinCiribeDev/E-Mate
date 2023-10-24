@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
 
-    let formRegister = document.querySelector('form');
+    let formRegister = document.querySelector('.crear');
 
     formRegister.addEventListener('submit', function (evento){
         let errores = [];

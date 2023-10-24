@@ -17,7 +17,7 @@
 
 
     <div .container>
-        <form method="POST" action="/users/register" enctype="multipart/form-data"> 
+        <form class="crear" method="POST" action="/users/register" enctype="multipart/form-data"> 
         <div class="d-flex align-items-center justify-content-center" style="min-height: 25vh;">
             <div class="row"></div>
             
@@ -117,6 +117,8 @@
     </form>
     </div> 
     <%- include ('./listado.ejs') %>
+    <%- include ('./../partials/footer.ejs') %>
+    <%- include ('./../partials/bootstrapJs.ejs') %>
     <script src="/js/validationRegisterFront.js"></script>
 </body>
 </html>
